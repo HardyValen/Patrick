@@ -2,7 +2,7 @@
 <script>
   import { Slider } from "$lib/components/ui/slider/index.js";
   import '$appcss';
-  import './ColorGraph.css';
+  // import './ColorGraph.css';
   /**
    * @typedef {Object} Props
    * @property {'OKLCH' | 'OKLAB' | 'RGB'} [type] What color model do you want to use?
@@ -42,27 +42,31 @@
 
 </script>
 
-<div class={['storybook-color-graph-container'].join(' ')}>
+<div class={[
+  'flex', 'items-center', 'justify-center', 'flex-col', 'gap-[10px]'
+].join(' ')}>
   <div
-    class={['storybook-color-graph-box'].join(' ')}
+    class={[
+      'border-solid', 'border-black', 'border-[1px]',
+      'w-[10em]', 'h-[10em]'
+    ].join(' ')}
     {style}
     {...props}
   >
   </div>
-  <!-- <p>
-    {@html sliderValues.map((x, i) => [x.keyName, values[i]].join(': ')).join(' &mdash; ')}
-  </p> -->
   {#each sliderValues as sv, i}
-    <div class={['storybook-color-graph-sliderbox'].join('')}>
+    <div class={[
+      'flex', 'justify-center', 'items-center', 'gap-[10px]', 'w-full'
+      ].join(' ')}>
       <Slider
         type="single"
         bind:value={values[i]}
         min={sv.minValue}
         max={sv.maxValue}
         step={sv.step}
-        style={`max-width: 300px`}
+        class={['max-w-[300px]'].join(' ')}
       />
-      <div style={`min-width: 80px`}>{sv.keyName}: {values[i]}</div>
+      <div class={['min-w-[100px]'].join(' ')}>{sv.keyName}: {values[i]}</div>
     </div>
   {/each}
 </div>
