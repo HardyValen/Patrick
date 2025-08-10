@@ -1,6 +1,8 @@
 <script>
-	import '../app.css';
+	import '$appcss';
 	import favicon from '$lib/assets/favicon.svg';
+	import { ModeWatcher } from "mode-watcher";
+  import ClientNavBar from '$sb/Composite/ClientNavBar/ClientNavBar.svelte';
 
 	let { children } = $props();
 </script>
@@ -9,9 +11,12 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<nav>
+<!-- <nav>
   <a href="/">Home</a>
   <a href="/about">About</a>
-</nav>
+</nav> -->
 
+<ClientNavBar />
+
+<ModeWatcher />
 {@render children?.()}
