@@ -1,4 +1,7 @@
 /** @type { import('@storybook/sveltekit').Preview } */
+
+import '$appcss';
+
 const preview = {
   parameters: {
     controls: {

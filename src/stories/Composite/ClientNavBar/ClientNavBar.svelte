@@ -9,6 +9,7 @@
   import { cn } from "$lib/utils.js";
   import DarkMode from "$sb/Composite/DarkMode/DarkMode.svelte";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
+  import ClientNavDrawer from "$sb/Composite/ClientNavDrawer/ClientNavDrawer.svelte";
 </script>
 
 <header class={cn("w-full")}>
@@ -51,9 +52,12 @@
           </NavigationMenu.Item>
         </NavigationMenu.List>
 
-        <NavigationMenu.List class={cn(["md:w-[160px]", "md:justify-end", "h-full"].join(' '))}>
+        <NavigationMenu.List class={cn(["md:min-w-[160px]", "md:justify-end", "h-full"].join(' '))}>
           <NavigationMenu.Item>
             <DarkMode />
+          </NavigationMenu.Item>
+          <NavigationMenu.Item>
+            <ClientNavDrawer />
           </NavigationMenu.Item>
         </NavigationMenu.List>
       </div>

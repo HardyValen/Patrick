@@ -1,11 +1,11 @@
 <script module>
   import { defineMeta } from '@storybook/addon-svelte-csf';
 
-  import ClientNavBar from './ClientNavBar.svelte';
+  import ClientNavDrawer from './ClientNavDrawer.svelte';
 
   const { Story } = defineMeta({
-    component: ClientNavBar,
-    title: 'Composite/ClientNavBar',
+    component: ClientNavDrawer,
+    title: 'Composite/ClientNavDrawer',
     tags: ['autodocs'],
   });
 </script>

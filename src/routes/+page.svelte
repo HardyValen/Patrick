@@ -1,11 +1,45 @@
 <script>
   import Button from "$sb/Example/Button/Button.svelte";
   import DarkMode from "$sb/Composite/DarkMode/DarkMode.svelte";
+  import ClientCarousel from "$sb/Composite/ClientCarousel/ClientCarousel.svelte";
+  import { cn } from "$lib/utils.js";
+
+  /**
+   * @type {CarouselData} carouselData
+   * @see ClientCarousel
+   */
+
+  const carouselData = [
+    {
+      title: "Carousel 1",
+      img: "Gambar",
+      subtitle: "subtitle carousel 1",
+      button: {
+        title: "Button Title",
+        href: "link"
+      }
+    },
+    {
+      title: "Carousel 1",
+      img: "Gambar",
+      subtitle: "subtitle carousel 1",
+      button: {
+        title: "Button Title",
+        href: "link"
+      }
+    },
+    {
+      title: "Carousel 1",
+      img: "Gambar",
+      subtitle: "subtitle carousel 1",
+      button: {
+        title: "Button Title",
+        href: "link"
+      }
+    }
+  ];
 </script>
 
-<h1>Home</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-<Button primary label="Touch Me!"/>
-<DarkMode />
-
-<p class={["text-gray-600 dark:text-red-300"].join(' ')}>Test Color</p>
+<div>
+  <ClientCarousel data={carouselData} class={"w-full bg-slate-400 p-5"}/>
+</div>
