@@ -26,6 +26,14 @@
 
 </script>
 
+<!--
+  To-do:
+    * Image on carousel
+    * Next / Previous Button is horrendous. fix it like you used to
+    * Layouting the carousel content!
+    * Make button clickable and give it a variant, perhaps?
+-->
+
 <Carousel.Root
   class={cn(
     "h-100",
