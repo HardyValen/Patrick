@@ -3,6 +3,9 @@
   import Next from "./Next.svelte";
   import Previous from "./Previous.svelte";
   import { cn } from "$lib/utils.js";
+  import { typographyVariants } from "$lib/typographyVariants";
+  import { Button, buttonVariants } from "$lib/components/ui/button";
+  import { alignmentVariants } from "$lib/alignmentVariants";
 
   /** The "data" prop is optional, but follows this interface
    * CarouselData type definition
@@ -10,6 +13,7 @@
    * @property {string} title - The carousel big title text
    * @property {string} img - Link to the carousel image.
    * @property {string} [subtitle] - The carousel big title's little cousin
+   * @property {"left" | "right" | "center"} [orientation] - Content Align
    * @property {CarouselButton} [button] - Optional button for the carousel
    *
    * CarouselButton type definition
@@ -22,38 +26,100 @@
 		data: carouselData = [],
 		class: className,
 		...restProps
-  } = $props()
+  } = $props();
 
-</script>
+  </script>
 
 <!--
   To-do:
-    * Image on carousel
+    * Image on carousel (ok)
     * Next / Previous Button is horrendous. fix it like you used to
-    * Layouting the carousel content!
+    * Layouting the carousel content! (alignment)
     * Make button clickable and give it a variant, perhaps?
+    *
 -->
 
 <Carousel.Root
   class={cn(
-    "h-100",
     className
   )}
   {...restProps}
 >
+
   <Carousel.Content>
+
     {#each carouselData as data}
-      <Carousel.Item>
-        {JSON.stringify(data)}
+
+      <Carousel.Item
+        class={cn(
+          `h-[90vh]`, `md:h-[80vh]`,
+          `min-h-[600px]`,
+          `bg-center`,
+          `bg-no-repeat`,
+          `bg-cover`,
+          'px-15', 'md:px-30', 'xl:px-[20vw]',
+          'py-20',
+        )}
+        style={`background-image: linear-gradient(90deg, oklch(0.208 0.042 265.755 / 0.7), oklch(0.208 0.042 265.755 / 0.7)), url(${data.img})`}
+      >
+
+        <!-- Carousel Content - Inner Background -->
+        <div class={cn(
+          'md:max-w-[80vw]', 'xl:max-w-[60vw]', 'h-full',
+          'text-white',
+          'flex',
+          'flex-col',
+          'justify-center',
+          alignmentVariants({"align-items": data.orientation}),
+          'gap-5'
+        )}>
+
+          <!-- Carousel Content - Title -->
+          {#if data.title}
+            <h1 class={ cn(
+              typographyVariants({variant:"h1", typeface:"serif"}),
+              alignmentVariants({"text-align": data.orientation})
+            ) }>
+              {data.title}
+            </h1>
+          {/if}
+
+          <!-- Carousel Content - Subtitle -->
+          {#if data.subtitle}
+            <span class={ cn(
+              "md:max-w-[600px]",
+              alignmentVariants({"text-align": data.orientation})
+            ) }>
+              {data.subtitle}
+            </span>
+          {/if}
+
+          <!-- Carousel Content - Button -->
+          {#if data.button}
+            <Button
+              href={data.button.href}
+              variant="secondary"
+            >
+              {data.button.title}
+            </Button>
+          {/if}
+        </div>
       </Carousel.Item>
     {/each}
   </Carousel.Content>
+
+  <!-- Carousel Button - Previous -->
   <Previous class={cn([
     "absolute",
-    "left-10"
+    "left-0",
+    "max-md:opacity-20"
   ].join(" "))}/>
+
+  <!-- Carousel Button - Next -->
   <Next class={cn([
     "absolute",
-    "right-10"
+    "right-0",
+    "max-md:opacity-20"
   ].join(" "))}/>
+
 </Carousel.Root>

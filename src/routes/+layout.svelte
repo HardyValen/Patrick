@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import { ModeWatcher } from "mode-watcher";
   import ClientNavBar from '$sb/Composite/ClientNavBar/ClientNavBar.svelte';
+  import { Footer } from '$sb/Composite/Footer'
 
 	let { children } = $props();
 </script>
@@ -20,3 +21,4 @@
 
 <ModeWatcher />
 {@render children?.()}
+<Footer />

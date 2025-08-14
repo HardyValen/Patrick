@@ -27,11 +27,12 @@
 	}}
 	onemblaInit={emblaCtx.onInit}
 >
+<!-- emblaCtx.orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", -->
 	<div
 		bind:this={ref}
 		class={cn(
 			"flex",
-			emblaCtx.orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+			emblaCtx.orientation === "horizontal" ? "" : "flex-col",
 			className
 		)}
 		data-embla-container=""

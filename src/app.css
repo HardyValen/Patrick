@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import "tailwindcss";
 
 @import "tw-animate-css";
@@ -79,6 +80,9 @@
 
 @theme {
   --font-sans: "Nunito Sans", sans-serif;
+  --font-serif: "Merriweather", serif;
+  --color-primary-immutable-500: oklch(0.208 0.042 265.755);
+  --color-primary-immutable-300: oklch(0.2329 0.08 265.755);
 }
 
 @theme inline {

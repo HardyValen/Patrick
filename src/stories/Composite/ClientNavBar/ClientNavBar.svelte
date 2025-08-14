@@ -12,7 +12,7 @@
   import ClientNavDrawer from "$sb/Composite/ClientNavDrawer/ClientNavDrawer.svelte";
 </script>
 
-<header class={cn("w-full")}>
+<header class={cn("w-full bg-background")}>
   <NavigationMenu.Root viewport={false}>
     {#snippet child()}
       <div class={cn([
@@ -21,7 +21,7 @@
           "md:justify-evenly",
           "p-2",
           "md:p-3",
-          "w-screen"
+          "w-screen",
         ].join(' '))}>
         <NavigationMenu.List>
           <NavigationMenu.Item>

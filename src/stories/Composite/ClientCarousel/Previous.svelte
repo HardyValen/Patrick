@@ -1,27 +1,25 @@
 <script>
-	import ArrowLeftIcon from "@lucide/svelte/icons/arrow-left";
+  import ChevronLeftIcon from "@lucide/svelte/icons/chevron-left";
 	import { getEmblaContext } from "$lib/components/ui/carousel/context.js";
 	import { cn } from "$lib/utils.js";
 	import { Button } from "$lib/components/ui/button/index.js";
 
 	let {
-		ref = $bindable(null),
 		class: className,
-		variant = "outline",
-		size = "icon",
 		...restProps
 	} = $props();
 
 	const emblaCtx = getEmblaContext("<Previous/>");
 </script>
 
-<Button
-	data-slot="carousel-previous"
-	{variant}
-	{size}
+<div
+  data-slot="carousel-previous"
 	aria-disabled={!emblaCtx.canScrollPrev}
 	class={cn(
-		"size-8 rounded-full",
+		"h-full rounded-none min-w-10 md:min-w-30 xl:min-w-50 transition-all",
+		"flex justify-center items-center",
+		"bg-gradient-to-l to-primary-immutable-500/50",
+		"md:cursor-pointer md:hover:bg-gradient-to-l md:hover:to-primary-immutable-300/70",
 		emblaCtx.orientation === "horizontal"
 			? "-left-12 top-1/2 -translate-y-1/2"
 			: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -30,8 +28,7 @@
 	onclick={emblaCtx.scrollPrev}
 	onkeydown={emblaCtx.handleKeyDown}
 	{...restProps}
-	bind:ref
 >
-	<ArrowLeftIcon class="size-4" />
-	<span class="sr-only">Previous slide</span>
-</Button>
+	<ChevronLeftIcon class="size-8 text-white"/>
+	<span class="sr-only">Next slide</span>
+</div>
