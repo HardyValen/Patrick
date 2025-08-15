@@ -2,9 +2,9 @@
   import SunIcon from "@lucide/svelte/icons/sun";
   import MoonIcon from "@lucide/svelte/icons/moon";
   import { toggleMode } from "mode-watcher";
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-  import { buttonVariants } from "$lib/components/ui/button/index.js";
-  import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+  import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+  import { buttonVariants } from "$lib/components/ui/button";
+  import * as Tooltip from "$lib/components/ui/tooltip";
   import Button from "$lib/components/ui/button/button.svelte";
 </script>
 

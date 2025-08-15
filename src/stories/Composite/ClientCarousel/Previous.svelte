@@ -16,7 +16,8 @@
   data-slot="carousel-previous"
 	aria-disabled={!emblaCtx.canScrollPrev}
 	class={cn(
-		"h-full rounded-none min-w-10 md:min-w-30 xl:min-w-50 transition-all",
+		"h-full rounded-none transition-all",
+		"min-w-(--px-lpage) md:min-w-(--px-lpage-md) xl:min-w-(--px-lpage-xl)",
 		"flex justify-center items-center",
 		"bg-gradient-to-l to-primary-immutable-500/50",
 		"md:cursor-pointer md:hover:bg-gradient-to-l md:hover:to-primary-immutable-300/70",

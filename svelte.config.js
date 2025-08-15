@@ -9,7 +9,8 @@ const config = {
 		adapter: adapter(),
 		alias: {
 		  '$sb/*': "/src/stories/*",
-			'$appcss': "/src/app.css"
+			'$appcss': "/src/app.css",
+			'$composite': "/src/stories/Composite",
 		}
 	}
 };

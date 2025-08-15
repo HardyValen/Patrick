@@ -52,24 +52,25 @@
 
       <Carousel.Item
         class={cn(
-          `h-[90vh]`, `md:h-[80vh]`,
+          `h-[90vh] md:h-[80vh]`,
           `min-h-[600px]`,
-          `bg-center`,
-          `bg-no-repeat`,
-          `bg-cover`,
-          'px-15', 'md:px-30', 'xl:px-[20vw]',
+          `bg-center bg-no-repeat bg-cover`,
+          'px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)',
           'py-20',
+          'flex',
+          alignmentVariants({"justify-content": data.orientation})
         )}
         style={`background-image: linear-gradient(90deg, oklch(0.208 0.042 265.755 / 0.7), oklch(0.208 0.042 265.755 / 0.7)), url(${data.img})`}
       >
 
         <!-- Carousel Content - Inner Background -->
         <div class={cn(
-          'md:max-w-[80vw]', 'xl:max-w-[60vw]', 'h-full',
+          'h-full',
           'text-white',
           'flex',
           'flex-col',
           'justify-center',
+          "md:max-w-150",
           alignmentVariants({"align-items": data.orientation}),
           'gap-5'
         )}>
@@ -87,7 +88,6 @@
           <!-- Carousel Content - Subtitle -->
           {#if data.subtitle}
             <span class={ cn(
-              "md:max-w-[600px]",
               alignmentVariants({"text-align": data.orientation})
             ) }>
               {data.subtitle}

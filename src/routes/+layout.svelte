@@ -2,8 +2,7 @@
 	import '$appcss';
 	import favicon from '$lib/assets/favicon.svg';
 	import { ModeWatcher } from "mode-watcher";
-  import ClientNavBar from '$sb/Composite/ClientNavBar/ClientNavBar.svelte';
-  import { Footer } from '$sb/Composite/Footer'
+  import { Footer, ClientNavBar } from '$composite';
 
 	let { children } = $props();
 </script>

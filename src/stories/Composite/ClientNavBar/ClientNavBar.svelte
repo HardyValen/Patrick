@@ -1,15 +1,13 @@
 <!-- Implementation for Client's Page Navbar -->
 
 <script>
-  import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-  import { Separator } from "$lib/components/ui/separator/index.js";
+  import * as NavigationMenu from "$lib/components/ui/navigation-menu";
+  import { Separator } from "$lib/components/ui/separator";
   import Patrick from '$lib/assets/PatrickLogo.svelte';
-  import Button from "$sb/Example/Button/Button.svelte";
   import { mode } from "mode-watcher";
   import { cn } from "$lib/utils.js";
-  import DarkMode from "$sb/Composite/DarkMode/DarkMode.svelte";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
-  import ClientNavDrawer from "$sb/Composite/ClientNavDrawer/ClientNavDrawer.svelte";
+  import { DarkMode, ClientNavDrawer} from "$composite";
 </script>
 
 <header class={cn("w-full bg-background")}>
@@ -18,10 +16,9 @@
       <div class={cn([
           "flex",
           "justify-between",
-          "md:justify-evenly",
-          "p-2",
-          "md:p-3",
-          "w-screen",
+          "py-2",
+          "px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)",
+          "w-full",
         ].join(' '))}>
         <NavigationMenu.List>
           <NavigationMenu.Item>

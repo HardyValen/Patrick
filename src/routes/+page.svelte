@@ -1,7 +1,6 @@
 <script>
   import Button from "$sb/Example/Button/Button.svelte";
-  import DarkMode from "$sb/Composite/DarkMode/DarkMode.svelte";
-  import ClientCarousel from "$sb/Composite/ClientCarousel/ClientCarousel.svelte";
+  import { DarkMode, ClientCarousel } from "$composite"
   import { cn } from "$lib/utils.js";
 
   /**

@@ -1,11 +1,11 @@
 <script module>
   import { defineMeta } from '@storybook/addon-svelte-csf';
 
-  import DarkMode from './DarkMode.svelte';
+  import LinkList from './LinkList.svelte';
 
   const { Story } = defineMeta({
-    component: DarkMode,
-    title: 'Composite/DarkMode',
+    component: LinkList,
+    title: 'Composite/LinkList',
     tags: ['autodocs'],
   });
 </script>
