@@ -4,42 +4,42 @@
   import * as NavigationMenu from "$lib/components/ui/navigation-menu";
   import { Separator } from "$lib/components/ui/separator";
   import Patrick from '$lib/assets/PatrickLogo.svelte';
+  import Search from  '@lucide/svelte/icons/search';
+  import { Button } from "$lib/components/ui/button";
   import { mode } from "mode-watcher";
   import { cn } from "$lib/utils.js";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
-  import { DarkMode, ClientNavDrawer} from "$composite";
+  import { DarkMode, ClientNavDrawer } from "$composite";
+  import NavLinksData from "./ClientNavBar.data.ts";
+
 </script>
 
-<header class={cn("w-full bg-background")}>
-  <NavigationMenu.Root viewport={false}>
-    {#snippet child()}
-      <div class={cn([
-          "flex",
-          "justify-between",
-          "py-2",
-          "px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)",
-          "w-full",
-        ].join(' '))}>
-        <NavigationMenu.List>
-          <NavigationMenu.Item>
-            <NavigationMenu.Link>
-              {#snippet child()}
-                <a href="/" class={cn(["block", "w-[160px]", "p-2"].join(' '))}>
-                  <Patrick mode={mode.current}/>
-                </a>
-              {/snippet}
-            </NavigationMenu.Link>
-          </NavigationMenu.Item>
-        </NavigationMenu.List>
+<header class={cn("w-full bg-background sticky top-0 z-1")}>
 
-        <NavigationMenu.List class={cn(['h-full', 'max-md:hidden'].join(' '))}>
+  <div class={cn(
+      "flex",
+      "justify-between",
+      "items-center",
+      "py-2",
+      "px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)",
+      "w-full",
+    )}>
+      <!-- Logo -->
+      <a href="/" class={cn("block")}>
+        <Patrick mode={mode.current}/>
+      </a>
+
+      <!-- Navigation Lists -->
+      <NavigationMenu.Root viewport={false}>
+        <NavigationMenu.List class={cn('h-full', 'max-md:hidden')}>
           <NavigationMenu.Item>
             <NavigationMenu.Link>
               {#snippet child()}
-              <a href="/about" class={navigationMenuTriggerStyle()}>Perusahaan</a>
+                <a href="/about" class={navigationMenuTriggerStyle()}>Perusahaan</a>
               {/snippet}
             </NavigationMenu.Link>
           </NavigationMenu.Item>
+
           <NavigationMenu.Item>
             <NavigationMenu.Link>
               {#snippet child()}
@@ -47,20 +47,37 @@
               {/snippet}
             </NavigationMenu.Link>
           </NavigationMenu.Item>
-        </NavigationMenu.List>
 
-        <NavigationMenu.List class={cn(["md:min-w-[160px]", "md:justify-end", "h-full"].join(' '))}>
+          <!-- Try Dropdown -->
           <NavigationMenu.Item>
-            <DarkMode />
+            <NavigationMenu.Trigger>
+              Hello
+            </NavigationMenu.Trigger>
+              <NavigationMenu.Content>
+                <NavigationMenu.Link>
+                  Hello
+                </NavigationMenu.Link>
+              </NavigationMenu.Content>
           </NavigationMenu.Item>
-          <NavigationMenu.Item>
-            <ClientNavDrawer />
-          </NavigationMenu.Item>
+          <!-- End of Dropdown -->
         </NavigationMenu.List>
+      </NavigationMenu.Root>
+
+      <div class={cn(
+        "flex", "md:justify-end",
+        "md:min-w-20", "gap-2"
+      )}>
+        <div class={cn("max-md:hidden")}>
+          <DarkMode />
+        </div>
+        <div class={cn("max-md:hidden")}>
+          <Button variant="outline" size="icon">
+            <Search />
+          </Button>
+        </div>
+        <div class={cn("md:hidden")}>
+          <ClientNavDrawer />
+        </div>
       </div>
-    {/snippet}
-  </NavigationMenu.Root>
+  </div>
 </header>
-<Separator
-  class={cn("bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-[1px]")}
-/>

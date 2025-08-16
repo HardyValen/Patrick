@@ -85,12 +85,13 @@
     </div>
     <a href="https://maps.app.goo.gl/KwEyUpK57UoHrYiQ8" target="
       _blank" class={cn(
-        "md:justify-self-end"
+        "md:justify-self-end",
+        "justify-self-center"
       )}>
       <img
         src={map}
         alt="MONAS: Merdeka Square, Jakarta, Jalan Lapangan Monas, Gambir, Central Jakarta City, Jakarta 10110"
-        class="md:max-w-75"
+        class="w-full max-w-60 md:max-w-80"
       />
     </a>
   </div>

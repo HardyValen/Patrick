@@ -17,7 +17,7 @@
 </nav> -->
 
 <ClientNavBar />
-
-<ModeWatcher />
 {@render children?.()}
 <Footer />
+
+<ModeWatcher />
