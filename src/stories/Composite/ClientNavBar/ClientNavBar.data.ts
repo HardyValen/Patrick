@@ -1,6 +1,30 @@
+import { tv } from "tailwind-variants";
+import { cn } from "$lib/utils";
+
+// Variants
+const navbarDropdownContainerVariants = tv({
+  base: "grid p-2",
+  variants: {
+    variant: {
+      single: "grid-cols-1 min-w-40",
+      double: "grid-cols-2 min-w-80",
+      singleDesc: "grid-cols-1 min-w-80",
+      doubleDesc: "grid-cols-2 min-w-120"
+    },
+  },
+  defaultVariants: {
+    variant: "single"
+  }
+});
+
+const navbarItemLinkVariants = {
+
+}
+
 interface NavLink {
   title: string,
   href?: string,
+  classes?: string
 }
 
 interface ClientNavBar_NavDropdown extends NavLink {
@@ -11,7 +35,6 @@ interface ClientNavBar_NavDropdown extends NavLink {
 }
 
 interface ClientNavBar_NavItem extends NavLink {
-  "grid-cols"?: 1 | 2,
   "dropdown"?: ClientNavBar_NavDropdown[]
 }
 
@@ -22,7 +45,9 @@ const Data: ClientNavBar_NavItem[] = [
   },
   {
     "title": "Information",
-    "grid-cols": 1,
+    "classes": cn(
+      navbarDropdownContainerVariants({variant: "singleDesc"})
+    ),
     "dropdown": [
       {
         title: "Produk",
@@ -48,13 +73,16 @@ const Data: ClientNavBar_NavItem[] = [
   },
   {
     "title": "Contact",
-    "grid-cols": 2,
+    "classes": cn(
+      navbarDropdownContainerVariants(),
+      "grid-cols-[200px_100px]"
+    ),
     "dropdown": [
       {
         title: "PT. Patrick",
         href: "/",
         description: "Electronics, Lights, Visuals, Cameras, and Storage Devices.",
-        rows: 3
+        classes: "row-span-3"
       },
       {
         title: "Instagram",

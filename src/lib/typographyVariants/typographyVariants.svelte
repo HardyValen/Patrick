@@ -22,11 +22,16 @@
 				muted: "text-muted-foreground text-sm",
 				link: "font-medium text-blue-600 dark:text-blue-500 hover:underline",
 
+				// Footer Fonts
 				"link-footer-primary": "text-sm tracking-wide hover:underline text-(--link-primary-foreground) hover:text-(--link-primary-foreground-hover) cursor-pointer",
 
 				"link-footer-secondary": "text-sm tracking-wide hover:underline text-(--link-secondary-foreground) hover:text-(--link-secondary-foreground-hover) cursor-pointer",
 
-				"link-footer-title": "uppercase font-extrabold text-xs tracking-widest"
+				"link-footer-title": "uppercase font-extrabold text-xs tracking-widest",
+
+				// Header Nav Links
+				"header-navbar-title": "text-[14px] font-bold text-accent-foreground",
+				"header-navbar-description": "text-[12px] text-muted-foreground",
 			},
 			typeface: {
 			  serif: "font-serif",
