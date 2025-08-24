@@ -16,6 +16,8 @@
    */
 
   let {
+    ref = $bindable(null),
+		class: className,
     data: footerLinkGroups = [
       {
         title: "Shop Links",
@@ -45,7 +47,8 @@
           { title: "Email", href: "#" }
         ]
       }
-    ]
+    ],
+    ...restProps
   } = $props()
 </script>
 
@@ -59,79 +62,93 @@
     * Sitemap? lol
 -->
 
-<div class={cn(
-  "bg-background",
-  "py-8",
-  "px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)",
-  "flex flex-col",
-  "gap-8"
-)}>
-  <!-- Company Address -->
-  <div class={cn(
-    "grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-  )}>
-    <div class="flex flex-col gap-2">
+<footer
+  bind:this={ref}
+  class={cn(
+    className
+  )}
+  {...restProps}
+>
+  <div
+    class={cn(
+      "w-full max-w-320 m-auto",
+      "flex flex-col",
+      "gap-8",
+    )}
+  >
+
+    <!-- Company Address -->
+    <div
+      class={cn(
+        "grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+      )}
+    >
+      <div class="flex flex-col gap-2">
+        <span class={cn(
+          typographyVariants({ variant: "link-footer-title", typeface: "serif" })
+        )}>
+          PT. Patrick
+        </span>
+        <span class={cn(
+          typographyVariants({variant: "p"}),
+          "text-(--link-primary-foreground) text-medium"
+        )}>
+          Merdeka Square, Jakarta, Jalan Lapangan Monas, Gambir, Central Jakarta City, Jakarta 10110
+        </span>
+      </div>
+      <a href="https://maps.app.goo.gl/KwEyUpK57UoHrYiQ8" target="
+        _blank" class={cn(
+          "md:justify-self-end",
+          "justify-self-center"
+        )}>
+        <img
+          src={map}
+          alt="MONAS: Merdeka Square, Jakarta, Jalan Lapangan Monas, Gambir, Central Jakarta City, Jakarta 10110"
+          class="w-full max-w-60 md:max-w-80"
+        />
+      </a>
+    </div>
+
+    <!-- Footer Group Links -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+      {#each footerLinkGroups as footerLinkGroup}
+        <div class="flex flex-col items-start gap-2">
+          <span
+            class={cn(
+            typographyVariants({variant: "link-footer-title", typeface: "serif"}),
+            "pb-1"
+            )}
+          >
+            {footerLinkGroup.title}
+          </span>
+          {#each footerLinkGroup.footerLinks as footerLink}
+            <a
+              class={cn(
+                typographyVariants({variant:"link-footer-primary"})
+              )}
+              href={footerLink.href}
+            >
+              {footerLink.title}
+            </a>
+          {/each}
+        </div>
+      {/each}
+    </div>
+
+    <!-- Copyright Notice -->
+    <div
+      class={cn(
+        "text-center",
+        "w-full"
+      )}
+    >
       <span class={cn(
-        typographyVariants({ variant: "link-footer-title", typeface: "serif" })
+        "text-primary",
+        typographyVariants({variant: "xsmall"})
       )}>
-        PT. Patrick
-      </span>
-      <span class={cn(
-        typographyVariants({variant: "p"}),
-        "text-(--link-primary-foreground) text-medium"
-      )}>
-        Merdeka Square, Jakarta, Jalan Lapangan Monas, Gambir, Central Jakarta City, Jakarta 10110
+        &copy;2025 Patrick. All Rights Reserved.
       </span>
     </div>
-    <a href="https://maps.app.goo.gl/KwEyUpK57UoHrYiQ8" target="
-      _blank" class={cn(
-        "md:justify-self-end",
-        "justify-self-center"
-      )}>
-      <img
-        src={map}
-        alt="MONAS: Merdeka Square, Jakarta, Jalan Lapangan Monas, Gambir, Central Jakarta City, Jakarta 10110"
-        class="w-full max-w-60 md:max-w-80"
-      />
-    </a>
-  </div>
 
-  <!-- Footer Group Links -->
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
-    {#each footerLinkGroups as footerLinkGroup}
-      <div class="flex flex-col items-start gap-2">
-        <span
-          class={cn(
-          typographyVariants({variant: "link-footer-title", typeface: "serif"}),
-          "pb-1"
-          )}
-        >
-          {footerLinkGroup.title}
-        </span>
-        {#each footerLinkGroup.footerLinks as footerLink}
-          <a
-            class={cn(
-              typographyVariants({variant:"link-footer-primary"})
-            )}
-            href={footerLink.href}
-          >
-            {footerLink.title}
-          </a>
-        {/each}
-      </div>
-    {/each}
   </div>
-
-  <!-- Copyright Notice -->
-  <div class={cn(
-    "text-center",
-    "w-full"
-  )}>
-    <span class={cn(
-      "text-primary",
-      typographyVariants({variant: "xsmall"})
-    )}>
-      &copy;2025 Patrick. All Rights Reserved.
-    </span>
-  </div>
-</div>
+</footer>

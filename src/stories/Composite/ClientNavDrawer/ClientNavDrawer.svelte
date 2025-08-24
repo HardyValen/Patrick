@@ -11,18 +11,23 @@
   import Patrick from '$lib/assets/PatrickLogo.svelte';
   import { cn } from "$lib/utils.js";
   import { mode } from "mode-watcher";
-    import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
-    import { typographyVariants } from "$lib/typographyVariants";
+  import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
+  import { typographyVariants } from "$lib/typographyVariants";
 
-  const {
-    data: navLinksData = []
+  let {
+    data: navLinksData = [],
+    ref = $bindable(null),
+    class: className,
+    ...restProps
   } = $props();
 
   let a11yText = "Open Menu";
 </script>
 
 <Drawer.Root
-  direction="right"
+  bind:this={ref}
+  class={cn(className)}
+  {...restProps}
 >
   <Drawer.Trigger>
 
@@ -98,9 +103,10 @@
                 "px-5 border-b"
               )}>
                 {#each navLinks.dropdown as dropdownItem}
-                  <a href={dropdownItem.href} class={cn(
-                    "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 leading-none no-underline outline-none transition-colors p-2"
+                  <Drawer.Close class={cn(
+                    "w-full hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none leading-none no-underline outline-none transition-colors px-2 py-4 text-left"
                   )}>
+                  <a href={dropdownItem.href}>
                     <div class={cn(
                       typographyVariants({variant: "header-navbar-title"})
                     )}>
@@ -112,6 +118,7 @@
                       {dropdownItem.description}
                     </div>
                   </a>
+                  </Drawer.Close>
                 {/each}
               </Accordion.Content>
             </Accordion.Item>

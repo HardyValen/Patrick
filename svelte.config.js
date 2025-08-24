@@ -11,6 +11,7 @@ const config = {
 		  '$sb/*': "/src/stories/*",
 			'$appcss': "/src/app.css",
 			'$composite': "/src/stories/Composite",
+			'$data': "/src/data",
 		}
 	}
 };

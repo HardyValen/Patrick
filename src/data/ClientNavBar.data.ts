@@ -17,10 +17,6 @@ const navbarDropdownContainerVariants = tv({
   }
 });
 
-const navbarItemLinkVariants = {
-
-}
-
 interface NavLink {
   title: string,
   href?: string,

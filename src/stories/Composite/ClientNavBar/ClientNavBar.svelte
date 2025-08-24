@@ -12,21 +12,37 @@
   import { cn } from "$lib/utils.js";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
   import { DarkMode, ClientNavDrawer } from "$composite";
-  import NavLinksData from "./ClientNavBar.data.ts";
   import { typographyVariants } from "$lib/typographyVariants";
+
+  let {
+    ref = $bindable(null),
+		class: className,
+		data: navLinksData = [],
+		...restProps
+  } = $props();
 
 </script>
 
-<header class={cn("w-full bg-background sticky top-0 z-1")}>
+<header
+  class={cn(
+    className
+  )}
+  bind:this={ref}
+  {...restProps}
+>
 
-  <div class={cn(
-      "flex",
-      "justify-between",
-      "items-center",
-      "py-2",
-      "px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)",
-      "w-full",
-    )}>
+  <div
+    class={cn(
+      "w-full max-w-320 m-auto"
+    )}
+  >
+    <div
+      class={cn(
+        "flex",
+        "justify-between",
+        "items-center",
+        "w-full",
+      )}>
       <!-- Logo -->
       <a href="/" class={cn("block")}>
         <Patrick mode={mode.current}/>
@@ -36,7 +52,7 @@
       <NavigationMenu.Root viewport={false}>
         <NavigationMenu.List class={cn('h-full', 'max-md:hidden')}>
 
-          {#each NavLinksData as navLink}
+          {#each navLinksData as navLink}
           <NavigationMenu.Item>
             {#if navLink.dropdown}
             <NavigationMenu.Item>
@@ -101,8 +117,9 @@
           </Button>
         </div>
         <div class={cn("md:hidden")}>
-          <ClientNavDrawer data={NavLinksData}/>
+          <ClientNavDrawer direction="right" data={navLinksData}/>
         </div>
       </div>
+    </div>
   </div>
 </header>

@@ -1,11 +1,11 @@
 <script module>
   import { defineMeta } from '@storybook/addon-svelte-csf';
 
-  import LinkList from './LinkList.svelte';
+  import ClientProducts from './ClientProducts.svelte';
 
   const { Story } = defineMeta({
-    component: LinkList,
-    title: 'Composite/LinkList',
+    component: ClientProducts,
+    title: 'ClientProducts',
     tags: ['autodocs'],
   });
 </script>

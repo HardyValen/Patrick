@@ -8,8 +8,8 @@
   import { alignmentVariants } from "$lib/alignmentVariants";
 
   /** The "data" prop is optional, but follows this interface
-   * CarouselData type definition
-   * @typedef {Object} CarouselData
+   * carouselData type definition
+   * @typedef {Object} carouselData
    * @property {string} title - The carousel big title text
    * @property {string} img - Link to the carousel image.
    * @property {string} [subtitle] - The carousel big title's little cousin
@@ -23,26 +23,17 @@
    */
 
   let {
-		data: carouselData = [],
+    ref = $bindable(null),
 		class: className,
+		data: carouselData = [],
 		...restProps
   } = $props();
 
   </script>
 
-<!--
-  To-do:
-    * Image on carousel (ok)
-    * Next / Previous Button is horrendous. fix it like you used to
-    * Layouting the carousel content! (alignment)
-    * Make button clickable and give it a variant, perhaps?
-    *
--->
-
 <Carousel.Root
-  class={cn(
-    className
-  )}
+  bind:this={ref}
+  class={cn(className)}
   {...restProps}
 >
 
@@ -52,58 +43,67 @@
 
       <Carousel.Item
         class={cn(
-          `h-[90vh] md:h-[80vh]`,
-          `min-h-[600px]`,
-          `bg-center bg-no-repeat bg-cover`,
+          `h-[50vh] md:h-[70vh]`,
+          `min-h-120 max-h-240`,
+          `bg-center bg-no-repeat bg-cover w-full py-20`,
           'px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)',
-          'py-20',
-          'flex',
-          alignmentVariants({"justify-content": data.orientation})
         )}
         style={`background-image: linear-gradient(90deg, oklch(0.208 0.042 265.755 / 0.7), oklch(0.208 0.042 265.755 / 0.7)), url(${data.img})`}
       >
 
-        <!-- Carousel Content - Inner Background -->
         <div class={cn(
-          'h-full',
-          'text-white',
+          "w-full h-full max-w-320 m-auto md:px-4",
           'flex',
-          'flex-col',
-          'justify-center',
-          "md:max-w-150",
-          alignmentVariants({"align-items": data.orientation}),
-          'gap-5'
+          alignmentVariants({"justify-content": data.orientation})
         )}>
 
-          <!-- Carousel Content - Title -->
-          {#if data.title}
-            <h1 class={ cn(
-              typographyVariants({variant:"h1", typeface:"serif"}),
-              alignmentVariants({"text-align": data.orientation})
-            ) }>
-              {data.title}
-            </h1>
-          {/if}
+          <!-- Carousel Content - Inner Background -->
+          <div class={cn(
+            'h-full',
+            'text-white',
+            'flex',
+            'flex-col',
+            'justify-center',
+            "md:max-w-160",
+            alignmentVariants({"align-items": data.orientation}),
+            'gap-5'
+          )}>
 
-          <!-- Carousel Content - Subtitle -->
-          {#if data.subtitle}
-            <span class={ cn(
-              alignmentVariants({"text-align": data.orientation})
-            ) }>
-              {data.subtitle}
-            </span>
-          {/if}
+            <!-- Carousel Content - Title -->
+            {#if data.title}
+              <h1 class={ cn(
+                typographyVariants({variant:"h1", typeface:"serif"}),
+                alignmentVariants({"text-align": data.orientation})
+              ) }>
+                {data.title}
+              </h1>
+            {/if}
 
-          <!-- Carousel Content - Button -->
-          {#if data.button}
-            <Button
-              href={data.button.href}
-              variant="secondary"
-            >
-              {data.button.title}
-            </Button>
-          {/if}
+            <!-- Carousel Content - Subtitle -->
+            {#if data.subtitle}
+              <span class={ cn(
+                alignmentVariants({"text-align": data.orientation}),
+                "line-clamp-5"
+              ) }>
+                {data.subtitle}
+              </span>
+            {/if}
+
+            <!-- Carousel Content - Button -->
+            {#if data.button}
+              <Button
+                href={data.button.href}
+                class={cn(
+                  "bg-slate-200 text-slate-800 hover:bg-slate-200/80"
+                )}
+              >
+                {data.button.title}
+              </Button>
+            {/if}
+          </div>
+
         </div>
+
       </Carousel.Item>
     {/each}
   </Carousel.Content>

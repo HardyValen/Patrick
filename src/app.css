@@ -47,10 +47,12 @@
   --px-lpage: --spacing(8);
   --px-lpage-md: --spacing(20);
   --px-lpage-xl: --spacing(64);
+  --bg-size-hover: 110%;
 
   /* Custom Color Scheme */
   --link-primary-foreground: var(--color-slate-700);
   --link-secondary-foreground: var(--color-slate-300);
+  --footer: var(--color-slate-200);
 }
 
 .dark {
@@ -89,6 +91,7 @@
   /* Custom Color Scheme */
   --link-primary-foreground: var(--color-slate-300);
   --link-secondary-foreground: var(--color-slate-700);
+  --footer: var(--color-slate-900);
 }
 
 @theme {
@@ -143,4 +146,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* custom global class */
+._bg-center {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+._bg-center-contain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }

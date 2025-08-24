@@ -1,0 +1,39 @@
+interface ClientArticles_Item {
+  title: string,
+  tag: string
+  img?: string,
+  href?: string,
+}
+
+// Only give the first four articles
+// The topmost (index 0) article is shown in the showcase box
+// The rest of the articles are shown in the article list box beside the showcase box.
+
+const Data = [
+  {
+    title: "iPhone 16 Pro Max Rilis! Harga promo mulai dari 15 juta rupiah.",
+    tag: "Phones",
+    img: "https://placehold.co/300x200?text=Placeholder",
+    href: "/"
+  },
+  {
+    title: "Title",
+    tag: "tag",
+    img: "https://placehold.co/300x200?text=Placeholder",
+    href: "/"
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum pulvinar aliquet. Fusce egestas nisl id sodales convallis. Suspendisse tempor ultrices magna in placerat. Morbi turpis erat, pretium eget interdum tincidunt, varius ac nisi. Sed non turpis posuere, eleifend justo vestibulum, vehicula quam. Aenean porta justo cursus metus finibus, ac tempor ante euismod. Proin luctus nec est vitae dictum. Quisque sagittis tortor eget neque volutpat auctor. Integer sagittis commodo lectus, non vulputate turpis consequat id. Nullam mollis pretium mi, ut dictum leo viverra eu. Phasellus ut est neque.",
+    tag: "brand",
+    img: "https://placehold.co/300x200?text=Placeholder",
+    href: "/"
+  },
+  {
+    title: "Test",
+    tag: "brand",
+    img: "https://placehold.co/300x200?text=Placeholder",
+    href: "/"
+  }
+]
+
+export default Data;
