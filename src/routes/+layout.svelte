@@ -4,9 +4,8 @@
 	import { ModeWatcher } from "mode-watcher";
   import { Footer, ClientNavBar } from '$composite';
   import { cn } from '$lib/utils';
-  import { clientNavBarData } from "$data";
 
-	let { children } = $props();
+	let { data, children } = $props();
 </script>
 
 <svelte:head>
@@ -17,7 +16,7 @@
   class={cn(
     "w-full bg-background sticky top-0 z-1 shadow-md p-4"
   )}
-  data={clientNavBarData}
+  data={data.navbar}
 />
 
 {@render children?.()}

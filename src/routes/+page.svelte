@@ -9,12 +9,7 @@
 
   import { cn } from "$lib/utils";
 
-  import {
-    clientCarouselData,
-    clientProductsData,
-    clientArticlesData,
-    clientBrandsData
-  } from "$data";
+  let { data } = $props()
 
 </script>
 
@@ -22,17 +17,16 @@
   <!-- Carousel -->
   <ClientCarousel
     opts={{loop: true}}
-    data={clientCarouselData}
+    data={data.carousel}
   />
 
   <!-- Product -->
   <ClientProducts
     class={cn(
       "py-16 md:py-24",
-      // "py-16 md:py-24 md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)",
       "bg-background"
     )}
-    data={clientProductsData}
+    data={data.products}
   />
   <!-- Solutions -->
   <ClientArticles
@@ -40,7 +34,7 @@
       "py-16 md:py-24 px-4",
       "bg-slate-100 dark:bg-slate-800"
     )}
-    data={clientArticlesData}
+    data={data.articles}
   />
 
   <!-- Brands -->
@@ -49,6 +43,6 @@
       "py-16 md:py-24 px-8",
       "bg-slate-100 dark:bg-slate-800"
     )}
-    data={clientBrandsData}
+    data={data.brands}
   />
 </div>
