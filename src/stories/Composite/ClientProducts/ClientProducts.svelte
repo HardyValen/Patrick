@@ -33,7 +33,7 @@
     </div>
     <div class="grid grid-cols-1 items-stretch md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 px-1">
       {#each clientProductsData.slice(0,6) as data}
-        <a href={data.href}>
+        <a href={`/products/${data.id}`}>
           <Card.Root class={cn(
             "h-full w-full rounded-none md:rounded-md shadow-none md:shadow-sm gap-0 p-0",
             "dark:bg-slate-900 bg-slate-50"

@@ -14,7 +14,8 @@
 
 <ClientNavBar
   class={cn(
-    "w-full bg-background sticky top-0 z-1 shadow-md p-4"
+    "inset-x-0 bg-background sticky top-0 z-1 shadow-md p-4",
+    "dark:border-b-1"
   )}
   data={data.navbar}
 />
