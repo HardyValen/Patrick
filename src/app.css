@@ -199,7 +199,7 @@ html {
     @apply font-serif;
     font-weight: var(--font-weight-extrabold);
     text-wrap: balance;
-    scroll-margin: 80px;
+    scroll-margin: --spacing(20);
 
     & > *:hover {
       text-decoration: underline;
@@ -258,7 +258,7 @@ html {
 
   p {
     font-size: var(--text-lg);
-    line-height: 28px;
+    line-height: --spacing(7);
 
     a {
       color: var(--color-client-content-link);
@@ -274,11 +274,11 @@ html {
   img {
     margin-left: auto;
     margin-right: auto;
-    max-height: 600px
+    max-height: --spacing(150);
   }
 
   blockquote {
-    padding: 16px;
+    padding: --spacing(8) --spacing(4);
     background-color: var(--color-slate-200);
     border-radius: var(--radius-lg);
     font-style: italic;
@@ -288,13 +288,14 @@ html {
     }
 
     & > * {
-      margin-left: 24px;
-      padding-left: 16px;
-      border-left: 3px solid var(--color-slate-700);
+      margin-left: --spacing(6);
+      padding-left: --spacing(4);
+      border-left: --spacing(0.75) solid var(--color-slate-700);
       color: var(--color-slate-700);
+      font-size: var(--text-xl);
 
       @variant dark {
-        border-left: 3px solid var(--color-slate-500);
+        border-left: --spacing(0.75) solid var(--color-slate-500);
         color: var(--color-slate-200);
       }
 
@@ -310,12 +311,12 @@ html {
   /* Table */
   table {
     width: 100%;
-    border: 2px solid;
+    border: --spacing(0.5) solid;
     border-color: var(--color-client-table-outer-border);
     border-radius: var(--radius-lg);
 
     td, th {
-      border: 1px solid;
+      border: --spacing(0.25) solid;
       border-color: var(--color-client-table-inner-border);
       padding: --spacing(2) --spacing(4);
     }
@@ -337,7 +338,9 @@ html {
   }
 
   hr {
-    height: 1px;
+    height: --spacing(0.25);
+    width: 60%;
+    margin: --spacing(20) auto;
     border: none;
     background-color: var(--color-hr);
   }

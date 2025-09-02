@@ -6,6 +6,7 @@ import Footer from './Footer';
 import ClientProducts from './ClientProducts';
 import ClientArticles from './ClientArticles';
 import ClientBrands from "./ClientBrands";
+import ProductTop from "./ProductTop";
 
 export {
   ClientArticles,
@@ -16,4 +17,5 @@ export {
   ClientBrands,
   DarkMode,
   Footer,
+  ProductTop,
 }

@@ -7,6 +7,6 @@ import { cn } from "./utils";
 export {
   UnifiedPipeline,
   typographyVariants,
-  alignmentVairants,
+  alignmentVariants,
   cn
 };

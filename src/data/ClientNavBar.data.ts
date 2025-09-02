@@ -47,7 +47,7 @@ const Data: ClientNavBar_NavItem[] = [
     "dropdown": [
       {
         title: "Produk",
-        href: "/",
+        href: "/products",
         description: "Jelajah inventaris toko berdasarkan jenis produk seperti kamera, lampu, dst."
       },
       {

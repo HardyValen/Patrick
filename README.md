@@ -22,7 +22,7 @@ rehype-stringify
 valibot
 
 todo:
-- [] Render the metadata for /products and /news
+- [] Render the metadata for /products and /news slug.
 - [] Previous and next post
 - [] Sidebar table of contents?
 - [] Related posts based by tag

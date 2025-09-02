@@ -24,14 +24,16 @@
 
 				// Footer Fonts
 				"link-footer-primary": "text-sm tracking-wide hover:underline text-(--link-primary-foreground) hover:text-(--link-primary-foreground-hover) cursor-pointer",
-
 				"link-footer-secondary": "text-sm tracking-wide hover:underline text-(--link-secondary-foreground) hover:text-(--link-secondary-foreground-hover) cursor-pointer",
-
 				"link-footer-title": "uppercase font-extrabold text-xs tracking-widest",
 
 				// Header Nav Links
 				"header-navbar-title": "text-[14px] font-bold text-accent-foreground",
 				"header-navbar-description": "text-[12px] text-muted-foreground",
+
+				// User generated content (blog) title / subtitle
+				"blog-title": "text-5xl md:text-6xl font-extrabold tracking-tight text-balance scroll-m-20",
+				"blog-subtitle": "text-xl/8",
 			},
 			typeface: {
 			  serif: "font-serif",
