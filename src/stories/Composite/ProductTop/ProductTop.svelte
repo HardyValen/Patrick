@@ -15,7 +15,7 @@
   let date = $state(new Date(productData.publishDate))
 
   let imgRef = $state(null);
-  let naturalDimension = $state({})
+  let naturalDimension = $state({});
 
   onMount(() => {
     naturalDimension.naturalWidth = imgRef.naturalWidth;
@@ -32,7 +32,6 @@
     - tags: string array
 -->
 
-
 {#snippet productTop (mediaClass)}
   <header
     bind:this={ref}
@@ -45,7 +44,7 @@
     <div class="flex gap-3 mb-4">
       <a
         class={cn(
-          "hover:underline text-(--color-client-content-link)",
+          typographyVariants({variant: "blog-link"}),
           "flex items-center justify-center",
           "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:mr-2"
         )}
@@ -110,7 +109,7 @@
       <div class="flex gap-3 mb-4">
         <a
           class={cn(
-            "hover:underline text-(--color-client-content-link)",
+            typographyVariants({variant: "blog-link"}),
             "flex items-center justify-center",
             "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:mr-2"
           )}

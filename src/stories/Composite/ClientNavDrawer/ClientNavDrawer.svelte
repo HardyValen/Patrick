@@ -5,7 +5,6 @@
   import * as Accordion from "$lib/components/ui/accordion";
   import Menu from "@lucide/svelte/icons/menu";
   import CloseIcon from "@lucide/svelte/icons/x";
-  import Search from '@lucide/svelte/icons/search';
   import DarkMode from "$sb/Composite/DarkMode";
   // import { Separator } from "$lib/components/ui/separator";
   import Patrick from '$lib/assets/PatrickLogo.svelte';
@@ -57,9 +56,6 @@
           </a>
         </div>
         <div class="flex gap-2">
-          <Button variant="outline" size="icon">
-            <Search />
-          </Button>
           <Drawer.Close class={cn(
             buttonVariants({variant:"outline", size:"icon"})
           )}>

@@ -34,6 +34,7 @@
 				// User generated content (blog) title / subtitle
 				"blog-title": "text-5xl md:text-6xl font-extrabold tracking-tight text-balance scroll-m-20",
 				"blog-subtitle": "text-xl/8",
+				"blog-link": "font-bold hover:underline text-(--color-client-content-link) hover:text-(--color-client-content-link-hover)"
 			},
 			typeface: {
 			  serif: "font-serif",

@@ -7,6 +7,7 @@ import ClientProducts from './ClientProducts';
 import ClientArticles from './ClientArticles';
 import ClientBrands from "./ClientBrands";
 import ProductTop from "./ProductTop";
+import ProductFooter from "./ProductFooter";
 
 export {
   ClientArticles,
@@ -18,4 +19,5 @@ export {
   DarkMode,
   Footer,
   ProductTop,
+  ProductFooter,
 }

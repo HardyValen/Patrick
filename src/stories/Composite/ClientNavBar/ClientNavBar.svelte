@@ -6,7 +6,6 @@
   import * as NavigationMenu from "$lib/components/ui/navigation-menu";
   import { Separator } from "$lib/components/ui/separator";
   import Patrick from '$lib/assets/PatrickLogo.svelte';
-  import Search from  '@lucide/svelte/icons/search';
   import { Button } from "$lib/components/ui/button";
   import { mode } from "mode-watcher";
   import { cn } from "$lib/utils.js";
@@ -111,15 +110,11 @@
         <div class={cn("max-md:hidden")}>
           <DarkMode />
         </div>
-        <div class={cn("max-md:hidden")}>
-          <Button variant="outline" size="icon">
-            <Search />
-          </Button>
-        </div>
         <div class={cn("md:hidden")}>
           <ClientNavDrawer direction="right" data={navLinksData}/>
         </div>
       </div>
+
     </div>
   </div>
 </header>

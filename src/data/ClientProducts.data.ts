@@ -8,6 +8,8 @@ interface ClientProductsData {
   linkText?: string
   img?: string,
   tags?: string[],
+  nextId?: string,
+  prevId?: string,
 }
 
 const fakerContent = [
@@ -88,6 +90,7 @@ const Data: ClientProductsData[] = [
     content: fakerContent,
     publishDate: new Date(2024, 4, 30).toString(),
     tags: ["products", "camera", "lens"],
+    nextId: "2",
   },
   {
     id: "2",
@@ -96,7 +99,9 @@ const Data: ClientProductsData[] = [
     linkText: "Baca selengkapnya",
     img: "https://placehold.co/300x200?text=Placeholder",
     content: fakerContent,
-    publishDate: new Date(2022, 1, 10).toString()
+    publishDate: new Date(2022, 1, 10).toString(),
+    nextId: "3",
+    prevId: "1",
   },
   {
     id: "3",
@@ -105,7 +110,9 @@ const Data: ClientProductsData[] = [
     linkText: "Baca selengkapnya",
     img: "https://placehold.co/300x200?text=Placeholder",
     content: fakerContent,
-    publishDate: new Date(2024, 12, 15).toString()
+    publishDate: new Date(2024, 12, 15).toString(),
+    nextId: "4",
+    prevId: "2",
   },
   {
     id: "4",
@@ -114,7 +121,9 @@ const Data: ClientProductsData[] = [
     linkText: "Baca selengkapnya",
     img: "https://placehold.co/300x200?text=Placeholder",
     content: fakerContent,
-    publishDate: new Date(2025, 9, 1).toString()
+    publishDate: new Date(2025, 9, 1).toString(),
+    nextId: "5",
+    prevId: "3",
   },
   {
     id: "5",
@@ -123,7 +132,9 @@ const Data: ClientProductsData[] = [
     linkText: "Baca selengkapnya",
     img: "https://placehold.co/300x200?text=Placeholder",
     content: fakerContent,
-    publishDate: new Date(2024, 2, 29).toString()
+    publishDate: new Date(2024, 2, 29).toString(),
+    nextId: "6",
+    prevId: "4",
   },
   {
     id: "6",
@@ -131,7 +142,9 @@ const Data: ClientProductsData[] = [
     subtitle: "subtitle",
     img: "https://placehold.co/300x200?text=Placeholder",
     content: fakerContent,
-    publishDate: new Date(2025, 1, 1).toString()
+    publishDate: new Date(2025, 1, 1).toString(),
+    nextId: "1",
+    prevId: "5",
   },
 ]
 

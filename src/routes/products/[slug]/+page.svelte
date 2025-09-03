@@ -2,7 +2,8 @@
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib/typographyVariants";
   import {
-    ProductTop
+    ProductTop,
+    ProductFooter
   } from "$composite";
 
   let {
@@ -10,7 +11,10 @@
     class: className,
     data: productData,
     ...restProps
-  } = $props()
+  } = $props();
+
+  const { current, prev, next } = $derived(productData ?? {});
+  const { content, ...restCurrent } = $derived(current ?? {});
 
 </script>
 
@@ -21,24 +25,32 @@
 
 <div
   bind:this={ref}
-  class={cn(className)}
+  class={cn(
+    className,
+    "px-8"
+  )}
   {...restProps}
 >
   <ProductTop
     class={cn(
-      "w-full max-w-280 m-auto my-10",
-      "px-4"
+      "w-full max-w-280 m-auto my-10"
     )}
-    data={productData}
+    data={restCurrent}
   />
 
   <div
     class={cn(
       "w-full max-w-200 m-auto my-10",
-      "_client-content",
-      "px-4"
+      "_client-content"
     )}
   >
-    {@html productData.content}
+    {@html content}
   </div>
+
+  <ProductFooter
+    class={cn(
+      "w-full max-w-280 m-auto my-10"
+    )}
+    data={{prev, next}}
+  />
 </div>

@@ -54,6 +54,7 @@
   --link-secondary-foreground: var(--color-slate-300);
   --footer: var(--color-slate-200);
   --color-client-content-link: var(--color-blue-700);
+  --color-client-content-link-hover: color-mix(in oklch, var(--color-client-content-link), #fff 30%);
   --color-client-content: oklch(0.40 0 0);
   --color-client-thead-background: var(--color-slate-200);
   --color-client-td-odd-background: var(--background);
@@ -266,7 +267,7 @@ html {
       font-weight: var(--font-weight-bold);
 
       &:hover, &:focus {
-        color: color-mix(in oklch, var(--color-client-content-link), #fff 30%)
+        color: var(--color-client-content-link-hover);
       }
     }
   }
