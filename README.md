@@ -22,10 +22,11 @@ rehype-stringify
 valibot
 
 todo:
-- [] Render the metadata for /products and /news slug.
-- [] Previous and next post
+- [] Search Articles...?
+- [x] Render the metadata for /products and /news slug.
+- [x] Previous and next post
 - [] Sidebar table of contents?
-- [] Related posts based by tag
+- [] Related posts based by tag on footer
 - [x] export unified processor as utils.
 - [x] build a unified remark-rehype pipeline for /products and /news
 
