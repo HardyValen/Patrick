@@ -8,6 +8,7 @@ import ClientArticles from './ClientArticles';
 import ClientBrands from "./ClientBrands";
 import ProductTop from "./ProductTop";
 import ProductFooter from "./ProductFooter";
+import { SearchAuto } from "./SearchAuto";
 
 export {
   ClientArticles,
@@ -20,4 +21,5 @@ export {
   Footer,
   ProductTop,
   ProductFooter,
+  SearchAuto
 }
