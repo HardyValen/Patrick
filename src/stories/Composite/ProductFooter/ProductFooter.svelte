@@ -10,7 +10,6 @@
   } = $props();
 
   let { next, prev } = $derived(productData ?? {});
-  $inspect(prev);
 </script>
 
 <!-- Snippets -->

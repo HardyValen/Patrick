@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
 import { clientProductsData } from "$data";
-import { UnifiedPipeline as processor} from '$lib'
+import { unifiedPipeline as processor} from '$lib'
 
 async function mdToHtml(content) {
   return String(await processor.process(content));

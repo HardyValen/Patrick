@@ -1,4 +1,4 @@
-import { UnifiedPipeline as processor} from '$lib'
+import { unifiedPipeline as processor} from '$lib'
 
 const content = [
   `
