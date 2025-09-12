@@ -9,6 +9,7 @@ import ClientBrands from "./ClientBrands";
 import ProductTop from "./ProductTop";
 import ProductFooter from "./ProductFooter";
 import { SearchAuto } from "./SearchAuto";
+import AnimateIntersect from "./AnimateIntersect";
 
 export {
   ClientArticles,
@@ -21,5 +22,6 @@ export {
   Footer,
   ProductTop,
   ProductFooter,
-  SearchAuto
+  SearchAuto,
+  AnimateIntersect
 }
