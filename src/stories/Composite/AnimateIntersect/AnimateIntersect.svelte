@@ -18,8 +18,13 @@
 
   let inView = $state(false);
   let rootNode = $state();
+
   function handleEnterViewport() { inView = true; };
-  function handleExitViewport() { inView = false; };
+  function handleExitViewport() {
+    if (!withExit) {
+      inView = false;
+    }
+  };
 
   $effect(() => {
     const eventNames = [
@@ -29,8 +34,6 @@
     eventNames.forEach(v => {
       rootNode.addEventListener(v[0], v[1]);
     })
-
-    // $inspect(rootNode);
 
     return(() => {
       eventNames.forEach(v => {
@@ -72,8 +75,8 @@
 	}
 	.exit-animation {
 		opacity: 0;
-		transition-duration: 0ms;
-		transition-delay: 0ms;
+		transition-duration: var(--duration);
+		transition-delay: var(--delay);
 		pointer-events: none;
 	}
 	.exit-top {
