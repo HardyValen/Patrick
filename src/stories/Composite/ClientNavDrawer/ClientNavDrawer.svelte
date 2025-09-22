@@ -7,7 +7,7 @@
   import CloseIcon from "@lucide/svelte/icons/x";
   import DarkMode from "$sb/Composite/DarkMode";
   // import { Separator } from "$lib/components/ui/separator";
-  import Patrick from '$lib/assets/PatrickLogo.svelte';
+  import Logo from "$lib/assets/nisi-logo.svelte";
   import { cn } from "$lib/utils.js";
   import { mode } from "mode-watcher";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
@@ -52,7 +52,7 @@
       )}>
         <div>
           <a href="/" class={cn("block", "p-2", "w-40")}>
-            <Patrick mode={mode.current}/>
+            <Logo/>
           </a>
         </div>
         <div class="flex gap-2">

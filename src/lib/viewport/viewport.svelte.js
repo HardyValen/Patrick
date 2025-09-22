@@ -1,7 +1,7 @@
 const observerOptions = {
 	root: null,
 	rootMargin: '0px',
-	threshold: 1
+	threshold: 0.9
 }
 
 function viewport(

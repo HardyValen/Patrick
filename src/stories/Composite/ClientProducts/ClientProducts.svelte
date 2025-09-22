@@ -2,6 +2,7 @@
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib/typographyVariants";
   import * as Card from "$lib/components/ui/card/index.js";
+  import { AnimateIntersect } from "$composite";
 
   let {
     ref = $bindable(null),
@@ -19,19 +20,28 @@
   {...restProps}
 >
   <div class={cn(
-    "w-full max-w-320 m-auto",
+    "w-full max-w-480 m-auto",
     "flex flex-col",
     "gap-8",
   )}>
     <div class={cn(
       "px-2 max-md:px-8"
     )}>
-      <h1 class={cn(
-        typographyVariants({variant: "h1", typeface: "serif"}),
-        "max-2xl:text-center"
-      )}>Products & Solutions</h1>
+
+      <AnimateIntersect
+        variant="top"
+        noExit
+      >
+        <h1 class={cn(
+          typographyVariants({variant: "h1", typeface: "serif"}),
+          "text-center"
+        )}>
+          Products & Solutions
+        </h1>
+      </AnimateIntersect>
+
     </div>
-    <div class="grid grid-cols-1 items-stretch md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4 px-1">
+    <div class="grid grid-cols-2 items-stretch md:grid-cols-3 xl:grid-cols-6 gap-1 md:gap-4 px-4 xl:px-8">
       {#each clientProductsData.slice(0,6) as data}
         <a href={`/products/${data.id}`}>
           <Card.Root class={cn(
@@ -40,8 +50,8 @@
           )}>
             <div
               class={cn(
-                `bg-center bg-no-repeat bg-cover`,
-                `min-h-40 md:rounded-t-md`
+                `bg-center bg-no-repeat bg-contain`,
+                `min-h-40 md:rounded-t-md bg-slate-200 dark:bg-slate-600`
               )}
               style={`background-image: url(${data.img})`}
             >
@@ -50,26 +60,14 @@
             <div class={cn(
               "flex flex-col gap-3 py-3 h-full justify-between"
             )}>
-              <Card.Content>
+              <Card.Content class={cn(
+                "px-3 py-1"
+              )}>
                 <Card.Title class={"pb-1 tracking-wide line-clamp-2 leading-5"}>{data.title}</Card.Title>
                 <Card.Description class={cn(
                   "line-clamp-3"
                 )}>{data.subtitle}</Card.Description>
               </Card.Content>
-              {#if data.linkText}
-                <Card.Footer class={cn("flex justify-end px-5 md:px-2")}>
-                  <span
-                  class={cn(
-                  "after:content-['_⟶'] transition-all text-sm font-extrabold tracking-wider",
-                  "md:rounded-xl",
-                  "md:hover:underline md:px-3 xl:px-5 md:py-1 md:hover:bg-blue-50 md:dark:hover:bg-blue-950",
-                  "text-slate-600 dark:text-slate-300 max-md:underline"
-                  )}
-                  >
-                    {data.linkText}
-                  </span>
-                </Card.Footer>
-              {/if}
             </div>
 
           </Card.Root>

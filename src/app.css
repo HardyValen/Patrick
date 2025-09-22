@@ -114,8 +114,6 @@
   --font-sans: "Nunito Sans", sans-serif;
   --font-serif: "Merriweather", serif;
   --font-mono: "Roboto Mono", monospace;
-  --color-primary-immutable-500: oklch(0.208 0.042 265.755);
-  --color-primary-immutable-300: oklch(0.2329 0.08 265.755);
 }
 
 @theme inline {

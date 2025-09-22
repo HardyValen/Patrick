@@ -13,18 +13,27 @@
 
 </script>
 
+<svelte:head>
+	<title>NiSi Store Indonesia</title>
+	<meta name="description" content="NiSi Store Indonesia" />
+</svelte:head>
+
 <div>
   <!-- Carousel -->
-  <ClientCarousel
+  <!-- <ClientCarousel
+    class={cn(
+      "z-0"
+    )}
     opts={{loop: true}}
     data={data.carousel}
-  />
+  /> -->
 
   <!-- Product -->
   <ClientProducts
     class={cn(
       "py-16 md:py-24",
-      "bg-background"
+      "bg-background",
+      "relative top-[--spacing(-10)] rounded-t-3xl z-5"
     )}
     data={data.products}
   />
@@ -32,7 +41,8 @@
   <ClientArticles
     class={cn(
       "py-16 md:py-24 px-4",
-      "bg-slate-100 dark:bg-slate-800"
+      "bg-slate-100 dark:bg-slate-800",
+      "relative z-5"
     )}
     data={data.articles}
   />
@@ -41,7 +51,8 @@
   <ClientBrands
     class={cn(
       "py-16 md:py-24 px-8",
-      "bg-slate-100 dark:bg-slate-800"
+      "bg-slate-100 dark:bg-slate-800",
+      "relative z-5"
     )}
     data={data.brands}
   />

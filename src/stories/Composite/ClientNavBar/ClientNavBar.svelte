@@ -5,7 +5,7 @@
 <script>
   import * as NavigationMenu from "$lib/components/ui/navigation-menu";
   import { Separator } from "$lib/components/ui/separator";
-  import Patrick from '$lib/assets/PatrickLogo.svelte';
+  import Logo from '$lib/assets/nisi-logo.svelte';
   import { Button } from "$lib/components/ui/button";
   import { mode } from "mode-watcher";
   import { cn } from "$lib/utils.js";
@@ -44,7 +44,7 @@
       )}>
       <!-- Logo -->
       <a href="/" class={cn("block")}>
-        <Patrick mode={mode.current}/>
+        <Logo/>
       </a>
 
       <!-- Navigation Lists -->
