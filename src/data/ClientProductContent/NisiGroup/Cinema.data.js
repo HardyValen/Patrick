@@ -14,13 +14,13 @@ const data = `
   * High-quality optical glass
   * Compatible with third party holder systems
   * Nano Coating® coating
-    * IR neutral
-    * Very high colour fidelity, very low reflection
-    * Water and oil-repellent nano-coating
-    * High-quality optical glass
-    * Compatible with third party holder systems
-    * Nano Coating® coating
-    * IR neutral
+  * IR neutral
+
+  ### Cine Sealing Technology
+  NiSi Cinema Filters series use Cine Sealed technology, edges of the filter are sealed with black resin to improve performance and durability. This technology reduces the influence of temperature fluctuations, keeps out condensation and protects the filter from unwanted flare and reflections. Compared to similar treatments, NiSi’s technology allows the edge of the filter to be sealed twice as efficiently, thanks to high-precision machinery and unique materials.
+
+  ### Nano Coating®
+  All NiSi square filters benefit from the use of the exclusive Nano Coating treatment which makes the filter water-repellent and oleophobic for perfect sharpness. NiSi filters also use IR technology to block infrared light and therefore eliminate the risk of magenta colour cast. The special Nano Coating coating on both sides minimises unwanted reflections and gives the NiSi neutral density filters water-repellent and oleophobic properties.
 `;
 
 export default data;

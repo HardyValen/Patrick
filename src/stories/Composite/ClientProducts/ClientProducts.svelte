@@ -29,7 +29,7 @@
   <div class={cn(
     "w-full max-w-480 m-auto",
     "flex flex-col",
-    "gap-16",
+    "gap-16"
   )}>
 
     <AnimateIntersect variant="top" noExit
@@ -48,7 +48,7 @@
     <div
       class={cn(
         "px-0 md:px-4 xl:px-8 mx-auto",
-        "grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-y-10 md:gap-y-10 md:gap-x-4"
+        "grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-y-10 md:gap-y-10 md:gap-x-4",
       )}
     >
       {#each clientProductsData.slice(0,6) as data, idx}
@@ -64,7 +64,7 @@
           >
             <div
               class={cn(
-                "p-4 w-40 h-40 relative top-0",
+                "p-4 w-40 h-40 md:w-60 md:h-60 xl:w-48 xl:h-48 2xl:w-60 2xl:h-60 relative top-0",
                 "rounded-xl",
                 "cpc_img-bg",
                 "scale-85",
