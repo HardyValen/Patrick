@@ -1,4 +1,4 @@
-import viewport from './viewport.svelte.js';
+import viewport from './viewport.js';
 
 export {
   viewport

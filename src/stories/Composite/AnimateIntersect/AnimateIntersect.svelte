@@ -4,7 +4,7 @@
   let {
     ref = $bindable(null),
     class: className,
-    withExit = false,
+    noExit = false,
     variant = "fade",
     duration = 1000,
     delay = 0,
@@ -21,7 +21,7 @@
 
   function handleEnterViewport() { inView = true; };
   function handleExitViewport() {
-    if (!withExit) {
+    if (!noExit) {
       inView = false;
     }
   };

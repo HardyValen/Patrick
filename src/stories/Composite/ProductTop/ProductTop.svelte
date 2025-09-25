@@ -14,14 +14,6 @@
 
   let date = $state(new Date(productData.publishDate))
 
-  let imgRef = $state(null);
-  let naturalDimension = $state({});
-
-  onMount(() => {
-    naturalDimension.naturalWidth = imgRef.naturalWidth;
-    naturalDimension.naturalHeight = imgRef.naturalHeight;
-  })
-
 </script>
 
 <!--
@@ -76,7 +68,6 @@
     </div>
 
     <img
-      bind:this={imgRef}
       class={cn(
         "w-full h-auto mt-2 mb-8 max-h-100 md:max-h-160 mx-auto"
       )}
@@ -84,7 +75,7 @@
       alt={productData.title}
     />
 
-    {#if productData.showSubtitle}
+    {#if productData.subtitle}
     <p
       class={cn(
         typographyVariants({variant: "blog-subtitle", typeface: "serif"}),
@@ -97,7 +88,9 @@
   </header>
 {/snippet}
 
-{#if naturalDimension.naturalWidth <= naturalDimension.naturalHeight}
+{#if productData.layout === "full"}
+  {@render productTop("max-md:hidden")}
+{:else}
   <header
     bind:this={ref}
     class={cn(
@@ -139,7 +132,7 @@
           <Button href={`/products?tag=${tags}`} variant="outline" size="sm">{tags}</Button>
         {/each}
       </div>
-      {#if productData.showSubtitle}
+      {#if productData.subtitle}
       <p
         class={cn(
           typographyVariants({variant: "blog-subtitle", typeface: "serif"}),
@@ -153,7 +146,6 @@
     </div>
     <div>
       <img
-        bind:this={imgRef}
         class={cn(
           "w-full h-auto mt-2 mb-8 max-h-100 md:max-h-160 mx-auto"
         )}
@@ -162,8 +154,6 @@
       />
     </div>
   </header>
-{:else}
-  {@render productTop("max-md:hidden")}
 {/if}
 
 {@render productTop("md:hidden")}

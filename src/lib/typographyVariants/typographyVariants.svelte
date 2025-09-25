@@ -6,6 +6,7 @@
 	  base: "transition-all",
 		variants: {
 		  variant: {
+				carousel_h1: "text-4xl md:text-6xl font-extrabold tracking-tight text-balance scroll-m-30",
 				h1: "text-4xl font-extrabold tracking-tight text-balance scroll-m-20",
 				h2: "text-3xl font-semibold tracking-tight first:mt-0 text-balance scroll-m-20",
 				h3: "text-2xl font-semibold tracking-tight text-balance scroll-m-20",

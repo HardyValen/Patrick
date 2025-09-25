@@ -2,18 +2,19 @@
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import Next from "./Next.svelte";
   import Previous from "./Previous.svelte";
-  import { cn } from "$lib/utils.js";
-  import { typographyVariants } from "$lib/typographyVariants";
+  import { cn, alignmentVariants, typographyVariants } from "$lib";
   import { Button, buttonVariants } from "$lib/components/ui/button";
-  import { alignmentVariants } from "$lib/alignmentVariants";
+  import { AnimateIntersect } from "$composite";
 
   /** The "data" prop is optional, but follows this interface
    * carouselData type definition
    * @typedef {Object} carouselData
    * @property {string} title - The carousel big title text
    * @property {string} img - Link to the carousel image.
+   * @property {string} video - Link to the video.
    * @property {string} [subtitle] - The carousel big title's little cousin
-   * @property {"left" | "right" | "center"} [orientation] - Content Align
+   * @property {"left" | "right" | "center"} [orientationX] - Content Align X
+   * @property {"top" | "center" | "bottom"} [orientationY] - Content Align Y
    * @property {CarouselButton} [button] - Optional button for the carousel
    *
    * CarouselButton type definition
@@ -29,6 +30,19 @@
 		...restProps
   } = $props();
 
+  function transpose(expr) {
+    switch (expr) {
+      case "top":
+        return "left";
+      case "bottom":
+        return "right";
+      case "center":
+        return "center";
+      default:
+        return "center";
+    }
+  }
+
   </script>
 
 <Carousel.Root
@@ -39,87 +53,117 @@
 
   <Carousel.Content>
 
-    {#each carouselData as data}
+    {#each carouselData as data, idx}
 
       <Carousel.Item
         class={cn(
-          `h-[50vh] md:h-[70vh]`,
-          `min-h-120 max-h-240`,
-          `bg-center bg-no-repeat bg-cover w-full py-20`,
-          'px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)',
+          `h-[85vh] md:h-[90vh] min-h-120 max-h-240 w-full pl-0`
         )}
-        style={`background-image: linear-gradient(90deg, oklch(0.208 0.042 265.755 / 0.7), oklch(0.208 0.042 265.755 / 0.7)), url(${data.img})`}
       >
 
-        <div class={cn(
-          "w-full h-full max-w-320 m-auto md:px-4",
-          'flex',
-          alignmentVariants({"justify-content": data.orientation})
-        )}>
+        {#if "video" in data}
+          <video
+            autoplay loop muted
+            class={cn(
+              "object-cover w-full h-full z-0"
+            )}
+          >
+            <source src={data.video.link} type={data.video.type}/>
+          </video>
+        {:else if "img" in data}
+          <img
+            src={data.img}
+            alt={data.title}
+            class={cn(
+              "w-full h-full object-cover z-0"
+            )}
+          />
+        {/if}
 
-          <!-- Carousel Content - Inner Background -->
-          <div class={cn(
-            'h-full',
-            'text-white',
-            'flex',
-            'flex-col',
-            'justify-center',
-            "md:max-w-160",
-            alignmentVariants({"align-items": data.orientation}),
-            'gap-5'
-          )}>
+        <div
+          class={cn(
+            "relative top-[-100%] left-0",
+            "w-full h-full z-1",
+            "bg-black/60",
+            'px-(--px-lpage) md:px-(--px-lpage-md) xl:px-(--px-lpage-xl)',
+            "flex",
+            alignmentVariants({"justify-content": data.orientationX}),
+            alignmentVariants({"align-items": transpose(data.orientationY)})
+          )}
+        >
+          <AnimateIntersect
+            variant="right"
+          >
+            <div
+              class={cn(
+                "text-white md:max-w-120",
+                "flex flex-col gap-5 pt-8 mb-16 md:mb-24",
+                alignmentVariants({"align-items": data.orientationX}),
+              )}
+            >
+              <!-- Carousel Content - Title -->
+              {#if data.title}
+                <h1 class={ cn(
+                  typographyVariants({variant:"carousel_h1", typeface:"serif"}),
+                  alignmentVariants({"text-align": data.orientationX}),
+                ) }>
+                  {data.title}
+                </h1>
+              {/if}
 
-            <!-- Carousel Content - Title -->
-            {#if data.title}
-              <h1 class={ cn(
-                typographyVariants({variant:"h1", typeface:"serif"}),
-                alignmentVariants({"text-align": data.orientation})
-              ) }>
-                {data.title}
-              </h1>
-            {/if}
+              <!-- Carousel Content - Subtitle -->
+              {#if data.subtitle}
+                <span class={ cn(
+                  alignmentVariants({"text-align": data.orientationX}),
+                  "line-clamp-5"
+                ) }>
+                  {data.subtitle}
+                </span>
+              {/if}
 
-            <!-- Carousel Content - Subtitle -->
-            {#if data.subtitle}
-              <span class={ cn(
-                alignmentVariants({"text-align": data.orientation}),
-                "line-clamp-5"
-              ) }>
-                {data.subtitle}
-              </span>
-            {/if}
+              <!-- Carousel Content - Button -->
+              {#if data.button}
+                <Button
+                  href={data.button.href}
+                  class={cn(
+                    "bg-slate-200 text-slate-800 hover:bg-slate-200/80"
+                  )}
+                >
+                  {data.button.title}
+                </Button>
+              {/if}
 
-            <!-- Carousel Content - Button -->
-            {#if data.button}
-              <Button
-                href={data.button.href}
-                class={cn(
-                  "bg-slate-200 text-slate-800 hover:bg-slate-200/80"
-                )}
-              >
-                {data.button.title}
-              </Button>
-            {/if}
-          </div>
+            </div>
+          </AnimateIntersect>
 
         </div>
-
       </Carousel.Item>
     {/each}
   </Carousel.Content>
 
   <!-- Carousel Button - Previous -->
-  <Previous class={cn([
-    "absolute",
-    "left-0",
-    "max-md:opacity-20"
-  ].join(" "))}/>
+  <Previous
+    class={cn([
+      "absolute",
+      "left-0",
+      "max-md:opacity-20"
+    ].join(" "))}
+    style="
+      --control-pos: -50%;
+      --grad-pos: 0%;
+    "
+  />
 
   <!-- Carousel Button - Next -->
-  <Next class={cn([
-    "absolute",
-    "right-0",
-    "max-md:opacity-20"
-  ].join(" "))}/>
+  <Next
+    class={cn([
+      "absolute",
+      "right-0",
+      "max-md:opacity-20"
+    ].join(" "))}
+    style="
+      --control-pos: 150%
+    "
+  />
 
 </Carousel.Root>

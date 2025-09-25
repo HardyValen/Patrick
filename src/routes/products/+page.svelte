@@ -21,9 +21,11 @@
   {...restProps}
 >
 
-  <SearchAuto
+  <!-- <SearchAuto
     name="ProductSearch"
-  />
+  /> -->
+
+  Hello World
 
   <div>
     <!-- {#if query.string != ""}

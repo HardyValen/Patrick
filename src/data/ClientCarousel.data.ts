@@ -1,8 +1,10 @@
 interface ClientCarousel_Item {
   title?: string,
-  img: string,
+  img?: string,
+  video?: ClientCarousel_Video,
   subtitle?: string,
-  orientation?: "left" | "right" | "center",
+  orientationX?: "left" | "right" | "center",
+  orientationY?: "top" | "bottom" | "center",
   button?: ClientCarousel_Button
 }
 
@@ -11,35 +13,41 @@ interface ClientCarousel_Button {
   href: string
 }
 
+interface ClientCarousel_Video {
+  link: string,
+  type: string
+}
+
 const Data : ClientCarousel_Item[] = [
   {
-    title: "Carousel 1",
-    // img: "https://i.ibb.co.com/fVPK7zCF/ipad-8809761-1280.webp",
-    img: "https://placehold.co/300x200?text=Placeholder",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum pulvinar aliquet. Fusce egestas nisl id sodales convallis. Suspendisse tempor ultrices magna in placerat. Morbi turpis erat, pretium eget interdum tincidunt, varius ac nisi. Sed non turpis posuere, eleifend justo vestibulum, vehicula quam. Aenean porta justo cursus metus finibus, ac tempor ante euismod. Proin luctus nec est vitae dictum. Quisque sagittis tortor eget neque volutpat auctor. Integer sagittis commodo lectus, non vulputate turpis consequat id. Nullam mollis pretium mi, ut dictum leo viverra eu. Phasellus ut est neque.",
-    orientation: "left",
-    button: {
-      title: "Button Title",
-      href: "link"
-    }
+    title: "JetMag Pro: Lock Fast, Shoot Smart",
+    video: {
+      link: "/assets/videos/Nisi_jetmag_pro.mp4",
+      type: "video/mp4"
+    },
+    subtitle: "Magnetic. Ultra-thin. Mechanically secure. Swap filters in seconds - no vignetting, no compromise.",
+    orientationX: "left",
+    orientationY: "bottom",
   },
   {
-    title: "Carousel 2",
-    // img: "https://i.ibb.co.com/TxNt3K5K/samsung-4721542-1280.webp",
-    img: "https://placehold.co/300x200?text=Placeholder_2",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum pulvinar aliquet. Fusce egestas nisl id sodales convallis. Suspendisse tempor ultrices magna in placerat. Morbi turpis erat, pretium eget interdum tincidunt, varius ac nisi. Sed non turpis posuere, eleifend justo vestibulum, vehicula quam. Aenean porta justo cursus metus finibus, ac tempor ante euismod. Proin luctus nec est vitae dictum. Quisque sagittis tortor eget neque volutpat auctor. Integer sagittis commodo lectus, non vulputate turpis consequat id. Nullam mollis pretium mi, ut dictum leo viverra eu. Phasellus ut est neque.",
-    orientation: "center",
-    button: {
-      title: "Button Title",
-      href: "link"
-    }
+    title: "ATHENA PRIME: Full-Frame Precision. Zero Compromise.",
+    video: {
+      link: "/assets/videos/Nisi_athena_vid.mp4",
+      type: "video/mp4"
+    },
+    subtitle: "Matched primes. Ultra-fast apertures. No focus breathing. Built for filmmakers who demand control and clarity.",
+    orientationX: "left",
+    orientationY: "bottom",
   },
   {
-    title: "Carousel 3",
-    // img: "https://i.ibb.co.com/cK46ZQ3c/sony-a7-7517301-1280.webp",
-    img: "https://placehold.co/300x200?text=Placeholder_3",
-    subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum pulvinar aliquet. Fusce egestas nisl id sodales convallis. Suspendisse tempor ultrices magna in placerat. Morbi turpis erat, pretium eget interdum tincidunt, varius ac nisi. Sed non turpis posuere, eleifend justo vestibulum, vehicula quam. Aenean porta justo cursus metus finibus, ac tempor ante euismod. Proin luctus nec est vitae dictum. Quisque sagittis tortor eget neque volutpat auctor. Integer sagittis commodo lectus, non vulputate turpis consequat id. Nullam mollis pretium mi, ut dictum leo viverra eu. Phasellus ut est neque.",
-    orientation: "right",
+    title: "SWIFT — Snap. Stack. Shoot.",
+    video: {
+      link: "/assets/videos/Nisi_swift.mp4",
+      type: "video/mp4"
+    },
+    subtitle: "1-second detachment. Rock-solid hold. Endless creative combos.",
+    orientationX: "left",
+    orientationY: "bottom",
   },
 ]
 
