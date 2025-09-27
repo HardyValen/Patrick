@@ -1,20 +1,20 @@
 <script>
-  import { cn } from "$lib/utils.js";
-  import { typographyVariants } from "$lib/typographyVariants";
-  import {
-    ProductTop,
-    ProductFooter
-  } from "$composite";
+  // import { cn } from "$lib/utils.js";
+  // import { typographyVariants } from "$lib/typographyVariants";
+  // import {
+  //   ProductTop,
+  //   ProductFooter
+  // } from "$composite";
 
-  let {
-    ref = $bindable(null),
-    class: className,
-    data: productData,
-    ...restProps
-  } = $props();
+  // let {
+  //   ref = $bindable(null),
+  //   class: className,
+  //   data: productData,
+  //   ...restProps
+  // } = $props();
 
-  const { current, prev, next } = $derived(productData ?? {});
-  const { content, ...restCurrent } = $derived(current ?? {});
+  // const { current, prev, next } = $derived(productData ?? {});
+  // const { content, ...restCurrent } = $derived(current ?? {});
 
 </script>
 
@@ -23,7 +23,7 @@
 <!-- - Markdown Content -->
 <!-- - Footer: Previous / Next post, Related Posts with similar tags -->
 
-<div
+<!-- <div
   bind:this={ref}
   class={cn(
     className,
@@ -53,4 +53,4 @@
     )}
     data={{prev, next}}
   />
-</div>
+</div> -->

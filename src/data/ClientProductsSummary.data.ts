@@ -14,7 +14,7 @@ const Data: ClientProductsSummaryData[] = [
     img: "/assets/images/Nisi_Group_JetMagPro_tmb.png",
   },
   {
-    id: "nisi-group/circularfilter",
+    id: "nisi-group/circular-filters",
     title: "Circular Filters",
     subtitle: "Fast, lightweight, and always ready. Freedom in your pocket.",
     img: "/assets/images/Nisi_Group_CircularFilter_tmb.png",
