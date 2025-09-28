@@ -11,7 +11,7 @@
   import { cn } from "$lib/utils.js";
   import { mode } from "mode-watcher";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
-  import { typographyVariants } from "$lib/typographyVariants";
+  import { typographyVariants } from "$lib";
 
   let {
     data: navLinksData = [],

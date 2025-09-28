@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Perusahaan",
+    "href": "/about"
+  },
+  {
+    "title": "Information",
+    "classes": "grid p-2 grid-cols-1 min-w-80",
+    "dropdown": [
+      {
+        "title": "Produk",
+        "href": "/products",
+        "description": "Jelajah inventaris toko berdasarkan jenis produk seperti kamera, lampu, dst."
+      },
+      {
+        "title": "Brand",
+        "href": "/",
+        "description": "Jelajah barang dagangan PT Patrick disortir berdasarkan brand."
+      },
+      {
+        "title": "Artikel",
+        "href": "/",
+        "description": "Ikuti perkembangan terkini produk yang anda incar."
+      },
+      {
+        "title": "Tentang Kami",
+        "href": "/",
+        "description": "Pelajari toko kami dan raih kesempatan bekerja sama antara distributor dan pengecer."
+      }
+    ]
+  },
+  {
+    "title": "Contact",
+    "classes": "grid p-2 grid-cols-1 min-w-40 grid-cols-[200px_100px]",
+    "dropdown": [
+      {
+        "title": "PT. Patrick",
+        "href": "/",
+        "description": "Electronics, Lights, Visuals, Cameras, and Storage Devices.",
+        "classes": "row-span-3"
+      },
+      {
+        "title": "Instagram",
+        "href": "https://instagram.com/"
+      },
+      {
+        "title": "Whatsapp",
+        "href": "#"
+      },
+      {
+        "title": "Email",
+        "href": "#"
+      }
+    ]
+  }
+]

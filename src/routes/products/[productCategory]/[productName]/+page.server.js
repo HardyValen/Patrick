@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
-import { clientProductsData } from "$data";
-import { unifiedPipeline as processor} from '$lib'
+import { fetchJSON, unifiedPipeline as processor} from '$lib'
+
 
 // Error codes in json
 const errorMap = new Map();
@@ -27,6 +27,12 @@ function getFooterLink(obj) {
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, params, url }) {
   try {
+    // URL for products data json
+    const cpd_url = "/assets/json/products-data.json";
+
+    // fetch clientProductData
+    const clientProductsData = await fetchJSON(fetch, cpd_url);
+
     // Get product element by id matches with product category and product name
     let selectedData = await clientProductsData.find(({ id }) => id === `${params.productCategory}/${params.productName}`);
 

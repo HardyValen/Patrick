@@ -1,6 +1,6 @@
 <script>
   import { cn } from "$lib/utils.js";
-  import { typographyVariants } from "$lib/typographyVariants";
+  import { typographyVariants } from "$lib";
   import { onMount } from 'svelte';
   import { Button } from "$lib/components/ui/button/";
   import ChevronLeft from "@lucide/svelte/icons/chevron-left";

@@ -8,8 +8,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo ''",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run"
   },

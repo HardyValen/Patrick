@@ -1,6 +1,6 @@
 <script>
   import { cn } from '$lib/utils.js';
-  import { typographyVariants } from '$lib/typographyVariants';
+  import { typographyVariants } from '$lib';
   import map from "$lib/assets/MapsPlaceholder.png";
 
   /** The "FooterLinkGroup" prop is optional, but follows this interface

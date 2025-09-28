@@ -1,14 +1,21 @@
 // place files you want to import through the `$lib` alias in this folder.
 import { unifiedPipeline } from "./unifiedPipeline";
-import { typographyVariants } from "./typographyVariants";
-import { alignmentVariants } from "./alignmentVariants";
 import { cn } from "./utils.js";
 import { viewport } from "./viewport";
+import { fetchJSON, fetchText } from "./fetchUtils";
+import {
+  alignmentVariants,
+  navbarDropdownVariants,
+  typographyVariants
+} from "./twVariants";
 
 export {
   unifiedPipeline,
-  typographyVariants,
-  alignmentVariants,
   cn,
-  viewport
+  viewport,
+  fetchJSON,
+  fetchText,
+  alignmentVariants,
+  navbarDropdownVariants,
+  typographyVariants
 };

@@ -11,7 +11,7 @@
   import { cn } from "$lib/utils.js";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
   import { DarkMode, ClientNavDrawer } from "$composite";
-  import { typographyVariants } from "$lib/typographyVariants";
+  import { typographyVariants } from "$lib";
 
   let {
     ref = $bindable(null),
