@@ -1,16 +1,63 @@
 <script>
 	import '$appcss';
 	import favicon from '$lib/assets/nisi-favicon.webp';
-	import { ModeWatcher } from "mode-watcher";
-  import { Footer, ClientNavBar } from '$composite';
+	import { mode, toggleMode, ModeWatcher } from "mode-watcher";
+  import { Footer, ClientNavBar, DebugWindow } from '$composite';
+  import { setContext } from "svelte";
   import { cn } from '$lib/utils';
+  import {
+    debugConfig as dbg,
+    searchWindowConfig as search,
+    darkModeConfig
+  } from "$config";
+  import { handleKeyCombinations } from "$lib";
 
 	let { data, children } = $props();
+
+	let debugWindow = $state({
+	  visible: false
+	});
+	let searchWindow = $state({
+	  visible: false
+	});
+
+	setContext('debug', debugWindow);
+	setContext('search', searchWindow);
+
+	function onkeydown(e) {
+    if (e.repeat) return;
+
+    // Handle Debug
+		if (handleKeyCombinations(e, dbg.showWindowKeys)) {
+		  if (dbg.enabled) {
+        e.preventDefault();
+        debugWindow.visible = !debugWindow.visible;
+			}
+		}
+
+		// Handle Search Window
+		if (handleKeyCombinations(e, search.showWindowKeys)) {
+      e.preventDefault();
+      searchWindow.visible = !searchWindow.visible;
+		}
+
+		// Handle Dark Mode Toggle Shortcut
+		if (handleKeyCombinations(e, darkModeConfig.showWindowKeys)) {
+		  e.preventDefault();
+			toggleMode();
+		}
+	}
 </script>
+
+<svelte:window {onkeydown}/>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
+
+<div>
+
+</div>
 
 <ClientNavBar
   class={cn(
@@ -28,4 +75,12 @@
   )}
 />
 
+<DebugWindow
+  data={[
+    {searchWindow},
+    {mode},
+    {debugWindow},
+    {lipsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum pulvinar aliquet. Fusce egestas nisl id sodales convallis. Suspendisse tempor ultrices magna in placerat. Morbi turpis erat, pretium eget interdum tincidunt, varius ac nisi. Sed non turpis posuere, eleifend justo vestibulum, vehicula quam. Aenean porta justo cursus metus finibus, ac tempor ante euismod. Proin luctus nec est vitae dictum. Quisque sagittis tortor eget neque volutpat auctor. Integer sagittis commodo lectus, non vulputate turpis consequat id. Nullam mollis pretium mi, ut dictum leo viverra eu. Phasellus ut est neque."}
+  ]}
+/>
 <ModeWatcher />

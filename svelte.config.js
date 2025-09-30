@@ -13,6 +13,7 @@ const config = {
 			'$appcss': "/src/app.css",
 			'$composite': "/src/lib/composite",
 			'$data': "/src/data_definitions",
+			'$config': "/src/config"
 		}
 	}
 };

@@ -2,7 +2,6 @@
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
   import { SearchAuto, query } from "$composite/SearchAuto";
-  import data from "$data/mh_mice.json";
 
   let {
     ref = $bindable(null),
