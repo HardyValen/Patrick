@@ -107,7 +107,7 @@
           class="w-full max-w-60 md:max-w-80"
         />
       </a> -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.960445948071!2d106.82259213786135!3d-6.136016948430678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5f8cae40bd5%3A0xbd650a77e9a38f0!2sVitesse!5e0!3m2!1sen!2sid!4v1759216369307!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="vitesse-map"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.960445948071!2d106.82259213786135!3d-6.136016948430678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5f8cae40bd5%3A0xbd650a77e9a38f0!2sVitesse!5e0!3m2!1sen!2sid!4v1759216369307!5m2!1sen!2sid" style="border:0;" class="w-full max-w-160 h-full min-h-100" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="vitesse-map"></iframe>
     </div>
 
     <!-- Footer Group Links -->

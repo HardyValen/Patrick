@@ -22,6 +22,12 @@ import {
   handleKeyCombinations
 } from "./handleKeyCombinations"
 
+import * as FI from "./fetchInjection";
+
+import {
+  ErrorMessageHandler
+} from "./proxyHandlers";
+
 export {
   unifiedPipeline,
   cn,
@@ -31,5 +37,7 @@ export {
   alignmentVariants,
   navbarDropdownVariants,
   typographyVariants,
-  handleKeyCombinations
+  handleKeyCombinations,
+  FI,
+  ErrorMessageHandler
 };

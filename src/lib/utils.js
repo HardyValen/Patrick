@@ -2,8 +2,16 @@
 
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { ErrorMessageHandler } from "$lib";
 
 export function cn(...inputs) {
 	return twMerge(clsx(inputs));
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+// Error message arguments for svelte routing
+export function errorArgs(errorMessages, code) {
+  const getMessage = new Proxy(errorMessages, ErrorMessageHandler.GetMessage);
+  const getHttpCode = new Proxy(errorMessages, ErrorMessageHandler.GetHTTPCode);
+  return [getHttpCode[code], getMessage[code]]
+}
