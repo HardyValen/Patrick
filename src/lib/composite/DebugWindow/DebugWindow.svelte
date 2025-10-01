@@ -16,7 +16,7 @@
   bind:this={ref}
   class={cn(
     className,
-    getContext("debug").visible ? "hidden" : "",
+    !getContext("debug").visible ? "hidden" : "",
     "fixed z-999 top-0 left-0 w-240 h-full max-h-full overflow-auto p-8",
     "debug-window"
   )}

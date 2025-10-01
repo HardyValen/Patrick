@@ -1,18 +1,6 @@
 import { error } from "@sveltejs/kit";
-import { fetchJSON, unifiedPipeline as processor} from '$lib'
-
-
-// Error codes in json
-const errorMap = new Map();
-
-errorMap.set(
-  "PRODUCT_NAME_0001",
-  "Sorry, the requested product was not found."
-);
-errorMap.set(
-  "PRODUCT_NAME_0002",
-  "Sorry, the product description file was not found."
-);
+import { fetchJSON, unifiedPipeline as processor } from '$lib';
+import { ErrorMessageHandlers } from "$lib/proxyHandlers";
 
 // unified process mdToHtml
 async function mdToHtml(content) {
@@ -30,22 +18,33 @@ export async function load({ fetch, params, url }) {
     // URL for products data json
     const cpd_url = "/assets/json/products-data.json";
 
+    // URL for error messages
+    const err_url = "/assets/json/error.json";
+
+    // fetch error message
+    const errorMessages = await fetchJSON(fetch, err_url);
+
     // fetch clientProductData
     const clientProductsData = await fetchJSON(fetch, cpd_url);
 
-    // Get product element by id matches with product category and product name
-    let selectedData = await clientProductsData.find(({ id }) => id === `${params.productCategory}/${params.productName}`);
+    // proxy for error messages
+    const getMessage = new Proxy(errorMessages, ErrorMessageHandler.GetMessage);
+    const getHttpCode = new Proxy(errorMessages, ErrorMessageHandler.GetHTTPCode);
+
+    // Get product element by id matches with product name
+    let selectedData = await clientProductsData.find(({ id }) => id === params.productName);
 
     // if the product element is not found, return an error.
     if (selectedData === undefined) {
-      throw new Error(errorMap.get("PRODUCT_NAME_0001"))
+      throw new Error(getMessage["PRODUCT_NAME_0001"]);
+
     }
 
     // try fetch from content url, else it shall return error when the resource is not found.
     const response = await fetch(selectedData.content);
 
     if (!response.ok) {
-      throw new Error(errorMap.get("PRODUCT_NAME_0002"));
+      throw new Error(getMessage["PRODUCT_NAME_0002"]);
     }
 
     const result = await response.text()

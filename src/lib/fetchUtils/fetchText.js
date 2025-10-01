@@ -1,3 +1,5 @@
+import { debugConfig } from "$config";
+
 async function fetchText(fetch, url) {
   try {
     const response = await fetch(url);
@@ -8,7 +10,11 @@ async function fetchText(fetch, url) {
     return result;
 
   } catch (e) {
-    throw new Error("Fetch text failed", {cause: e.message});
+    if (debugConfig.enabled) {
+      throw new Error(`JSON fetch failed. Not found: ${url}`);
+    } else {
+      throw new Error(`JSON fetch failed.`);
+    }
   }
 }
 
