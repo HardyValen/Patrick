@@ -1,26 +1,58 @@
 [
   {
+    "id": "choosing-square-filters-nisi-system",
     "title": "Which NiSi System to choose?",
-    "tag": "NiSi System",
-    "img": "https://placehold.co/300x200?text=Placeholder",
-    "href": "/articles/choosing-square-filters-nisi-system"
+    "publishDate": "Thu May 30 2024 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "content": "/assets/textfile/articles/choosing-square-filters-nisi-system.txt",
+    "img": "/assets/images/articles/choosing-square-filters-nisi-system/1.webp",
+    "tags": [
+      "NiSi Optics",
+      "NiSi Square Filters",
+      "Camera",
+      "Filters"
+    ],
+    "nextId": "difference-between-white-mist-black-mist-filters",
+    "prevId": ""
   },
   {
-    "title": "Title",
-    "tag": "tag",
-    "img": "https://placehold.co/300x200?text=Placeholder",
-    "href": "/"
+    "id": "difference-between-white-mist-black-mist-filters",
+    "title": "Difference between White mist and Black mist filters",
+    "publishDate": "Thu May 30 2024 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "content": "/assets/textfile/articles/difference-between-white-mist-black-mist-filters.txt",
+    "img": "/assets/images/articles/difference-between-white-mist-black-mist-filters/1.webp",
+    "tags": [
+      "NiSi Optics",
+      "NiSi Filters",
+      "Camera",
+      "Filters"
+    ],
+    "nextId": "jetmag-pro-vnd-magnetic-variable-nd-features",
+    "prevId": "choosing-square-filters-nisi-system"
   },
   {
-    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum pulvinar aliquet. Fusce egestas nisl id sodales convallis. Suspendisse tempor ultrices magna in placerat. Morbi turpis erat, pretium eget interdum tincidunt, varius ac nisi. Sed non turpis posuere, eleifend justo vestibulum, vehicula quam. Aenean porta justo cursus metus finibus, ac tempor ante euismod. Proin luctus nec est vitae dictum. Quisque sagittis tortor eget neque volutpat auctor. Integer sagittis commodo lectus, non vulputate turpis consequat id. Nullam mollis pretium mi, ut dictum leo viverra eu. Phasellus ut est neque.",
-    "tag": "brand",
-    "img": "https://placehold.co/300x200?text=Placeholder",
-    "href": "/"
+    "id": "jetmag-pro-vnd-magnetic-variable-nd-features",
+    "title": "NiSi JetMag Pro VND: Magnetic Variable ND, Main Features and Characteristics",
+    "publishDate": "Thu May 30 2024 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "content": "/assets/textfile/articles/jetmag-pro-vnd-magnetic-variable-nd-features.txt",
+    "img": "/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/1.jpg",
+    "tags": [
+      "NiSi Optics",
+      "NiSi JetMag Pro"
+    ],
+    "nextId": "nisi-swift-system-how-it-works-and-advantages",
+    "prevId": "difference-between-white-mist-black-mist-filters"
   },
   {
-    "title": "Test",
-    "tag": "brand",
-    "img": "https://placehold.co/300x200?text=Placeholder",
-    "href": "/"
+    "id": "nisi-swift-system-how-it-works-and-advantages",
+    "title": "NiSi SWIFT System: How it works and advantages",
+    "publishDate": "Thu May 30 2024 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "content": "/assets/textfile/articles/nisi-swift-system-how-it-works-and-advantages.txt",
+    "img": "/assets/images/articles/nisi-swift-system-how-it-works-and-advantages/7.webp",
+    "tags": [
+      "NiSi Optics",
+      "NiSi SWIFT System"
+    ],
+    "nextId": "",
+    "prevId": "difference-between-white-mist-black-mist-filters"
   }
 ]

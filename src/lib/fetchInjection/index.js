@@ -1,13 +1,13 @@
-import clientNavbar from "./client-navbar";
-import clientArticles from "./client-articles";
-import landingBrands from "./landing-brands";
-import landingCarousel from "./landing-carousel";
-import productsData from "./products-data";
+// import * as About from "./about";
+import Articles from "./articles";
+import * as Layout from "./layout";
+import * as Landing from "./landing";
+import Products from "./products";
 
 export {
-  clientNavbar,
-  clientArticles,
-  landingBrands,
-  landingCarousel,
-  productsData
-}
+  // About,
+  Articles,
+  Layout,
+  Landing,
+  Products
+};

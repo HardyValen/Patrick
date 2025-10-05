@@ -4,7 +4,8 @@
     ClientCarousel,
     ClientProducts,
     ClientArticles,
-    ClientBrands
+    ClientBrands,
+    Meta
   } from "$composite";
 
   import { cn } from "$lib/utils";
@@ -13,10 +14,7 @@
 
 </script>
 
-<svelte:head>
-	<title>NiSi Optics Indonesia</title>
-	<meta name="description" content="NiSi Optics Indonesia" />
-</svelte:head>
+<Meta metadata={data.meta}></Meta>
 
 <div>
   <!-- Carousel -->

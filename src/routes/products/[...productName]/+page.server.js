@@ -17,7 +17,7 @@ function getFooterLink(obj) {
 export async function load({ fetch, params, url }) {
   try {
     // fetch clientProductData
-    const clientProductsData = await FI.productsData({fetch});
+    const clientProductsData = await FI.Products({fetch});
 
     // Get product element by id matches with product name
     const selectedData = clientProductsData.find(({ id }) => id === params.productName);

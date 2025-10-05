@@ -2,12 +2,23 @@
 ._client-content {
   color: var(--color-client-content);
 
-  *:not(div, table, ul, ol, li) {
+  *:not(
+    div, table, ul, ol, li, img, summary
+  ) {
     margin-top: calc(var(--text-lg) * 1.5);
     margin-bottom: calc(var(--text-lg) * 1.5);
 
-    &:first-child {
+    &:first-child, &:first-of-type {
       margin-top: 0;
+    }
+  }
+
+  a {
+    color: var(--color-client-content-link);
+
+    &:hover {
+      text-decoration-line: underline;
+      color: var(--color-client-content-link-hover);
     }
   }
 
@@ -191,6 +202,18 @@
       & ol {
         list-style-type: lower-roman;
       }
+    }
+  }
+
+  details {
+    summary {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    p {
+      font-size: var(--text-base);
+      line-height: --spacing(7);
     }
   }
 }

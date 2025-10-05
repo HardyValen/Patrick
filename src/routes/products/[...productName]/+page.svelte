@@ -18,6 +18,10 @@
 
 </script>
 
+<svelte:head>
+	<title>{current.title}</title>
+	<meta name="description" content={current.title} />
+</svelte:head>
 <!-- Components: -->
 <!-- - Top Banner: Title, Image, Subtitle; Publish Date, Tags -->
 <!-- - Markdown Content -->

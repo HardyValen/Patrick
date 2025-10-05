@@ -1,0 +1,96 @@
+<p>Every visual storyteller knows how quickly lighting conditions can change and how essential it is to adapt in the moment. The <strong><a href="https://nisioptics.co.uk/product/jetmag-pro-true-color-nd-vario-1-5-stops/">NiSi JetMag Pro VND</a></strong> is crafted for real-world shooting, delivering smooth and reliable light control through an <strong><a href="https://nisioptics.co.uk/jetmag-pro-magnetic/">innovative magnetic system</a></strong> designed for life on the move. Whether you capture fast-paced action or the soft glow of golden hour, this variable ND filter lets you stay in the creative flow without interruption.</p>
+
+![lens-jetmag-pro](/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/2.webp)
+
+## You Asked. We Made It.
+<p>After launching the original <a href="https://nisioptics.co.uk/jetmag-pro-magnetic/"><strong>JetMag Pro system</strong></a>, we kept hearing one request more than any other, “When is the VND coming?” So <strong>we listened</strong>. The JetMag Pro VND builds on everything creators already <strong>love, speed, reliability, and flexibility</strong>, and brings a truly refined Variable ND experience with features designed for real-world production.</p>
+
+![lens-jetmag-pro](/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/3.jpg)
+
+## What Does a Variable ND Filter Do?
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6">
+  <div class="order-2 md:order-1">
+    <p>A Variable ND (neutral density) filter gives you greater <strong>control over your exposure by reducing the amount of light</strong> entering the lens, without affecting colour or sharpness. Rather than switching between multiple fixed ND filters as lighting conditions change, you can <strong>rotate</strong> a single VND to fine-tune the exact level of light reduction you need.</p>
+    <p>This allows you to <strong>shoot wide open in bright daylight</strong> for a shallow depth of field, capture motion blur in daylight, or maintain proper shutter speeds for video. It allows you to <strong>adjust</strong> your settings without compromising your creative intent, whether you shoot stills, video, or both.</p>
+    <p>Filmmakers rely on VNDs to maintain the 180-degree shutter rule in bright light without overexposing. Photographers use them to capture smooth water and motion trails or to shoot wide open at midday. If you film weddings, run-and-gun interviews, travel vlogs, or social content outdoors, this tool gives you control without slowing you down.</p>
+  </div>
+  <div class="order-1 md:order-2">
+    <img
+      title="human-standing-in-front-of-a-tree"
+      src="/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/4.jpg"
+      class="mb-2"
+    >
+    <subtitle>This portrait was shot at f/1.9. The NiSi VND JetMag was used at 4 stops to allow the right amount of light.</subtitle>
+  </div>
+</div>
+
+## Why the Variable ND Is the Most Versatile ND Filter
+
+<p>With a single <strong>Variable ND</strong>, you gain multi-stop light control that adapts to changing conditions without interrupting your workflow. This makes it ideal for <strong>fast-paced environments</strong>, location shoots, and hybrid creators who value efficiency and flexibility.</p>
+
+<iframe src="https://www.youtube.com/embed/y1T0CwAqZTE" title="NiSi JetMag Vario ND 1-5 Stops: The best Vario ND in the market" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="max-w-320 w-full h-80 md:h-120"></iframe>
+
+## JetMag Pro vs. Traditional Variable ND Filters
+| Feature | JetMag Pro VND | Traditional VND Filters |
+|-----|----|-----|
+|Mounting System|Magnetic locking|Thread-on|
+|Speed of Use|Instant mount and adjust|Slower|
+|Hard Stops|Yes|Often missing|
+|Built-in CPL|A built-in magic trick:<br> rotate to adjust polarization|Not always included|
+|Color Accuracy|True Color|Often Shifts|
+|Lens Compatibility|Ultra-slim design|May vignette at wide focal lengths|
+|Stackability|Works with other JetMag Pro Filters|Limited|
+|Markings|Dual-sided|Usually one-sided|
+|Detachable Lever|Yes|Rarely offered|
+
+<p>The <a href="https://nisioptics.co.uk/product/jetmag-pro-true-color-nd-vario-1-5-stops/"><strong>JetMag Pro VND</strong></a> stands out from traditional variable ND filters in several ways. Its <strong>magnetic locking system</strong> is faster and more secure than screw-on filters. <strong>Built-in hard stops</strong> prevent over-rotation and eliminate the risk of introducing the unwanted X-pattern. <strong>True Colour optics</strong> preserve accurate tones across the entire ND range, while the <strong>detachable lever and dual-sided markings</strong> make quick adjustments straightforward and intuitive.</p>
+
+<p>Traditional filters often suffer from colour shifts, bulk, or compatibility issues. <strong>The JetMag Pro’s slim</strong>, oversized <strong>design</strong> avoids these problems at most focal lengths and stacks easily with other filters, helping you adapt without compromise.</p>
+
+![jetmag-filter-and-its-pouch](/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/5.jpg)
+
+### Built for the Way You Actually Shoot
+<p>The <strong>JetMag Pro VND</strong> was designed to match how creators work in real-world scenarios. The magnetic mount features colour-coded alignment for fast and reliable attachment. <strong>Dual-sided stop markings are easy to read</strong>, no matter how your camera is rigged, and the detachable control lever allows for responsive adjustment, even when wearing gloves or working in tight setups.</p>
+<p><strong>You can reposition the lever on either side to suit your setup</strong>. This attention to detail helps you stay focused on the scene, not your gear. Whether hiking with a rig over your shoulder or making adjustments mid-take, you will notice the difference in speed and usability.</p>
+
+![camera-with-repositioning-tool](/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/6.webp)
+
+### A Built-In Magic Trick: Rotate to Adjust Polarisation
+<p>The <strong>JetMag Pro VND also functions as a circular polariser</strong>. Once you have set your desired ND strength, <strong>simply rotate</strong> the entire filter to control <strong>reflections and glar</strong>e, ideal for water, windows, or reflective surfaces. It is two filters in one, built into a single compact design.</p>
+
+<video autoplay loop muted controls src="/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/6.mp4">
+</video>
+
+### Creative Control Through Smart Stacking
+
+<p>When one filter is insufficient, you can <strong>easily build on the VND</strong>. <strong>Stack a 4-stop ND</strong> to extend your range in bright light from 1-5 <strong>to 5-9 stops</strong>, or add a <strong>Black Mist filter</strong> to soften highlights and introduce <strong>cinematic character</strong>. The VND’s <strong>slim profile</strong> allows you to combine filters <strong>without creating a bulky setup</strong>.</p>
+
+<p>Unlike traditional setups that require stepping rings or bulky matte boxes, JetMag filters mount quickly and easily. Whether switching between interviews and B-roll, or moving from golden hour to harsh midday sun, stacking gives you <strong>complete control in seconds</strong>.</p>
+
+<p>This modular approach benefits hybrid creators, small crews, or fast-changing environments where flexibility is essential.</p>
+
+![camera-with-repositioning-tool](/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/7.webp)
+
+### Real-World-Ready Design
+<p>The JetMag Pro VND features nano-coatings that reduce reflections and resist moisture, dust, and fingerprints, keeping your shots clean and sharp. These coatings provide matte box-level protection in a compact form, helping you maintain image quality without the need for extra gear.</p>
+<p>For handheld creators, travel filmmakers, and commercial crews alike, it solves everyday challenges, with no more juggling filter threads, cleaning smudged front elements between takes, or mounting a matte box just to control reflections. It is clean, lightweight, and always ready.</p>
+
+![camera-with-repositioning-tool](/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/8.jpg)
+
+## Three Buying Options for Every Workflow
+Whether upgrading your gear or starting fresh, the JetMag Pro VND is available in three tailored configurations.
+* The first is a <strong>standalone 1–5 stop Variable ND filter</strong>, ideal for creators who already own JetMag accessories and want to keep their setup minimal.
+* The <strong>VND Flex Kit includes the same 1–5 stop VND</strong>, magnetic <strong>adapter rings</strong>, <strong>front</strong> and <strong>back</strong> <strong>caps</strong>, and a padded case for those needing a <strong>ready-to-use kit</strong>. It offers a complete, streamlined setup for everyday shooting that works across multiple lens filter sizes.
+* If your work requires even greater flexibility, the <strong>VND 1–9 Mist Creator Kit</strong> expands your options by <strong>combining the 1–5 stop VND</strong> with a <strong>4-stop ND</strong> and a <strong>1/8 Black Mist filter</strong>. This kit also includes adapter rings, front and back caps, and a durable carrying case, making it ideal for stylised looks and changing lighting conditions.
+
+## Control the Light. Keep the Look.
+The JetMag Pro VND is not just a filter, it is a <strong>creative tool designed to match the pace of modern production</strong>. It offers fast exposure control, polarisation, and optional stacking, all in one compact build.
+
+<blockquote>
+  <p>This is the Variable ND you asked for, built the way you need it.</p>
+</blockquote>
+
+<iframe src="https://www.youtube.com/embed/dkrTJPCAzGE" title="NiSi JetMag Vario ND 1-5 with Polarisation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="max-w-320 w-full h-80 md:h-120"></iframe>
+
+<iframe src="https://www.youtube.com/embed/188cO22xW-g" title="NiSi JetMag Pro Vario-ND 1-5 Stops Magnetic with polarisation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="max-w-320 w-full h-80 md:h-120"></iframe>

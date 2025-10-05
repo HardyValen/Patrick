@@ -68,7 +68,7 @@ const content = [
 ].join("\n");
 const transformedContent = await processor.process(content);
 
-export function load() {
+export function load({ url }) {
   return {
     content: String(transformedContent)
   }

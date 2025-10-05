@@ -147,7 +147,7 @@
         "text-primary",
         typographyVariants({variant: "xsmall"})
       )}>
-        &copy;2025 Vitesse. All Rights Reserved.
+        © 2025 Vitesse. All Rights Reserved.
       </span>
     </div>
 

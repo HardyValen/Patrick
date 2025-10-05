@@ -8,9 +8,12 @@ import ClientArticles from './ClientArticles';
 import ClientBrands from "./ClientBrands";
 import ProductTop from "./ProductTop";
 import ProductFooter from "./ProductFooter";
+import ArticleTop from "./ArticleTop";
+import ArticleFooter from "./ArticleFooter";
 import { SearchAuto } from "./SearchAuto";
 import AnimateIntersect from "./AnimateIntersect";
 import DebugWindow from "./DebugWindow";
+import Meta from "./Meta";
 
 export {
   ClientArticles,
@@ -23,7 +26,10 @@ export {
   Footer,
   ProductTop,
   ProductFooter,
+  ArticleTop,
+  ArticleFooter,
   SearchAuto,
   AnimateIntersect,
-  DebugWindow
+  DebugWindow,
+  Meta
 }

@@ -11,6 +11,7 @@
     darkModeConfig
   } from "$config";
   import { handleKeyCombinations } from "$lib";
+  import { navigating, page, updated } from '$app/state';
 
 	let { data, children } = $props();
 
@@ -78,9 +79,12 @@
 {#if dbg.enabled}
   <DebugWindow
     data={[
-      {searchWindow},
-      {mode},
-      {debugWindow}
+      // {searchWindow},
+      // {mode},
+      // {debugWindow},
+      // {navigating},
+      {...page, data:""},
+      // {updated}
     ]}
   />
 {/if}

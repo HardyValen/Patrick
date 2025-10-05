@@ -58,10 +58,10 @@
             "transition-all duration-150 ease-in-out",
             "text-slate-50"
           )}
-          href={data.href}
+          href={`/articles/${data.id}`}
           style={`background-image: url(${data.img})`}
         >
-          <div>{data.tag}</div>
+          <div>{data.tags?.slice(0,3)?.join(" • ")}</div>
           <h3 class={cn(
             typographyVariants({variant: "h2"}),
             "font-bold line-clamp-3"
@@ -77,16 +77,17 @@
           `${rv}`,
           "bg-slate-900",
           "text-slate-50",
-          "p-5",
-          "flex flex-col items-stretch gap-2"
+          "py-5",
+          "flex flex-col items-stretch"
         )}>
           {#each articlesData.slice(1, 4) as data}
             <a
               class={cn(
-                "not-last:pb-2 not-last:border-b-1 not-last:border-b-slate-700",
-                "flex justify-start items-center gap-4 md:gap-8"
+                "py-2 px-5 not-last:border-b-1 not-last:border-b-slate-700",
+                "flex justify-start items-center gap-4 md:gap-8",
+                "hover:bg-slate-800/80"
               )}
-              href={data.href}
+              href={`/articles/${data.id}`}
             >
               <div class={cn(
                 "flex flex-col",
@@ -95,7 +96,7 @@
                 <p class={cn(
                   "text-slate-400 text-sm line-clamp-1"
                 )}>
-                  {data.tag}
+                  {data.tags?.slice(0,3)?.join(" • ")}
                 </p>
                 <p class={cn(
                   "text-white font-bold line-clamp-3"

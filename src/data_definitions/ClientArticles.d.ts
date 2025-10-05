@@ -1,6 +1,11 @@
 export interface ClientArticles_Item {
+  id: string,
   title: string,
-  tag: string
+  publishDate: string,
+  content: string,
   img?: string,
-  href?: string,
+  layout?: "full" | "half",
+  tags: string[],
+  nextId?: string,
+  prevId?: string,
 }

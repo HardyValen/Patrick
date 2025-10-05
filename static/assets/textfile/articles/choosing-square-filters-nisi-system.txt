@@ -8,4 +8,106 @@ The first thing is to check your lenses to see if a front thread is present.
 
 If all (or at least most of the ones you want to use with filters) have front threads, you should also note the size of the threads. Usually, you will find a size in mm followed by the “Ø” symbol on the front of the lens and/or barrel.
 
-![where to find filter thread dimension size filter ring](/assets/images/where-to-find-filter-thread-dimension-size-filter-ring.webp)
+![where to find filter thread dimension size filter ring](/assets/images/articles/choosing-square-filters-nisi-system/1.webp)
+
+* If you have thread sizes up to, maximum 67mm AND a mirrorless camera (Micro Fourth Third or APS-C) go to next point (1).
+* If you have the thread sizes up to, maximum 82mm, any type of camera, go to point (2). Otherwise go to paragraph (3).
+* If you have the Canon EF 11-24mm f/4 L USM, you need to go to the 180mm ad-hoc system.
+
+## 1. 75mm square or screw-in filters
+Knowing that your lenses have threads, you can use both slot-in filters with the M75 holder (i.e. System 75) and screw filters. If you haven’t chosen yet you can consider these points:
+
+<ul>
+  <li>the <strong>slot-in 75mm filters</strong> can be easily adapted to lenses with threads from 39mm to 67mm (under 39mm you can use third-party step-up rings)</li>
+  <li><strong>screw-in filters are specific for each size</strong>, you can also take a larger size and then use third-party adapter rings. But it is not recommended for big differences in size (e.g. from 39 to 67mm).</li>
+  <li><strong><a href="https://nisioptics.co.uk/m75-holder-75mm-square-filters/">75mm NiSi square filter holders</a> allow the use of 1 polariser</strong> (<strong>included</strong> in M75 holder kits) and 2 square filters (usually 1 ND and 1 GND). So a total of 3 filters.</li>
+  <li>using <strong>several screw filters together is not recommended</strong>, for practical problems and possible vignetting. Remember, you can do this because circular NiSi filters have front threads, but you have to know the limits. The maximum recommended, however, is two screw-in filters.</li>
+  <li> The <strong>GND filter</strong> is exclusive to the square systems because it must be positioned on the <em>light</em> line (sliding vertically), with the screw-in filters the transition line would remain fixed in the centre.</li>
+</ul>
+
+<p>Another <strong>important</strong> advice with the 75mm System is concerning the widest focal length available in your lenses. The M75 Holder has been designed to be compact, but we cannot guarantee that at the widest focal length there won’t be vignetting. We recommend, to be safe, to use the 75 System from 24mm equivalent full-frame focal length. This means 16mm on APS-C or 12mm on Micro Fourth Third cameras. In some situation, there are wider lenses working without vignetting (for example the <strong>Panasonic Leica DG 8-18mm f/2.8-4.0 ASPH</strong>, also called <strong>Panasonic Lumix G/Leica H-E08018</strong>) or <strong>Panasonic Leica DG Vario-Elmarit 8-18mm f/2.8-4 ASPH</strong>). However, we cannot advise every wider lens will work without vignetting.</p>
+
+<p>If you are not sure about the <strong>widest lens</strong> you use, and <strong>some lenses are above 67mm</strong> filter thread, you’ll find our <strong>best seller 100 System the perfect holder for you</strong>.</p>
+
+<p>At the bottom, in the <strong>“bonus” section (4)</strong> you will find more information about the True Color Polariser.</p>
+
+## 2. 100mm square or screw-in filters
+<p>Knowing that your lenses <strong>have threads (up to 82mm)</strong>, you can use both square filters with the <a href="https://nisioptics.co.uk/nisi-v7-holder-switch-v6/"><strong>100mm holder</strong></a> (i.e. System 100mm), screw circular filters or push-to-fit Swift System. If you haven’t chosen yet you can consider these points:</p>
+
+<ul>
+  <li>the <strong>slot-in (square) filters</strong> of <strong>100mm system</strong> can be easily adapted to lenses with threads from 49mm to 82mm (under 49mm you can use third-party step-up rings)</li>
+  <li>you can find as well, special <strong>100mm system holders for specific lenses</strong> as:<br><a href="https://nisioptics.co.uk/product/nisi-100mm-filter-holder-for-sony-fe-14-mm-f-1-8-g-master/"><strong>Sony FE 14 mm f/1.8 G Master</strong></a><br><a href="https://nisioptics.co.uk/product/nisi-100mm-filter-holder-olympus-7-14/"><strong>Olympus M.Zuiko 7-14mm f/2.8 PRO</strong></a><br><a href="https://nisioptics.co.uk/product/nisi-100mm-filter-holder-for-nikon-z-14-24mm-f-2-8-s/"><strong>Nikon Z 14-24mm f/2.8 S</strong></a><br><a href="https://nisioptics.co.uk/product/nisi-100mm-filter-holder-for-laowa-12mm-f-2-8-includes-pro-polariser/"><strong>Laowa 12mm f/2.8</strong></a><br><a href="https://nisioptics.co.uk/product/100mm-filter-holder-laowa-10-18mm-f-4-5-5-6-fe/"><strong>Laowa 10-18mm f/4.5-5.6 FE</strong></a></li>
+  <li>screw-in circular filters or <a href="https://nisioptics.co.uk/nisi-swift-system/"><strong>Swift System</strong></a> filters are specific for each size, you can also take a larger size and then use third-party adapter rings (step-up) or get an all included kit like we have made for the <a href="https://nisioptics.co.uk/product/kit-nisi-swift-fs-nd/"><strong>Swift FS ND Kits</strong></a>.</li>
+  <li><strong>100mm NiSi square filter holders</strong> allow the use of <strong>1 polariser </strong>(<strong>included</strong> in <a href="https://nisioptics.co.uk/product/nisi-v7-with-true-color-nc-cpl/"><strong>V7 kit</strong></a>) and 3 filters (usually 1 ND 100×100 and up to 2 GND 100×150). A total of 4 filters, with no vignette from 15mm relative on Full Frame sensors. </li>
+  <li>using <strong>several screw filters together is not recommended</strong>, for practical problems and possible vignetting. Remember, you can do this because circular NiSi filters have front threads, but you have to know the limits. The maximum recommended is two filters.</li>
+  <li>with the <a href="https://nisioptics.co.uk/nisi-swift-system/"><strong>Swift System</strong></a>, we removed the need to screw in and stack circular filters, with a push-to-fit  new system that will make everything easier and faster for the videographer or photographer.<br>Examples of stacked Swift Filters on the below lenses:</li>
+</ul>
+
+<blockquote>
+  <p><strong>Sony 16-35 f2.8 GM V1 – 82mm Thread</strong><br>1 x Swift Filter | No vignetting @ 17mm<br>2 x Swift Filters | No vignetting @ 20mm<br>3 x Swift Filters | No vignetting @ 22mm<br><br><strong>Sony PZ 16-35 F4 G – 72mm Thread</strong><br>1 x Swift Filter | No vignetting @ 16mm<br>2 x Swift Filters | No vignetting @ 17mm<br>3 x Swift Filters | No vignetting @ 19mm</p>
+</blockquote>
+
+<ul>
+  <li>the <a href="https://nisioptics.co.uk/100m-graduated-neutral-density-gnd-filters/"><strong>GND filter</strong></a> is exclusive to the slot-in system because it must be positioned on the light line (sliding vertically) and with the screw-in filters the transition line would remain fixed in the centre.</li>
+</ul>
+
+<p>Generally speaking, circular filters are recommended for beginners who are unfamiliar with the tools, both because of the lower cost and the ease of use of a single screw-on filter. If it is you, you can go to the <a href="https://nisioptics.co.uk/nisi-circular-filters/"><strong>NiSi circular filters page</strong></a>.</p>
+
+<p>The NiSi Swift system is particularly valuable for photographers and videographers who shoot in situations where time is crucial or where there is a need to move quickly and efficiently from one shot to another. Visit the <a href="https://nisioptics.co.uk/nisi-swift-system/"><strong>NiSi Swift page</strong></a> for more informations</p>
+
+<p>The <strong>square filters are perfect</strong> for those who already know how to use the polariser and ND / GND filters, as they are more flexible. If it&#8217;s you, <strong>choose the 100mm System</strong>: <a href="https://nisioptics.co.uk/product/nisi-v7-with-true-color-nc-cpl/"><strong>V7 Holder</strong></a>, <a href="https://nisioptics.co.uk/nisi-v7-holder-switch-v6/#specific-lenses"><strong>Filter holder for specific lenses</strong></a>, <a href="https://nisioptics.co.uk/100mm-nd-filters/"><strong>ND 100&#215;100</strong></a>, <a href="https://nisioptics.co.uk/100m-graduated-neutral-density-gnd-filters/"><strong>GND 100&#215;150</strong></a> or as <a href="https://nisioptics.co.uk/nisi-v7-100mm-filters-kits/"><strong>100mm filter Kits</strong></a>.</p>
+
+<p>At the bottom, in the <strong>&#8220;bonus&#8221; section (4)</strong> you will find more information about the True Color CPL.</p>
+
+![special-100mm-holders](/assets/images/articles/choosing-square-filters-nisi-system/2.webp)
+
+## 3. 150mm square filters
+<p>If you are here, it means that your main lens (where you want to use the filters) has a <strong>thread bigger than 82mm</strong> or <strong>does not have the possibility to screw filters</strong> in. For example, the Tamron 15-30 f/2.8 (also G2), or the Nikon 14-24 f/2.8, both F or Z mount, Sigma 14-24 f/2.8 (both for Nikon/Canon and the DG DN version for Sony), etc.</p>
+
+<p>In this case, you have to go to the 150mm System. NiSi has the best 150mm Holders: the <strong>NiSi S6</strong>.</p>
+
+<p>The ND and GND filters are always the same, <a href="https://nisioptics.co.uk/150mm-nd-filters/"><strong>150x150mm (ND)</strong></a> and <a href="https://nisioptics.co.uk/150mm-grad-filters/"><strong>150x170mm (GND)</strong></a>.</p>
+
+<p>The S6 holder comes with an included True Color CPL (visit section 4 for more information about the True Color CPL)</p>
+
+![filters-and-holders](/assets/images/articles/choosing-square-filters-nisi-system/3.webp)
+
+## 150mm square filters holder NiSi S6
+<p>The <strong>NiSi S6</strong> is the most advanced version for your lenses with <strong>threads over 82mm</strong> or <strong>without one</strong>. You will always find a polariser included, a bag and on almost all holders the possibility to use an adapter for other threaded lenses. In addition, we offer the possibility to buy only the interchangeable main adapter ring for those who have multiple lenses without thread.</p>
+
+<ul>
+  <li><a href="https://nisioptics.co.uk/nisi-s6-150mm-filter-holders/"><strong>here you can find all NiSi S6</strong></a> (specific for each lens model)</li>
+  <li>in the <a href="https://nisioptics.co.uk/150mm-system-accessories/"><strong>section &#8220;NiSi S6 adapter rings&#8221;</strong></a> you will find the rings to adapt the NiSi S6 to threaded lenses or any other wide angle lens without the need to buy the whole S6 kit again</li>
+</ul>
+
+## 4. Bonus: True Color CPL polariser
+<p>The <strong>True Color CPL</strong> filter can be found in different models, as discussed above, such as:</p>
+
+<ul>
+  <li>Square <a href="https://nisioptics.co.uk/product/true-color-100x100mm-circular-polariser-cpl/"><strong>100x100mm</strong></a> (mostly paired with the <a href="https://nisioptics.co.uk/nisi-v7-holder-switch-v6/#specific-lenses"><strong>filter holders for specific lenses</strong></a>)</li>
+  <li>Square for <a href="https://nisioptics.co.uk/product/4x5-65-polariser/"><strong>Cinema 4&#215;5.65&#8243;</strong></a> or for our <a href="https://nisioptics.co.uk/product/nisi-cinema-true-color-rotating-pl-for-c5-matte-box/"><strong>C5 Matte Box</strong></a></li>
+  <li><a href="https://nisioptics.co.uk/product/true-color-nano-pro-cpl-circular-polariser/"><strong>Circular</strong></a> from 40.5mm to 95mm threads or <a href="https://nisioptics.co.uk/product/112mm-true-color-nano-cpl-for-nikon-z-14-24mm-f-2-8-s/"><strong>112mm thread</strong></a> for the <a href="https://nisioptics.co.uk/product/lens-hood-for-nikon-z-14-24/"><strong>Nikon Z 14-24 F2.8 Lens Hood</strong></a></li>
+  <li><a href="https://nisioptics.co.uk/product/nisi-swift-true-color-pro-nano-cpl-for-swift-system-nano-coating-optical-glass/"><strong>Swift System</strong></a> (to be used with the <a href="https://nisioptics.co.uk/product/nisi-swift-system-adaptor-ring/"><strong>Swift Adapters</strong></a> as a standalone filter)</li>
+  <li><a href="https://nisioptics.co.uk/product/nisi-m75-with-true-color-polariser/"><strong>M75 75mm</strong></a>, <a href="https://nisioptics.co.uk/product/nisi-v7-with-true-color-nc-cpl/"><strong>V7 100mm</strong></a>, <a href="https://nisioptics.co.uk/nisi-s6-150mm-filter-holders/#S6-True-Color"><strong>S6 150mm</strong></a></li>
+</ul>
+
+<p>The film developed by NiSi for&nbsp;the <strong>True Color CPL</strong>&nbsp;aims for <strong>maximum polarisation, uniformity and colour reproduction</strong>.&nbsp;Classic polarising filters are naturally subject to a yellow/green cast.&nbsp;Thanks to the application of the latest technologies,  we have developed a polarising filter which delivers maximum chromatic fidelity, eliminating any type of colour dominance. This polariser is perfect for situations where <strong>precise colour reproduction</strong> is important.</p>
+
+## Latest generation Cine Sealed technology
+<p>The <strong>NiSi True Color CPL</strong>&nbsp;uses <strong>Cine Sealing</strong> (watertight) technology that darkens and seals the edge of the filter to improve the optical performance and its lifespan</p>
+
+<p>Thanks to this treatment, the influence of <strong>temperature fluctuations is reduced</strong>, condensation is prevented and the filter is protected from <strong>unwanted flare and reflections</strong>.&nbsp;Compared to similar treatments, NiSi Cine Sealing technology allows us to seal the edge with maximum efficiency and effectiveness.</p>
+
+## NiSi True Color Polariser Test
+<p>When we discussed <a href="https://nisioptics.co.uk/nd-filters-without-colour-cast/"><strong>ND filters without colour</strong></a> cast in this blog, we showed the <strong>transmission curves of</strong>various ND filters showing that NiSi has the flattest curve and consequently the best colour match.
+</p>
+
+<p>
+Critical to the performance of the True Color CPL is it&#8217;s <strong>uniformity of transmission across the spectrum</strong>. So rather than the absolute value of the transmission, what is important here is that the <strong>curve remains as linear as possible</strong>. A flat line across the wavelengths (nm) demonstrates that for each colour, the same amount of light is transmitted and therefore one colour does not dominate.
+</p>
+
+![graph](/assets/images/articles/choosing-square-filters-nisi-system/4.webp)
+
+<p>As we can see from this graph*, the&nbsp;<a href="https://nisioptics.co.uk/product/true-color-nano-pro-cpl-circular-polariser/"><strong>True Color CPL polarising filter</strong></a>&nbsp;is practically perfect, with a flat and linear curve.&nbsp;So we can always expect accurate, natural colours.</p>
+
+<p><em>* T% (% transmission) detected on generic polariser adjustment: the T% value varies with the variation of the light conditions and polariser adjustment, the linear behaviour of the response on the various wavelengths does not.&nbsp;Neutrality is therefore always guaranteed.</em></p>
