@@ -1,6 +1,7 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
+  import { Meta } from "$composite";
 
   let {
     ref = $bindable(null),
@@ -9,6 +10,8 @@
     ...restProps
   } = $props()
 </script>
+
+<Meta metadata={data.meta}/>
 
 <div
   bind:this={ref}

@@ -3,7 +3,7 @@
 	import favicon from '$lib/assets/nisi-favicon.webp';
 	import { mode, toggleMode, ModeWatcher } from "mode-watcher";
   import { Footer, ClientNavBar, DebugWindow } from '$composite';
-  import { setContext } from "svelte";
+  import { getContext, setContext } from "svelte";
   import { cn } from '$lib/utils';
   import {
     debugConfig as dbg,
@@ -24,6 +24,11 @@
 
 	setContext('debug', debugWindow);
 	setContext('search', searchWindow);
+	setContext('debugData', [
+    {searchWindow},
+    {mode},
+    {debugWindow},
+  ])
 
 	function onkeydown(e) {
     if (e.repeat) return;
@@ -78,14 +83,7 @@
 
 {#if dbg.enabled}
   <DebugWindow
-    data={[
-      // {searchWindow},
-      // {mode},
-      // {debugWindow},
-      // {navigating},
-      {...page, data:""},
-      // {updated}
-    ]}
+    data={getContext("debugData")}
   />
 {/if}
 

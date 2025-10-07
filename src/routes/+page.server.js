@@ -1,4 +1,4 @@
-import { fetchJSON, FI } from "$lib";
+import { FI } from "$lib";
 import { error } from '@sveltejs/kit';
 import { traverseJson } from "$lib/utils";
 

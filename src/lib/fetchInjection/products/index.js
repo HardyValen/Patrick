@@ -1,2 +1,6 @@
 import data from "./products";
-export default data;
+import meta from "./products";
+export {
+  data,
+  meta
+};

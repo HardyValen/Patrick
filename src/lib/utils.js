@@ -10,10 +10,14 @@ export function cn(...inputs) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 /** Error message arguments for svelte routing */
-export function errorArgs(errorMessages, code) {
+export function errorArgs({errorMessages, code, defaultMessage = "Internal Server Error"}) {
   const getMessage = new Proxy(errorMessages, ErrorMessageHandler.GetMessage);
   const getHttpCode = new Proxy(errorMessages, ErrorMessageHandler.GetHTTPCode);
-  return [getHttpCode[code], getMessage[code]]
+  if (getHttpCode[code] >= 400 && getHttpCode[code] <= 599) {
+    return [getHttpCode[code], getMessage[code]]
+  } else {
+    return [500, defaultMessage]
+  }
 }
 
 /**

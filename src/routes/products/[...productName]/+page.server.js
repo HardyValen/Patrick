@@ -17,7 +17,7 @@ function getFooterLink(obj) {
 export async function load({ fetch, params, url }) {
   try {
     // fetch clientProductData
-    const clientProductsData = await FI.Products({fetch});
+    const clientProductsData = await FI.Products.data({fetch});
 
     // Get product element by id matches with product name
     const selectedData = clientProductsData.find(({ id }) => id === params.productName);
@@ -40,12 +40,14 @@ export async function load({ fetch, params, url }) {
     let previousData = clientProductsData.find(({ id }) => id === selectedData.prevId);
     let nextData = clientProductsData.find(({ id }) => id === selectedData.nextId);
 
+    // console.log(url.href)
+
     return {
       current: {...selectedData, content: result},
       prev: getFooterLink(previousData),
       next: getFooterLink(nextData)
     };
   } catch ({message: code}) {
-    error(...errorArgs(errorMessages, code));
+    error(...errorArgs({errorMessages, code, defaultMessage: code}));
   }
 }

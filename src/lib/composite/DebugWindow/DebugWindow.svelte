@@ -7,9 +7,10 @@
   let {
     ref = $bindable(null),
     class: className,
-    data = [],
     ...restProps
   } = $props();
+
+  let data = $state(getContext("debugData"));
 </script>
 
 <div

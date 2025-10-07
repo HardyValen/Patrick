@@ -1,0 +1,128 @@
+{
+  "hero": {
+    "title": "Beyond Imagination",
+    "img": "/assets/images/about/hero.webp"
+  },
+  "section1": {
+    "title": "We will share the moment when the best works are created through our products.",
+    "content": "NiSi was founded in Zhuhai, China in 2005 as an optical product research and development center. Since its founding, the company has been dedicated to developing camera filters, and has created over 100 types of filters and holders to date. Innovation has been NiSi's driving force since its inception, and the company continues to create 10 to 20 new products every year.",
+    "img": "/assets/images/about/1.webp"
+  },
+  "section2": {
+    "title": "About NiSi",
+    "content": [
+      "In mainland China, NiSi operates flagship stores in major cities such as Beijing, Guangzhou, Shanghai, and Shenzhen. In Japan, its products are displayed and sold at Yodobashi Camera and Bic Camera. NiSi has also partnered with B&H, the largest photography equipment retailer in the United States, and continues to expand globally through both online and physical stores. NiSi now delivers its products to users through over 100 retailers and photographers worldwide. NiSi exhibits annually at exhibitions around the world, including NAB, Photokina, CP+, IBC, and P&E, and holds approximately 200 workshops worldwide each year.",
+      "NiSi's products are constantly being innovated to meet the high demands of professionals through feedback.",
+      "Communication with users is the shortcut to improving quality, and we believe that products should best reflect the artist's sensibility, not the numerical values of analytical equipment. Sharing the moment when a photographer creates their best work through our products is the joy that drives NiSi to pursue the next innovation."
+    ]
+  },
+  "section3": {
+    "title": "Network",
+    "subtitle": "Office and sales network",
+    "items": [
+      {
+        "title": "Main Office",
+        "links": [
+          {
+            "text": "China",
+            "href": "https://en.nisioptics.com/"
+          }
+        ]
+      },
+      {
+        "title": "Sales Network",
+        "links": [
+          {
+            "text": "Japan",
+            "href": "https://nisifilters.jp/"
+          },
+          {
+            "text": "Philippines",
+            "href": "https://nisioptics.ph/"
+          },
+          {
+            "text": "India",
+            "href": "https://www.instagram.com/nisiindiaofficial/"
+          },
+          {
+            "text": "Australia",
+            "href": "https://nisifilters.com.au/"
+          },
+          {
+            "text": "New Zealand",
+            "href": "https://nisifilters.co.nz/"
+          },
+          {
+            "text": "USA",
+            "href": "https://nisiopticsusa.com/"
+          },
+          {
+            "text": "Canada",
+            "href": "https://nisiopticsusa.com/"
+          },
+          {
+            "text": "UK",
+            "href": "https://nisioptics.co.uk/"
+          },
+          {
+            "text": "Norway",
+            "href": "https://www.focusnordic.is/brands/nisi/"
+          },
+          {
+            "text": "Sweden",
+            "href": "https://www.focusnordic.is/brands/nisi/"
+          },
+          {
+            "text": "Finland",
+            "href": "https://www.focusnordic.is/brands/nisi/"
+          },
+          {
+            "text": "Denmark",
+            "href": "https://www.focusnordic.is/brands/nisi/"
+          },
+          {
+            "text": "Poland",
+            "href": "https://www.nisi.pl/"
+          },
+          {
+            "text": "Germany",
+            "href": "https://www.nisioptics.de/"
+          },
+          {
+            "text": "Netherlands",
+            "href": "https://www.nisifilters.nl/"
+          },
+          {
+            "text": "France",
+            "href": "https://www.nisifilters.fr/"
+          },
+          {
+            "text": "Italy",
+            "href": "https://nisifilters.it/"
+          },
+          {
+            "text": "Spain",
+            "href": "https://nisioptics.es/"
+          },
+          {
+            "text": "Portugal",
+            "href": "https://nisioptics.es/"
+          },
+          {
+            "text": "South Africa",
+            "href": "https://landscapegear.co.za/collections/nisifilters"
+          }
+        ]
+      },
+      {
+        "title": "Agents in Indonesia",
+        "links": [
+          {
+            "text": "Mall Mangga Dua, Jl. Mangga Dua Raya No. 7B, RT.1/RW.12, Mangga Dua Sel., Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10730",
+            "href": "https://maps.google.com/maps?ll=-6.136808,106.824064&z=16&t=m&hl=en&gl=ID&mapclient=embed&cid=852957859747084528"
+          }
+        ]
+      }
+    ]
+  }
+}

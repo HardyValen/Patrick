@@ -1,11 +1,11 @@
-// import * as About from "./about";
-import Articles from "./articles";
+import * as About from "./about";
+import * as Articles from "./articles";
 import * as Layout from "./layout";
 import * as Landing from "./landing";
-import Products from "./products";
+import * as Products from "./products";
 
 export {
-  // About,
+  About,
   Articles,
   Layout,
   Landing,

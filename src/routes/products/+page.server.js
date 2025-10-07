@@ -1,4 +1,4 @@
-import { FI } from "$lib";
+import { fetchJSON, FI } from "$lib";
 import { error } from '@sveltejs/kit';
 import { traverseJson } from "$lib/utils";
 
@@ -6,7 +6,7 @@ import { traverseJson } from "$lib/utils";
 export async function load({ fetch, url }) {
   try {
     return {
-      meta: await FI.About.meta({ fetch })
+      meta: await FI.Products.meta({fetch})
         .then(data => {
           // transforms $href to url.href for all string object value that contains it.
           const newObj = structuredClone(data);

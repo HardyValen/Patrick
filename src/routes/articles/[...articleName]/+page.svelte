@@ -3,7 +3,8 @@
   import { typographyVariants } from "$lib";
   import {
     ArticleTop,
-    ArticleFooter
+    ArticleFooter,
+    Meta
   } from "$composite";
 
   let {
@@ -18,10 +19,7 @@
 
 </script>
 
-<svelte:head>
-	<title>{current.title}</title>
-	<meta name="description" content={current.title} />
-</svelte:head>
+<Meta metadata={productData.meta}/>
 <!-- Components: -->
 <!-- - Top Banner: Title, Image, Subtitle; Publish Date, Tags -->
 <!-- - Markdown Content -->
