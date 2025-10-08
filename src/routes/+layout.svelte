@@ -27,7 +27,7 @@
 	setContext('debugData', [
     {searchWindow},
     {mode},
-    {debugWindow},
+    {debugWindow}
   ])
 
 	function onkeydown(e) {
@@ -77,14 +77,14 @@
 
 <Footer
   class={cn(
-    "w-full bg-(--footer) py-8 px-4"
+    "w-full bg-(--footer) py-8 px-8 md:px-12"
   )}
 />
 
-{#if dbg.enabled}
+<!-- {#if dbg.enabled}
   <DebugWindow
     data={getContext("debugData")}
   />
-{/if}
+{/if} -->
 
 <ModeWatcher />

@@ -16,7 +16,8 @@ export async function load({ fetch, url }) {
             }
           })
           return newObj
-        })
+        }),
+      content: await FI.About.data({ fetch })
     }
   } catch (e) {
     error(404, e.message);
