@@ -1,16 +1,69 @@
 <script>
 	import '$appcss';
 	import favicon from '$lib/assets/nisi-favicon.webp';
-	import { ModeWatcher } from "mode-watcher";
-  import { Footer, ClientNavBar } from '$composite';
+	import { mode, toggleMode, ModeWatcher } from "mode-watcher";
+  import { Footer, ClientNavBar, DebugWindow } from '$composite';
+  import { getContext, setContext } from "svelte";
   import { cn } from '$lib/utils';
+  import {
+    debugConfig as dbg,
+    searchWindowConfig as search,
+    darkModeConfig
+  } from "$config";
+  import { handleKeyCombinations } from "$lib";
+  import { navigating, page, updated } from '$app/state';
 
 	let { data, children } = $props();
+
+	let debugWindow = $state({
+	  visible: false
+	});
+	let searchWindow = $state({
+	  visible: false
+	});
+
+	setContext('debug', debugWindow);
+	setContext('search', searchWindow);
+	setContext('debugData', [
+    {searchWindow},
+    {mode},
+    {debugWindow}
+  ])
+
+	function onkeydown(e) {
+    if (e.repeat) return;
+
+    // Handle Debug
+		if (handleKeyCombinations(e, dbg.showWindowKeys)) {
+		  if (dbg.enabled) {
+        e.preventDefault();
+        debugWindow.visible = !debugWindow.visible;
+			}
+		}
+
+		// Handle Search Window
+		if (handleKeyCombinations(e, search.showWindowKeys)) {
+      e.preventDefault();
+      searchWindow.visible = !searchWindow.visible;
+		}
+
+		// Handle Dark Mode Toggle Shortcut
+		if (handleKeyCombinations(e, darkModeConfig.showWindowKeys)) {
+		  e.preventDefault();
+			toggleMode();
+		}
+	}
 </script>
+
+<svelte:window {onkeydown}/>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
+
+<div>
+
+</div>
 
 <ClientNavBar
   class={cn(
@@ -24,8 +77,14 @@
 
 <Footer
   class={cn(
-    "w-full bg-(--footer) py-8 px-4"
+    "w-full bg-(--footer) py-8 px-8 md:px-12"
   )}
 />
+
+<!-- {#if dbg.enabled}
+  <DebugWindow
+    data={getContext("debugData")}
+  />
+{/if} -->
 
 <ModeWatcher />

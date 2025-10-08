@@ -2,8 +2,34 @@
 
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { ErrorMessageHandler } from "$lib";
 
 export function cn(...inputs) {
 	return twMerge(clsx(inputs));
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+/** Error message arguments for svelte routing */
+export function errorArgs({errorMessages, code, defaultMessage = "Internal Server Error"}) {
+  const getMessage = new Proxy(errorMessages, ErrorMessageHandler.GetMessage);
+  const getHttpCode = new Proxy(errorMessages, ErrorMessageHandler.GetHTTPCode);
+  if (getHttpCode[code] >= 400 && getHttpCode[code] <= 599) {
+    return [getHttpCode[code], getMessage[code]]
+  } else {
+    return [500, defaultMessage]
+  }
+}
+
+/**
+ * @param obj {object}
+ * @param callback {function({key, value, obj})}
+ */
+export function traverseJson(obj, callback) {
+  for (const [key, value] of Object.entries(obj)) {
+    if (typeof value === 'object' && value !== null) {
+      traverseJson(value, callback);
+    } else {
+      callback({key, value});
+    }
+  }
+}

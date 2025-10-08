@@ -1,0 +1,77 @@
+{
+  "location": {
+    "name": "Vitesse",
+    "address": "Mall Mangga Dua, Jl. Mangga Dua Raya No. 7B, RT.1/RW.12, Mangga Dua Sel., Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10730",
+    "gmapEmbedLink": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.960445948071!2d106.82259213786135!3d-6.136016948430678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5f8cae40bd5%3A0xbd650a77e9a38f0!2sVitesse!5e0!3m2!1sen!2sid!4v1759216369307!5m2!1sen!2sid"
+  },
+  "links": [
+    {
+      "title": "Shop Links",
+      "footerLinks": [
+        {
+          "title": "Tokopedia",
+          "href": "https://www.tokopedia.com"
+        },
+        {
+          "title": "Lazada",
+          "href": "https://www.lazada.co.id"
+        },
+        {
+          "title": "Shopee",
+          "href": "https://shopee.co.id"
+        },
+        {
+          "title": "Blibli",
+          "href": "https://blibli.com"
+        },
+        {
+          "title": "Facebook Marketplace",
+          "href": "https://www.facebook.com/marketplace/"
+        },
+        {
+          "title": "Tiktok Shop",
+          "href": "https://www.tiktok.com/shop"
+        }
+      ]
+    },
+    {
+      "title": "Information",
+      "footerLinks": [
+        {
+          "title": "Produk",
+          "href": "/"
+        },
+        {
+          "title": "Brand",
+          "href": "/"
+        },
+        {
+          "title": "Artikel",
+          "href": "/"
+        },
+        {
+          "title": "Tentang Kami",
+          "href": "/"
+        }
+      ]
+    },
+    {
+      "title": "Contact Us",
+      "footerLinks": [
+        {
+          "title": "Instagram",
+          "href": "https://instagram.com"
+        },
+        {
+          "title": "Whatsapp",
+          "href": "#"
+        },
+        {
+          "title": "Email",
+          "href": "#"
+        }
+      ]
+    }
+  ],
+  "copyrightNotice": "© 2025 Vitesse. All Rights Reserved."
+}

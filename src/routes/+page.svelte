@@ -4,23 +4,21 @@
     ClientCarousel,
     ClientProducts,
     ClientArticles,
-    ClientBrands
+    ClientBrands,
+    Meta
   } from "$composite";
 
   import { cn } from "$lib/utils";
 
-  let { data } = $props()
+  let { data } = $props();
 
 </script>
 
-<svelte:head>
-	<title>NiSi Store Indonesia</title>
-	<meta name="description" content="NiSi Store Indonesia" />
-</svelte:head>
+<Meta metadata={data.meta}></Meta>
 
 <div>
   <!-- Carousel -->
-  <!-- <ClientCarousel
+  <ClientCarousel
     class={cn(
       "z-0"
     )}
@@ -48,12 +46,12 @@
   />
 
   <!-- Brands -->
-  <ClientBrands
+  <!-- <ClientBrands
     class={cn(
       "py-16 md:py-24 px-8",
       "bg-slate-100 dark:bg-slate-800",
       "relative z-5"
     )}
     data={data.brands}
-  />
+  /> -->
 </div>

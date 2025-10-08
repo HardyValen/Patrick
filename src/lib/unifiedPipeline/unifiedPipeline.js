@@ -21,10 +21,18 @@ const unifiedPipeline = unified()
   .use(rehypeRaw)
   .use(rehypeSanitize, {
     ...defaultSchema,
-    tagNames: [...defaultSchema.tagNames, 'u'],
+    tagNames: [
+      ...defaultSchema.tagNames,
+      'u', 'iframe', 'img', 'video', 'source', 'figure'
+    ],
     attributes: {
       ...defaultSchema.attributes,
-      div: [...defaultSchema.attributes.div, 'className']
+      div: [...defaultSchema.attributes.div, 'className'],
+      iframe: ['className', 'width', 'height', 'src'],
+      img: [...defaultSchema.attributes.img, 'className'],
+      video: ['className', 'autoplay', 'controls', 'loop', 'muted', 'src'],
+      source: ['src', 'type', 'className'],
+      figure: ['className']
     }
   })
   .use(rehypeStringify, { allowDangerousHtml: true })

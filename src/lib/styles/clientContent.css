@@ -1,0 +1,219 @@
+/* Client Content Pages such as blog and others */
+._client-content {
+  color: var(--color-client-content);
+
+  *:not(
+    div, table, ul, ol, li, img, summary
+  ) {
+    margin-top: calc(var(--text-lg) * 1.5);
+    margin-bottom: calc(var(--text-lg) * 1.5);
+
+    &:first-child, &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  a {
+    color: var(--color-client-content-link);
+
+    &:hover {
+      text-decoration-line: underline;
+      color: var(--color-client-content-link-hover);
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+    font-weight: var(--font-weight-extrabold);
+    text-wrap: balance;
+    scroll-margin: --spacing(20);
+
+    & > *:hover {
+      text-decoration: underline;
+    }
+    & > * {
+      color: var(--primary);
+    }
+
+    & + p {
+      margin-top: 0;
+    }
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+    letter-spacing: var(--tracking-tight);
+    margin-top: calc(var(--text-4xl) * 1.5);
+    margin-bottom: calc(var(--text-4xl) * 0.25);
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+    letter-spacing: var(--tracking-tight);
+    margin-top: calc(var(--text-3xl) * 1.5);
+    margin-bottom: calc(var(--text-3xl) * 0.25);
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+    letter-spacing: var(--tracking-tight);
+    margin-top: calc(var(--text-2xl) * 1.5);
+    margin-bottom: calc(var(--text-2xl) * 0.25);
+  }
+
+  h4 {
+    font-size: var(--text-xl);
+    letter-spacing: var(--tracking-tight);
+    margin-top: calc(var(--text-xl) * 1.5);
+    margin-bottom: calc(var(--text-xl) * 0.25);
+  }
+
+  h5 {
+    font-size: var(--text-lg);
+    letter-spacing: var(--tracking-tight);
+    margin-top: calc(var(--text-lg) * 1.5);
+    margin-bottom: calc(var(--text-lg) * 0.25);
+  }
+
+  h6 {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    margin-top: calc(var(--text-xs) * 1.5);
+    margin-bottom: calc(var(--text-xs) * 0.5);
+  }
+
+  p {
+    font-size: var(--text-lg);
+    line-height: --spacing(7);
+
+    a {
+      color: var(--color-client-content-link);
+      text-decoration: underline;
+      font-weight: var(--font-weight-bold);
+
+      &:hover, &:focus {
+        color: var(--color-client-content-link-hover);
+      }
+    }
+  }
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    max-height: --spacing(150);
+  }
+
+  blockquote {
+    padding: --spacing(8) --spacing(4);
+    background-color: var(--color-slate-200);
+    border-radius: var(--radius-lg);
+    font-style: italic;
+
+    @variant dark {
+      background-color: var(--color-slate-800);
+    }
+
+    & > * {
+      margin-left: --spacing(6);
+      padding-left: --spacing(4);
+      border-left: --spacing(0.75) solid var(--color-slate-700);
+      color: var(--color-slate-700);
+      font-size: var(--text-xl);
+
+      @variant dark {
+        border-left: --spacing(0.75) solid var(--color-slate-500);
+        color: var(--color-slate-200);
+      }
+
+      &:first-child {
+        margin-top: 0
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border: --spacing(0.5) solid;
+    border-color: var(--color-client-table-outer-border);
+    border-radius: var(--radius-lg);
+
+    td, th {
+      border: --spacing(0.25) solid;
+      border-color: var(--color-client-table-inner-border);
+      padding: --spacing(2) --spacing(4);
+    }
+
+    tbody tr {
+      background-color: var(--color-client-td-odd-background);
+
+      &:nth-child(even) {
+        background-color: var(--color-client-td-even-background);
+      }
+    }
+
+    thead {
+      background-color: var(--color-client-thead-background);
+      border: 2px solid;
+      border-color: var(--color-client-table-outer-border);
+      border-radius: var(--radius-lg);
+    }
+  }
+
+  hr {
+    height: --spacing(0.25);
+    width: 60%;
+    margin: --spacing(20) auto;
+    border: none;
+    background-color: var(--color-hr);
+  }
+
+  ul, ol {
+    margin-left: --spacing(6);
+
+    li {
+      margin-top: --spacing(2);
+      margin-bottom: --spacing(2);
+
+      &:before {
+        margin-right: --spacing(4);
+      }
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    & ul {
+      list-style-type: circle;
+      & ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+    & ol {
+      list-style-type: upper-roman;
+      & ol {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+
+  details {
+    summary {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    p {
+      font-size: var(--text-base);
+      line-height: --spacing(7);
+    }
+  }
+}
