@@ -1,5 +1,6 @@
 <script>
-  import { cn, typographyVariants, viewport } from "$lib";
+  import { typographyVariants, viewport } from "$lib";
+  import { cn } from "$lib/utils.js";
 
   let {
     ref = $bindable(null),

@@ -1,11 +1,9 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-  import { Meta, DebugWindow } from "$composite";
-  import { setContext, getContext } from "svelte";
-  import {
-    debugConfig as dbg,
-  } from "$config";
+  import { Meta } from "$composite";
+  import { setContext, getContext, onMount, onDestroy } from "svelte";
+  import { AnimateIntersect } from "$composite";
 
   let {
     data
@@ -15,11 +13,6 @@
   const section1 = $derived(data.content.section1);
   const section2 = $derived(data.content.section2);
   const section3 = $derived(data.content.section3);
-
-  setContext("debugData", [
-    ...getContext("debugData"),
-    data.content.section3
-  ])
 
 </script>
 
@@ -33,7 +26,7 @@
   </span>
 {/snippet}
 
-<div>
+<div class="overflow-x-hidden">
   <!-- Section 1: Hero -->
   <div
     class={cn(
@@ -87,11 +80,14 @@
   </div>
 
   <div class="stacked-image_container">
-    <div class="stacked-image_top-left"></div>
-    <div class="stacked-image_top-right"></div>
-    <div class="stacked-image_bottom-left bg-slate-300 dark:bg-slate-700"></div>
-    <div class="stacked-image_bottom-right bg-slate-300 dark:bg-slate-700"></div>
+    <div class="stacked-image_top"></div>
+    <div class="stacked-image_bottom bg-slate-300 dark:bg-slate-700"></div>
     <div class="stacked-image">
+      <AnimateIntersect
+        noExit
+        duration=400
+        variant="scale"
+      >
       <img
         src={section1.img}
         alt={section1.title}
@@ -100,6 +96,7 @@
           "object-cover object-center"
         )}
       />
+      </AnimateIntersect>
     </div>
   </div>
 
@@ -120,9 +117,14 @@
           "md:col-span-2"
         )}
       >
-        <p class="text-3xl md:text-4xl font-light tracking-wider">
-          {section2.title}
-        </p>
+        <AnimateIntersect
+          noExit
+          duration=400
+        >
+          <p class="text-3xl md:text-4xl font-light tracking-wider">
+            {section2.title}
+          </p>
+        </AnimateIntersect>
       </div>
       <div
         class={cn(
@@ -131,9 +133,15 @@
       >
         <div class="flex flex-col gap-4">
           {#each section2.content as content}
-            <p>
-              {content}
-            </p>
+            <AnimateIntersect
+              noExit
+              duration=400
+              variant="right"
+            >
+              <p>
+                {content}
+              </p>
+            </AnimateIntersect>
           {/each}
         </div>
       </div>
@@ -194,12 +202,6 @@
 
 </div>
 
-{#if dbg.enabled}
-  <DebugWindow
-    data={getContext("debugData")}
-  />
-{/if}
-
 <style>
   ._hero {
     display: grid;
@@ -216,29 +218,24 @@
       grid-template-columns: 1fr 768px 1fr;
       grid-template-rows: 1fr 1fr;
       grid-template-areas:
-        "top-left image top-right"
-        "bottom-left image bottom-right"
+        ". image ."
+        ". image ."
       ;
     }
 
-    .stacked-image_top-left {
-      grid-area: top-left;
+    .stacked-image_top {
+      grid-area: 1 / 1 / 2 / 4;
+      z-index: 0;
     }
 
-    .stacked-image_top-right {
-      grid-area: top-right;
-    }
-
-    .stacked-image_bottom-left {
-      grid-area: bottom-left;
-    }
-
-    .stacked-image_bottom-right {
-      grid-area: bottom-right;
+    .stacked-image_bottom {
+      grid-area: 2 / 1 / 3 / 4;
+      z-index: 0;
     }
 
     .stacked-image {
       grid-area: image;
+      z-index: 1;
     }
   }
 </style>

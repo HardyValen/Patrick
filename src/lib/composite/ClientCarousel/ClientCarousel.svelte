@@ -2,7 +2,8 @@
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import Next from "./Next.svelte";
   import Previous from "./Previous.svelte";
-  import { cn, alignmentVariants, typographyVariants } from "$lib";
+  import { alignmentVariants, typographyVariants } from "$lib";
+  import { cn } from "$lib/utils";
   import { Button, buttonVariants } from "$lib/components/ui/button";
   import { AnimateIntersect } from "$composite";
 

@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import { fetchJSON, unifiedPipeline as processor, FI } from '$lib';
+import { unifiedPipeline as processor, FI } from '$lib';
 import errorMessages from "$lib/data/errors.json";
 import { errorArgs } from "$lib/utils";
 

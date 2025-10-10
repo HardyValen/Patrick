@@ -11,9 +11,9 @@ async function fetchText(fetch, url) {
 
   } catch (e) {
     if (debugConfig.enabled) {
-      throw new Error(`JSON fetch failed. Not found: ${url}`);
+      throw new Error(`Text fetch failed. Not found: ${url}`);
     } else {
-      throw new Error(`JSON fetch failed.`);
+      throw new Error(`Data could not be fetched.`);
     }
   }
 }

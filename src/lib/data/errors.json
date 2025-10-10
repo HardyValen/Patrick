@@ -1,22 +1,22 @@
 [
   {
     "code": "PRODUCT_PAGE_0001",
-    "message": "Sorry, the requested product was not found.",
+    "message": "The requested product was not found.",
     "httpCode": 404
   },
   {
     "code": "PRODUCT_PAGE_0002",
-    "message": "Sorry, the requested product file was missing.",
+    "message": "The requested product file was missing.",
     "httpCode": 404
   },
   {
     "code": "ARTICLE_PAGE_0001",
-    "message": "Sorry, the requested article was not found.",
+    "message": "The requested article was not found.",
     "httpCode": 404
   },
   {
     "code": "ARTICLE_PAGE_0002",
-    "message": "Sorry, the requested article file was missing.",
+    "message": "The requested article file was missing.",
     "httpCode": 404
   }
 ]

@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import { fetchJSON, unifiedPipeline as processor, FI } from '$lib';
+import { unifiedPipeline as processor, FI } from '$lib';
 import errorMessages from "$lib/data/errors.json";
 import { errorArgs } from "$lib/utils";
 
@@ -17,6 +17,7 @@ function getFooterLink(obj) {
 export async function load({ fetch, params, url }) {
   try {
     // fetch clientProductData
+    console.log(params.productName)
     const clientProductsData = await FI.Products.data({fetch});
 
     // Get product element by id matches with product name

@@ -24,11 +24,11 @@
 
 	setContext('debug', debugWindow);
 	setContext('search', searchWindow);
-	setContext('debugData', [
-    {searchWindow},
-    {mode},
-    {debugWindow}
-  ])
+	setContext('debugData', {
+	  searchWindow,
+		mode,
+		debugWindow
+  })
 
 	function onkeydown(e) {
     if (e.repeat) return;

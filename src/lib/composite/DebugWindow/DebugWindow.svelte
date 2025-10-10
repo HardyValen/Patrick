@@ -1,6 +1,6 @@
 <script>
   import '$lib/styles/debugWindow.css';
-  import { cn } from "$lib";
+  import { cn } from "$lib/utils";
   import { getContext } from "svelte";
   import { codeToHtml } from "shiki";
 

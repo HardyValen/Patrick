@@ -29,3 +29,8 @@ storybook-static
 
 # local backup configs
 /local-config-backup
+
+# Localhost ssl certs
+localhost.pem
+localhost-key.pem
+ssl-proxy.sh

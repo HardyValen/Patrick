@@ -12,7 +12,7 @@ export async function load({ fetch, url }) {
           const newObj = structuredClone(data);
           traverseJson(newObj, ({key, value}) => {
             if (key === "url") {
-              newObj[key] = value.replace("$origin", url.origin)
+              newObj[key] = url.origin + value
             }
           })
           return newObj
