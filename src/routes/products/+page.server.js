@@ -6,6 +6,7 @@ import { traverseJson } from "$lib/utils";
 export async function load({ fetch, url }) {
   try {
     return {
+      products: await FI.Products.data({fetch}),
       meta: await FI.Products.meta({fetch})
         .then(data => {
           // transforms $href to url.href for all string object value that contains it.

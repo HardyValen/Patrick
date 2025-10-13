@@ -1,3 +1,4 @@
 export const query = $state({
-  string: ""
+  string: "",
+  formatted: []
 });

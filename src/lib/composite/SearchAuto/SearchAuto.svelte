@@ -1,12 +1,13 @@
 <script>
   import { cn } from "$lib/utils.js";
-  import { typographyVariants } from "$lib";
-  import { query } from "./SearchAuto.svelte.js";
+  import { typographyVariants, formattedQuery } from "$lib";
+  // import { query } from "./SearchAuto.svelte.js";
 
   let {
     ref = $bindable(null),
     class: className,
-    value = "",
+    // value = "",
+    value = $bindable(""),
     ...restProps
   } = $props();
 
@@ -17,8 +18,9 @@
   name={restProps.name}
   placeholder={restProps.placeholder}
   bind:this={ref}
-  bind:value={query.string}
+  bind:value
   class={cn(className)}
+  oninput={restProps.oninput}
   {...restProps}
 />
-<p>hello {query.string}</p>
+  <!-- bind:value={query.string} -->

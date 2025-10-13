@@ -26,6 +26,8 @@ import {
   ErrorMessageHandler
 } from "./proxyHandlers";
 
+import formattedQuery from "./formattedQuery"
+
 export {
   unifiedPipeline,
   viewport,
@@ -36,5 +38,6 @@ export {
   typographyVariants,
   handleKeyCombinations,
   FI,
-  ErrorMessageHandler
+  ErrorMessageHandler,
+  formattedQuery
 };
