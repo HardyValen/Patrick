@@ -20,6 +20,11 @@
     "img": "/assets/images/products/nisi-group/circular-filters/Nisi_Group_CircularFilter_tmb.png",
     "content": "/assets/textfile/products/nisi-group/circular-filters.txt",
     "publishDate": "Thu Feb 10 2022 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "tags": [
+      "products",
+      "camera",
+      "lens"
+    ],
     "nextId": "nisi-group/square-filters",
     "prevId": "nisi-group/jetmag-pro"
   },
@@ -30,6 +35,9 @@
     "img": "/assets/images/products/nisi-group/square-filters/Nisi_Group_SquareFilter_tmb.png",
     "content": "/assets/textfile/products/nisi-group/square-filters.txt",
     "publishDate": "Wed Jan 15 2025 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "tags": [
+      "new"
+    ],
     "nextId": "nisi-group/cinema",
     "prevId": "nisi-group/circular-filters"
   },
@@ -40,6 +48,9 @@
     "img": "/assets/images/products/nisi-group/cinema/Nisi_Group_CinemaFilter_tmb.png",
     "content": "/assets/textfile/products/nisi-group/cinema.txt",
     "publishDate": "Wed Oct 01 2025 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "tags": [
+      "videos"
+    ],
     "nextId": "nisi-group/lenses",
     "prevId": "nisi-group/square-filters"
   },
@@ -50,6 +61,9 @@
     "img": "/assets/images/products/nisi-group/lenses/Nisi_Group_Athena_tmb.png",
     "content": "/assets/textfile/products/nisi-group/lenses.txt",
     "publishDate": "Fri Mar 29 2024 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "tags": [
+      "videos"
+    ],
     "nextId": "nisi-group/accessories",
     "prevId": "nisi-group/cinema"
   },
@@ -60,6 +74,9 @@
     "img": "/assets/images/products/nisi-group/accessories/Nisi_Group_Acc_tmb.png",
     "content": "/assets/textfile/products/nisi-group/accessories.txt",
     "publishDate": "Sat Feb 01 2025 00:00:00 GMT+0700 (Western Indonesia Time)",
+    "tags": [
+      "videos"
+    ],
     "prevId": "nisi-group/lenses"
   }
 ]

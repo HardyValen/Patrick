@@ -4,19 +4,20 @@
  * @param {string} primaryKey @default "title" A string that used for determining the main key name.
  * @param {string[]} uniqueKeys An array of strings that limit the searchIndex occurence to just one. If provided, the function will trim the duplicate searchIndex, keeping the leftmost searchValue of the searchIndex. If not provided, the function will not trim duplicate searchIndex
  * @returns {{searchIndex: string, searchValue: string}}
- * @example formattedQuery({queryString: "abcd"}) = ["title": "abcd"]
- * @example formattedQuery({queryString: "abcd:efgh foo:bar"}) = [
-      { "abcd":"efgh" },
-      { "foo": "bar" }
+ * @example format({queryString: "abcd"}) = ["title": ["abcd"]]
+ * @example format({queryString: "abcd:efgh foo:bar"}) = [
+      { "abcd":["efgh"] },
+      { "foo":["bar"] }
     ]
  */
 
-function formattedQuery({
+function format({
   queryString = "",
   primaryKey = "title",
   uniqueKeys = []
 }) {
-  let query = []
+  let query = [];
+  let searchIndices = new Set();
 
   // 1. remove excess spaces
   queryString = queryString.replace(/\s+/g,' ').trim();
@@ -28,8 +29,10 @@ function formattedQuery({
   query = query.map((item) => {
     if (item.includes(":")) {
       let [ searchIndex, ...searchValue ] = item.split(":");
+      searchIndices.add(searchIndex);
       return Object.fromEntries([[searchIndex, searchValue.join("").replaceAll("_", " ")]])
     } else {
+      searchIndices.add(primaryKey);
       return Object.fromEntries([[primaryKey, item]])
     }
   });
@@ -47,6 +50,7 @@ function formattedQuery({
 
   // 5. Make objects that listed in uniqueKeys only occur once
   //    keep the first occurrence
+  // [{tags: "camera"}, {tags: "filter"}, {title: "something"}, ...]
   uniqueKeys.forEach(key => {
     let query_arrayIndex = query.findIndex(item => key in item);
 
@@ -57,7 +61,30 @@ function formattedQuery({
     }
   });
 
-  return query;
+  // 6. Transform query array with signature like no 5 to result object
+  // {
+  //    tags: ["camera", "filter", "something"],
+  //    title: ["something"]
+  // }
+  let result = {};
+
+  searchIndices.forEach(key => {
+    if (key === primaryKey) {
+      result[key] = "";
+    } else
+     result[key] = [];
+  })
+
+  query.forEach(item => {
+    let [[key, value]] = Object.entries(item);
+    if (key === primaryKey) {
+      result[key] = value;
+    } else {
+      result[key].push(value);
+    }
+  })
+
+  return result;
 }
 
-export default formattedQuery;
+export default format;

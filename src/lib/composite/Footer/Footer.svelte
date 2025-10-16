@@ -1,7 +1,8 @@
 <script>
   import { cn } from '$lib/utils.js';
   import { typographyVariants } from '$lib';
-  import map from "$lib/assets/MapsPlaceholder.png";
+  import { debugConfig as dbg } from "$config";
+  // import map from "$lib/assets/MapsPlaceholder.png";
 
   /** The "FooterLinkGroup" prop is optional, but follows this interface
    * FooterData type definition
@@ -96,18 +97,9 @@
           Mall Mangga Dua, Jl. Mangga Dua Raya No. 7B, RT.1/RW.12, Mangga Dua Sel., Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10730
         </span>
       </div>
-      <!-- <a href="https://maps.app.goo.gl/kLHrQhdFZLvCADga9" target="
-        _blank" class={cn(
-          "md:justify-self-end",
-          "justify-self-center"
-        )}>
-        <img
-          src={map}
-          alt="MONAS: Merdeka Square, Jakarta, Jalan Lapangan Monas, Gambir, Central Jakarta City, Jakarta 10110"
-          class="w-full max-w-60 md:max-w-80"
-        />
-      </a> -->
+      {#if !dbg.enabled}
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.960445948071!2d106.82259213786135!3d-6.136016948430678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5f8cae40bd5%3A0xbd650a77e9a38f0!2sVitesse!5e0!3m2!1sen!2sid!4v1759216369307!5m2!1sen!2sid" style="border:0;" class="w-full max-w-160 h-full min-h-100" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="vitesse-map"></iframe>
+      {/if}
     </div>
 
     <!-- Footer Group Links -->

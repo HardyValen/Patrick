@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@internationalized/date": "^3.8.1",
-    "@lucide/svelte": "^0.515.0",
+    "@lucide/svelte": "^0.544.0",
     "@sveltejs/adapter-node": "^5.2.13",
     "@sveltejs/adapter-static": "^3.0.9",
     "@sveltejs/kit": "^2.22.0",
@@ -24,7 +24,7 @@
     "@types/node": "^22",
     "@vitest/browser": "^3.2.3",
     "@vitest/coverage-v8": "3.2.4",
-    "bits-ui": "^2.8.6",
+    "bits-ui": "^2.11.0",
     "clsx": "^2.1.1",
     "embla-carousel-svelte": "^8.6.0",
     "playwright": "^1.53.0",

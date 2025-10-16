@@ -26,7 +26,7 @@ import {
   ErrorMessageHandler
 } from "./proxyHandlers";
 
-import formattedQuery from "./formattedQuery"
+import * as MyQuery from "./MyQuery"
 
 export {
   unifiedPipeline,
@@ -39,5 +39,5 @@ export {
   handleKeyCombinations,
   FI,
   ErrorMessageHandler,
-  formattedQuery
+  MyQuery
 };
