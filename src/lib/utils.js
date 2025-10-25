@@ -33,3 +33,23 @@ export function traverseJson(obj, callback) {
     }
   }
 }
+
+export function selectDistinct({input = [], keys = []}) {
+  if (keys.length === 0) return input
+  return input.filter((obj, idx, self) =>
+    idx === self.findIndex((t) =>
+      keys.every(key =>
+        t[key] === obj[key]
+      )
+    )
+  );
+}
+
+/**
+ * @param {string} input
+ * @return {string}
+ * Replace underscores to spaces and make them all lower case.
+ */
+export function stringify(input) {
+  return input.toLowerCase().replaceAll("_", " ")
+}

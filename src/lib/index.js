@@ -26,7 +26,8 @@ import {
   ErrorMessageHandler
 } from "./proxyHandlers";
 
-import * as MyQuery from "./MyQuery"
+import * as MyQuery from "./MyQuery";
+import paginationIndices from "./paginationIndices";
 
 export {
   unifiedPipeline,
@@ -37,6 +38,7 @@ export {
   navbarDropdownVariants,
   typographyVariants,
   handleKeyCombinations,
+  paginationIndices,
   FI,
   ErrorMessageHandler,
   MyQuery

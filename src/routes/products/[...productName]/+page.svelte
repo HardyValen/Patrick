@@ -1,10 +1,7 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-  import {
-    ProductTop,
-    ProductFooter
-  } from "$composite";
+  import { ProductTop, ProductFooter } from "$lib/composite/index.js";
 
   let {
     ref = $bindable(null),

@@ -57,3 +57,17 @@ To be implemented later
 2. Test
 
 Elements that are not in [github markdown spec](https://github.com/gjtorikian/html-pipeline/blob/a2e02ac/lib/html_pipeline/sanitization_filter.rb) will never be implemented.
+
+### Pagination
+first landing = no cursor.
+1. +page.server.js
+  * fetch all products metadata for suggestion search
+  * fetch page 1 limit 15 of the products to be displayed 3x3
+    * has hyper metadata
+2. +page.js
+  * first, prev, current (selected), next, and last buttons
+  * search title (customizable primary key)
+  * search tags
+  * displays 15 items with 3x3
+3. api/products/+server.js
+  * handle retrieval of articles with handful of params:
