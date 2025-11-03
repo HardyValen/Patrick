@@ -4,11 +4,11 @@ import { traverseJson } from "$lib/utils";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, url, params }) {
-
   // let tag = url.searchParams.get("tag");
 
   let dataURL = new URL("/api/products", url.href);
-  dataURL.searchParams.set("limit", "15");
+  // constant param
+  dataURL.searchParams.set("limit", 24);
 
   // params with single value: single
   let userDefinedSingleParams = ["page", "name"];
@@ -32,30 +32,21 @@ export async function load({ fetch, url, params }) {
     return {
       products: await fetchJSON(fetch, dataURL.href),
       suggestions: {
-        titles: await FI.Products.data({ fetch })
-          .then(titles => {
-            return titles.map(item => {
-              return {
-                id: item.id,
-                name: item.title
-              }
-            })
-          }),
+        // titles: await FI.Products.data({ fetch })
+        //   .then(titles => {
+        //     return titles.map(item => {
+        //       return {
+        //         id: item.id,
+        //         name: item.title
+        //       }
+        //     })
+        //   }),
         // tags: await FI.Products.tags({fetch}),
         tags: await FI.TestMH.items_tags({ fetch })
           .then(items => items.tags)
       },
-      meta: await FI.Products.meta({fetch})
-        .then(data => {
-          // transforms $href to url.href for all string object value that contains it.
-          const newObj = structuredClone(data);
-          traverseJson(newObj, ({key, value}) => {
-            if (key === "url") {
-              newObj[key] = new URL(value, url.href)
-            }
-          })
-          return newObj
-        })
+      meta: await FI.Products.meta({fetch}),
+      catalogue: await FI.Catalogue.data({fetch})
     }
   } catch (e) {
     error(404, e.message);

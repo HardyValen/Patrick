@@ -1,0 +1,54 @@
+[
+  {
+    "id": "base",
+    "title": "Base"
+  },
+  {
+    "id": "weapon",
+    "title": "Weapon"
+  },
+  {
+    "id": "charms",
+    "title": "Charms"
+  },
+  {
+    "id": "physical",
+    "title": "Physical"
+  },
+  {
+    "id": "tactical",
+    "title": "Tactical"
+  },
+  {
+    "id": "physical",
+    "title": "Physical"
+  },
+  {
+    "id": "arcane",
+    "title": "Arcane"
+  },
+  {
+    "id": "shadow",
+    "title": "Shadow"
+  },
+  {
+    "id": "draconic",
+    "title": "Draconic"
+  },
+  {
+    "id": "forgotten",
+    "title": "Forgotten"
+  },
+  {
+    "id": "hydro",
+    "title": "Hydro"
+  },
+  {
+    "id": "law",
+    "title": "Law"
+  },
+  {
+    "id": "rift",
+    "title": "Rift"
+  }
+]

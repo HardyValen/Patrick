@@ -14,7 +14,7 @@ export async function GET({fetch, url}) {
   const PAGE_PARAM_KEY    = "page";
   const TAGS_PARAM_KEY    = "tags";
   const CURSOR_KEY        = "id";
-  const LIMIT_DEF         = 10;
+  const LIMIT_DEF         = 24;
   const RELEVANCY_SCORE_THRESHOLD = 0.5;
 
   try {
@@ -80,6 +80,7 @@ export async function GET({fetch, url}) {
     }
 
     let hyperIndices = paginationIndices(cursorIdx, queriedLimit, result.length);
+
 
     // Calculated client-side or based on cursor position relative to start
     let responseData = {

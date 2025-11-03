@@ -14,6 +14,9 @@ import { SearchAuto } from "./SearchAuto";
 import AnimateIntersect from "./AnimateIntersect";
 import DebugWindow from "./DebugWindow";
 import Meta from "./Meta";
+import InteractibleTaglist from "./InteractibleTaglist";
+import Taglist from './Taglist';
+import ItemsCard from './ItemsCard';
 
 export {
   ClientArticles,
@@ -31,5 +34,8 @@ export {
   SearchAuto,
   AnimateIntersect,
   DebugWindow,
-  Meta
+  Meta,
+  InteractibleTaglist,
+  Taglist,
+  ItemsCard
 }

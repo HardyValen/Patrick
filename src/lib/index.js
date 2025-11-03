@@ -28,6 +28,7 @@ import {
 
 import * as MyQuery from "./MyQuery";
 import paginationIndices from "./paginationIndices";
+import Pagination from "./Pagination"
 
 export {
   unifiedPipeline,
@@ -40,6 +41,7 @@ export {
   handleKeyCombinations,
   paginationIndices,
   FI,
+  Pagination,
   ErrorMessageHandler,
   MyQuery
 };

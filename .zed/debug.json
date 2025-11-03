@@ -1,0 +1,19 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "adapter": "JavaScript",
+    "label": "bun (JavaScript)",
+    "type": "pwa-node",
+    "request": "launch",
+    "program": "bun",
+    "args": [
+      "run",
+      "dev"
+    ],
+    "stopOnEntry": false,
+    "cwd": "/home/hardyvalen-db12-0038/Documents/web-projects/002_patrick"
+  }
+]

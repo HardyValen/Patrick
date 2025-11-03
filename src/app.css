@@ -56,7 +56,7 @@
   /* Custom Color Scheme */
   --link-primary-foreground: var(--color-slate-700);
   --link-secondary-foreground: var(--color-slate-300);
-  --footer: var(--color-slate-200);
+  --footer: var(--color-background);
   --color-client-content-link: var(--color-blue-700);
   --color-client-content-link-hover: color-mix(in oklch, var(--color-client-content-link), #fff 30%);
   --color-client-content: oklch(0.40 0 0);

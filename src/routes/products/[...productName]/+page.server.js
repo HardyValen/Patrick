@@ -13,6 +13,26 @@ function getFooterLink(obj) {
   return { id, title }
 }
 
+function constructMetadata({url, data}) {
+  const result = {
+    title: data.title,
+    type: "article",
+    url: url.href,
+    image: {
+      url: url.origin + data.img,
+      width: "400",
+      height: "400",
+    },
+    article: {
+      published_time: data.publishDate,
+      author: "NiSi Optics Indonesia",
+      tags: data.tags
+    }
+  }
+
+  return result
+}
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, params, url }) {
   try {
@@ -46,7 +66,8 @@ export async function load({ fetch, params, url }) {
     return {
       current: {...selectedData, content: result},
       prev: getFooterLink(previousData),
-      next: getFooterLink(nextData)
+      next: getFooterLink(nextData),
+      meta: constructMetadata({data: selectedData, url})
     };
   } catch ({message: code}) {
     error(...errorArgs({errorMessages, code, defaultMessage: code}));

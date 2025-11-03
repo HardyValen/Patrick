@@ -77,14 +77,15 @@
 
 <Footer
   class={cn(
-    "w-full bg-(--footer) py-8 px-8 md:px-12"
+    "w-full bg-(--footer) py-8 px-8 md:px-12",
+    "border-t-1 border-gray"
   )}
 />
 
-<!-- {#if dbg.enabled}
+{#if dbg.enabled}
   <DebugWindow
     data={getContext("debugData")}
   />
-{/if} -->
+{/if}
 
 <ModeWatcher />

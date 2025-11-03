@@ -91,7 +91,7 @@
           Vitesse
         </span>
         <span class={cn(
-          typographyVariants({variant: "p"}),
+          "text-sm md:text-md",
           "text-(--link-primary-foreground) text-medium"
         )}>
           Mall Mangga Dua, Jl. Mangga Dua Raya No. 7B, RT.1/RW.12, Mangga Dua Sel., Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10730

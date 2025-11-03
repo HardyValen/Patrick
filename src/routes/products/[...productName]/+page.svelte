@@ -1,7 +1,7 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-  import { ProductTop, ProductFooter } from "$lib/composite/index.js";
+  import { ProductTop, ProductFooter, Meta } from "$composite";
 
   let {
     ref = $bindable(null),
@@ -15,10 +15,7 @@
 
 </script>
 
-<svelte:head>
-	<title>{current.title}</title>
-	<meta name="description" content={current.title} />
-</svelte:head>
+<Meta metadata={productData.meta}/>
 <!-- Components: -->
 <!-- - Top Banner: Title, Image, Subtitle; Publish Date, Tags -->
 <!-- - Markdown Content -->

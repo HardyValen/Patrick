@@ -51,5 +51,5 @@ export function selectDistinct({input = [], keys = []}) {
  * Replace underscores to spaces and make them all lower case.
  */
 export function stringify(input) {
-  return input.toLowerCase().replaceAll("_", " ")
+  return input.toString().toLowerCase().replaceAll("_", " ")
 }
