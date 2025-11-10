@@ -1,7 +1,7 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-  import { AnimateIntersect } from "$composite";
+  import { AnimateIntersect } from "$lib/composite";
 
   let {
     ref = $bindable(null),

@@ -1,5 +1,5 @@
 const debugConfig = {
-  enabled: true,
+  enabled: false,
   showWindowKeys: ['Shift', "F1"]
 }
 

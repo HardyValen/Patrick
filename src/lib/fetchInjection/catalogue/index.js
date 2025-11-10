@@ -1,4 +1,6 @@
-import data from "./products";
+import products from "./products";
+import articles from "./articles";
 export {
-  data,
+  products,
+  articles
 };

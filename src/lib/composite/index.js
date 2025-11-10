@@ -16,7 +16,6 @@ import DebugWindow from "./DebugWindow";
 import Meta from "./Meta";
 import InteractibleTaglist from "./InteractibleTaglist";
 import Taglist from './Taglist';
-import ItemsCard from './ItemsCard';
 
 export {
   ClientArticles,
@@ -37,5 +36,4 @@ export {
   Meta,
   InteractibleTaglist,
   Taglist,
-  ItemsCard
 }

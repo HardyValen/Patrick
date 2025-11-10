@@ -8,7 +8,7 @@
     "title": "Weapon"
   },
   {
-    "id": "charms",
+    "id": "trinket",
     "title": "Charms"
   },
   {
@@ -18,10 +18,6 @@
   {
     "id": "tactical",
     "title": "Tactical"
-  },
-  {
-    "id": "physical",
-    "title": "Physical"
   },
   {
     "id": "arcane",

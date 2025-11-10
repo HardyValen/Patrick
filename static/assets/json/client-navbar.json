@@ -13,18 +13,13 @@
         "description": "Jelajah inventaris toko berdasarkan jenis produk seperti kamera, lampu, dst."
       },
       {
-        "title": "Brand",
-        "href": "/",
-        "description": "Jelajah barang dagangan PT Patrick disortir berdasarkan brand."
-      },
-      {
         "title": "Artikel",
-        "href": "/",
+        "href": "/articles",
         "description": "Ikuti perkembangan terkini produk yang anda incar."
       },
       {
         "title": "Tentang Kami",
-        "href": "/",
+        "href": "/about",
         "description": "Pelajari toko kami dan raih kesempatan bekerja sama antara distributor dan pengecer."
       }
     ]

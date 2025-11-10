@@ -46,7 +46,7 @@ export async function load({ fetch, url, params }) {
           .then(items => items.tags)
       },
       meta: await FI.Products.meta({fetch}),
-      catalogue: await FI.Catalogue.data({fetch})
+      catalogue: await FI.Catalogue.products({fetch})
     }
   } catch (e) {
     error(404, e.message);
