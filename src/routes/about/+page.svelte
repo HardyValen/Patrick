@@ -1,9 +1,9 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-  import { Meta } from "$composite";
+  import { Meta } from "$lib/composite";
   import { setContext, getContext, onMount, onDestroy } from "svelte";
-  import { AnimateIntersect } from "$composite";
+  import { AnimateIntersect } from "$lib/composite";
 
   let {
     data

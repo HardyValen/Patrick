@@ -2,7 +2,7 @@
 	import '$appcss';
 	import favicon from '$lib/assets/nisi-favicon.webp';
 	import { mode, toggleMode, ModeWatcher } from "mode-watcher";
-  import { Footer, ClientNavBar, DebugWindow } from '$composite';
+  import { Footer, ClientNavBar, DebugWindow } from '$lib/composite';
   import { getContext, setContext } from "svelte";
   import { cn } from '$lib/utils';
   import {

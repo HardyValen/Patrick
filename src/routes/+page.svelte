@@ -6,7 +6,7 @@
     ClientArticles,
     ClientBrands,
     Meta
-  } from "$composite";
+  } from "$lib/composite";
 
   import { cn } from "$lib/utils";
 

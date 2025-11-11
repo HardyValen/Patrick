@@ -5,7 +5,7 @@
   import * as Accordion from "$lib/components/ui/accordion";
   import Menu from "@lucide/svelte/icons/menu";
   import CloseIcon from "@lucide/svelte/icons/x";
-  import DarkMode from "$composite/DarkMode";
+  import { DarkMode } from "$lib/composite";
   // import { Separator } from "$lib/components/ui/separator";
   import Logo from "$lib/assets/nisi-logo.svelte";
   import { cn } from "$lib/utils.js";

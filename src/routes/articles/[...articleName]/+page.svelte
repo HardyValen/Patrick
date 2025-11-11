@@ -5,7 +5,7 @@
     ArticleTop,
     ArticleFooter,
     Meta
-  } from "$composite";
+  } from "$lib/composite";
 
   let {
     ref = $bindable(null),

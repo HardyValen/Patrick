@@ -10,7 +10,7 @@
   import { mode } from "mode-watcher";
   import { cn } from "$lib/utils.js";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
-  import { DarkMode, ClientNavDrawer } from "$composite";
+  import { DarkMode, ClientNavDrawer } from "$lib/composite";
   import { typographyVariants } from "$lib";
 
   let {

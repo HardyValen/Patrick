@@ -5,7 +5,7 @@
   import { alignmentVariants, typographyVariants } from "$lib";
   import { cn } from "$lib/utils";
   import { Button, buttonVariants } from "$lib/components/ui/button";
-  import { AnimateIntersect } from "$composite";
+  import { AnimateIntersect } from "$lib/composite";
 
   /** The "data" prop is optional, but follows this interface
    * carouselData type definition
