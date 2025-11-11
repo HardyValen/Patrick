@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { FI } from "$lib";
 
-// export const prerender = true;
+export const prerender = true;
 
 export async function load({fetch}) {
   try {
