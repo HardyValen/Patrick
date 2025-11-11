@@ -3,9 +3,10 @@
   import Next from "./Next.svelte";
   import Previous from "./Previous.svelte";
   import { alignmentVariants, typographyVariants } from "$lib";
-  import { cn } from "$lib/utils";
+  import { cn, constructURLWithConfig } from "$lib/utils";
   import { Button, buttonVariants } from "$lib/components/ui/button";
   import { AnimateIntersect } from "$lib/composite";
+  import { page } from "$app/state";
 
   /** The "data" prop is optional, but follows this interface
    * carouselData type definition
@@ -30,6 +31,8 @@
 		data: carouselData = [],
 		...restProps
   } = $props();
+
+  let { url } = $derived(page)
 
   function transpose(expr) {
     switch (expr) {
@@ -69,11 +72,11 @@
               "object-cover w-full h-full z-0"
             )}
           >
-            <source src={data.video.link} type={data.video.type}/>
+            <source src={constructURLWithConfig(url, data.video.link)} type={data.video.type}/>
           </video>
         {:else if "img" in data}
           <img
-            src={data.img}
+            src={constructURLWithConfig(url, data.img)}
             alt={data.title}
             class={cn(
               "w-full h-full object-cover z-0"
@@ -125,7 +128,7 @@
               <!-- Carousel Content - Button -->
               {#if data.button}
                 <Button
-                  href={data.button.href}
+                  href={constructURLWithConfig(url, data.button.href)}
                   class={cn(
                     "bg-slate-200 text-slate-800 hover:bg-slate-200/80"
                   )}

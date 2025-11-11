@@ -8,18 +8,21 @@
   import Logo from '$lib/assets/nisi-logo.svelte';
   import { Button } from "$lib/components/ui/button";
   import { mode } from "mode-watcher";
-  import { cn } from "$lib/utils.js";
+  import { cn, constructURLWithConfig } from "$lib/utils.js";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
   import { DarkMode, ClientNavDrawer } from "$lib/composite";
   import { typographyVariants } from "$lib";
+  import { page } from "$app/state";
 
   let {
     ref = $bindable(null),
 		class: className,
 		data: navLinksData = [],
 		...restProps
+
   } = $props();
 
+ 	let { url } = $derived(page);
 </script>
 
 <header
@@ -43,7 +46,7 @@
         "w-full",
       )}>
       <!-- Logo -->
-      <a href="/" class={cn("block")}>
+      <a href={constructURLWithConfig(url)} class={cn("block")}>
         <Logo/>
       </a>
 
@@ -65,7 +68,7 @@
                     {#snippet child()}
                       <div class={cn(dropdownItem.classes)}>
                         <a
-                          href={dropdownItem.href}
+                          href={constructURLWithConfig(url, dropdownItem.href)}
                           class={cn(
                             "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors",
                           )}
@@ -93,7 +96,7 @@
             {:else}
             <NavigationMenu.Link>
               {#snippet child()}
-                <a href={navLink.href} class={navigationMenuTriggerStyle()}>{navLink.title}</a>
+                <a href={constructURLWithConfig(url, navLink.href)} class={navigationMenuTriggerStyle()}>{navLink.title}</a>
               {/snippet}
             </NavigationMenu.Link>
             {/if}

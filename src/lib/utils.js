@@ -3,6 +3,7 @@
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { ErrorMessageHandler } from "$lib";
+import { URLConfig } from "$config";
 
 export function cn(...inputs) {
 	return twMerge(clsx(inputs));
@@ -53,3 +54,8 @@ export function selectDistinct({input = [], keys = []}) {
 export function stringify(input) {
   return input.toString().toLowerCase().replaceAll("_", " ")
 }
+
+export function constructURLWithConfig(_url, _path) {
+  	let newURL = new URL(`${URLConfig.base}${_path ? "/"+_path : ""}`, _url);
+    return newURL.href
+	}

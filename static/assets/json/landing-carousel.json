@@ -2,7 +2,7 @@
   {
     "title": "JetMag Pro: Lock Fast, Shoot Smart",
     "video": {
-      "link": "/assets/videos/Nisi_jetmag_pro.mp4",
+      "link": "assets/videos/Nisi_jetmag_pro.mp4",
       "type": "video/mp4"
     },
     "subtitle": "Magnetic. Ultra-thin. Mechanically secure. Swap filters in seconds - no vignetting, no compromise.",
@@ -12,7 +12,7 @@
   {
     "title": "ATHENA PRIME: Full-Frame Precision. Zero Compromise.",
     "video": {
-      "link": "/assets/videos/Nisi_athena_vid.mp4",
+      "link": "assets/videos/Nisi_athena_vid.mp4",
       "type": "video/mp4"
     },
     "subtitle": "Matched primes. Ultra-fast apertures. No focus breathing. Built for filmmakers who demand control and clarity.",
@@ -22,7 +22,7 @@
   {
     "title": "SWIFT — Snap. Stack. Shoot.",
     "video": {
-      "link": "/assets/videos/Nisi_swift.mp4",
+      "link": "assets/videos/Nisi_swift.mp4",
       "type": "video/mp4"
     },
     "subtitle": "1-second detachment. Rock-solid hold. Endless creative combos.",
