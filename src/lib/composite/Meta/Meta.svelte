@@ -1,4 +1,5 @@
 <script>
+  import { asset, resolve } from "$app/paths";
   let { metadata:m = {} } = $props()
 </script>
 
@@ -6,19 +7,19 @@
   <!-- essentials -->
   {#if m.title}
     <title>{m.title}</title>
-    <meta name="title" content={m.title} />
+    <meta name="title" content={m.title}/>
    	<meta property="og:title" content={m.title} />
   {/if}
   {#if m.type}
   	<meta property="og:type" content={m.type} />
   {/if}
   {#if m.url}
-  	<meta property="og:url" content={m.url}/>
+  	<meta property="og:url" content={resolve(m.url)}/>
   {/if}
 
   <!-- optional metadata -->
   {#if m.audio}
-    <meta property="og:audio" content={m.audio} />
+    <meta property="og:audio" content={asset(m.audio)} />
   {/if}
   {#if m.description}
     <meta property="description" content={m.description} />
@@ -36,10 +37,10 @@
 
   {#if m.video}
     {#if m.video.url}
-      <meta property="og:video" content={m.video.url}/>
+      <meta property="og:video" content={asset(m.video.url)}/>
     {/if}
     {#if m.video.secure_url}
-      <meta property="og:video:secure_url" content={m.video.secure_url}/>
+      <meta property="og:video:secure_url" content={asset(m.video.secure_url)}/>
     {/if}
     {#if m.video.width}
       <meta property="og:video:width" content={m.video.width}/>
@@ -53,10 +54,10 @@
   {/if}
   {#if m.image}
     {#if m.image.url}
-      <meta property="og:image" content={m.image.url}/>
+      <meta property="og:image" content={asset(m.image.url)}/>
     {/if}
     {#if m.image.secure_url}
-      <meta property="og:image:secure_url" content={m.image.secure_url}/>
+      <meta property="og:image:secure_url" content={asset(m.image.secure_url)}/>
     {/if}
     {#if m.image.width}
       <meta property="og:image:width" content={m.image.width}/>

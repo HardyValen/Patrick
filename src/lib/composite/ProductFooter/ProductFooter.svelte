@@ -1,7 +1,7 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-
+  import { resolve } from "$app/paths";
 
   let {
     ref = $bindable(null),
@@ -26,7 +26,7 @@
     {footerTitle}
   </h4>
   <a
-    href={`/products/${data.id}`}
+    href={resolve(`/products/${data.id}`)}
     class={cn(
       "line-clamp-3",
       typographyVariants({variant: "blog-link"})

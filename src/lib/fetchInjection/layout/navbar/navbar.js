@@ -1,8 +1,8 @@
-import { fetchJSON } from "$lib";
+import { fetchJSON, resolve } from "$lib";
 
 async function getData({fetch, ...restProps}) {
   try {
-    const url = "/assets/json/client-navbar.json";
+    const url = resolve("/assets/json/client-navbar.json");
     const data = await fetchJSON(fetch, url);
     return data;
   } catch (e) {

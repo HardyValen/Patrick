@@ -1,6 +1,6 @@
 <script>
   import { cn } from "$lib/utils.js";
-  import { typographyVariants, fetchJSON, Pagination } from "$lib";
+  import { typographyVariants, fetchJSON, Pagination, resolve, asset } from "$lib";
   import {
     InteractibleTaglist,
     Meta,
@@ -60,7 +60,8 @@
   // FUNCTIONS
   // =================================================================================
   function constructURL({search, cursor, page, tags} = {}) {
-    let apiURL = new URL("/api/articles", appStatePage.url);
+    // let apiURL = new URL("/api/articles", appStatePage.url);
+    let apiURL = new URL(resolve("/api/articles"), appStatePage.url);
     let searchParams = new URLSearchParams();
 
     if (search) searchParams.set("name", search);
@@ -272,7 +273,7 @@
         {:else}
           {#if articleData.length > 0}
             {#each articleData as article}
-              <a href={`/articles/${article.id}`} class="w-full h-full">
+              <a href={resolve(`/articles/${article.id}`)} class="w-full h-full">
                 <div
                   class={cn(
                     "rounded-md dark:bg-slate-800 bg-slate-100 border-1",
@@ -280,7 +281,7 @@
                   )}
                 >
                   <img
-                    src={article.images.square}
+                    src={asset(article.images.square)}
                     alt={article.name}
                     width=120 height=120
                     class={cn(
@@ -301,7 +302,7 @@
                     <!-- taglist -->
                     <Taglist
                       class="my-2"
-                      tags={article.tags.map(tag => {return {title: tag, href:`?tags=${tag}`}})}
+                      tags={article.tags.map(tag => {return {title: tag, href:`/articles?tags=${tag}`}})}
                       itemClass={cn(
                         "border-1 border-slate-600 dark:border-slate-400",
                         "text-[9px] md:text-[10px]",

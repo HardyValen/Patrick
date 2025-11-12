@@ -1,6 +1,6 @@
 <script>
   import { cn } from "$lib/utils.js";
-  import { typographyVariants } from "$lib";
+  import { typographyVariants, asset, resolve } from "$lib";
 
   let {
     ref = $bindable(null),
@@ -58,8 +58,8 @@
             "transition-all duration-150 ease-in-out",
             "text-slate-50"
           )}
-          href={`/articles/${data.id}`}
-          style={`background-image: url(${data.img})`}
+          href={resolve(`/articles/${data.id}`)}
+          style={`background-image: url(${asset(data.img)})`}
         >
           <div>{data.tags?.slice(0,3)?.join(" • ")}</div>
           <h3 class={cn(
@@ -87,7 +87,7 @@
                 "flex justify-start items-center gap-4 md:gap-8",
                 "hover:bg-slate-800/80"
               )}
-              href={`/articles/${data.id}`}
+              href={resolve(`/articles/${data.id}`)}
             >
               <div class={cn(
                 "flex flex-col",
@@ -106,7 +106,7 @@
                 class={cn(
                   "_bg-center", `${rv}`
                 )}
-                style={`background-image: url(${data.img})`}
+                style={`background-image: url(${asset(data.img)})`}
               >
                 <div class={"w-20 h-20 md:w-25 md:h-25"}></div>
               </div>

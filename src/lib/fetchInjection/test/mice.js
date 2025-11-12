@@ -1,8 +1,8 @@
-import { fetchJSON } from "$lib";
+import { fetchJSON, resolve } from "$lib";
 
 async function getData({fetch, ...restProps}) {
   try {
-    const url = "/assets/test/mh_mice.json";
+    const url = resolve("/assets/test/mh_mice.json");
     let data = await fetchJSON(fetch, url);
     data = data.map(item => {
       let tags = ["group", "subgroup"].reduce((ac, cv) => {

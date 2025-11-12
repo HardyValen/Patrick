@@ -3,10 +3,11 @@
   import Next from "./Next.svelte";
   import Previous from "./Previous.svelte";
   import { alignmentVariants, typographyVariants } from "$lib";
-  import { cn, constructURLWithConfig } from "$lib/utils";
+  import { cn } from "$lib/utils";
   import { Button, buttonVariants } from "$lib/components/ui/button";
   import { AnimateIntersect } from "$lib/composite";
   import { page } from "$app/state";
+  import { asset, resolve } from "$app/paths";
 
   /** The "data" prop is optional, but follows this interface
    * carouselData type definition
@@ -72,11 +73,13 @@
               "object-cover w-full h-full z-0"
             )}
           >
-            <source src={constructURLWithConfig(url, data.video.link)} type={data.video.type}/>
+            <!-- <source src={constructURLWithConfig(url, data.video.link)} type={data.video.type}/> -->
+            <source src={asset(data.video.link)} type={data.video.type}/>
           </video>
         {:else if "img" in data}
+            <!-- src={constructURLWithConfig(url, data.img)} -->
           <img
-            src={constructURLWithConfig(url, data.img)}
+            src={asset(data.img)}
             alt={data.title}
             class={cn(
               "w-full h-full object-cover z-0"
@@ -127,8 +130,9 @@
 
               <!-- Carousel Content - Button -->
               {#if data.button}
+                  <!-- href={constructURLWithConfig(url, data.button.href)} -->
                 <Button
-                  href={constructURLWithConfig(url, data.button.href)}
+                  href={resolve(data.button.href)}
                   class={cn(
                     "bg-slate-200 text-slate-800 hover:bg-slate-200/80"
                   )}

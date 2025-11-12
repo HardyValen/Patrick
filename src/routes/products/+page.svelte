@@ -5,7 +5,7 @@
 
 <script>
   import { cn, stringify } from "$lib/utils";
-  import { typographyVariants, fetchJSON, Pagination } from "$lib";
+  import { typographyVariants, fetchJSON, Pagination, resolve, asset } from "$lib";
   import * as Command from "$lib/components/ui/command";
   import * as Kbd from "$lib/components/ui/kbd";
   import * as InputGroup from "$lib/components/ui/input-group";
@@ -111,7 +111,8 @@
   }
 
   function constructURL({search, cursor, page, tags} = {}) {
-    let apiProductURL = new URL("/api/products", appStatePage.url);
+    // let apiProductURL = new URL("/api/products", appStatePage.url);
+    let apiProductURL = new URL(resolve("/api/products"), appStatePage.url);
     let productSearchParams = new URLSearchParams();
 
     // Construct URLSearchParams
@@ -326,7 +327,7 @@
             )}
           >
             {#each productsData.data as product}
-              <a href={`/products/${product.id}`} class="w-full h-full">
+              <a href={resolve(`/products/${product.id}`)} class="w-full h-full">
                 <!-- <ItemsCard data={product} class={"md:hover:scale-101 transition w-full h-full"}/> -->
                 <div
                   class={cn(
@@ -335,7 +336,7 @@
                   )}
                 >
                   <img
-                    src={product.images.best}
+                    src={asset(product.images.best)}
                     alt={product.name}
                     width=120 height=120
                     class={cn(
@@ -356,7 +357,7 @@
                     <!-- taglist -->
                     <Taglist
                       class="my-2"
-                      tags={product.tags.map(tag => {return {title: tag, href:`?tags=${tag}`}})}
+                      tags={product.tags.map(tag => {return {title: tag, href:`/products?tags=${tag}`}})}
                       itemClass={cn(
                         "border-1 border-slate-600 dark:border-slate-400",
                         "text-[9px] md:text-[10px]",

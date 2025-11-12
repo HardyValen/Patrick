@@ -1,7 +1,7 @@
 [
   {
     "title": "Perusahaan",
-    "href": "about"
+    "href": "/about"
   },
   {
     "title": "Information",
@@ -9,17 +9,17 @@
     "dropdown": [
       {
         "title": "Produk",
-        "href": "products",
+        "href": "/products",
         "description": "Jelajah inventaris toko berdasarkan jenis produk seperti kamera, lampu, dst."
       },
       {
         "title": "Artikel",
-        "href": "articles",
+        "href": "/articles",
         "description": "Ikuti perkembangan terkini produk yang anda incar."
       },
       {
         "title": "Tentang Kami",
-        "href": "about",
+        "href": "/about",
         "description": "Pelajari toko kami dan raih kesempatan bekerja sama antara distributor dan pengecer."
       }
     ]
@@ -30,7 +30,7 @@
     "dropdown": [
       {
         "title": "PT. Patrick",
-        "href": "",
+        "href": "/",
         "description": "Electronics, Lights, Visuals, Cameras, and Storage Devices.",
         "classes": "row-span-3"
       },

@@ -12,6 +12,7 @@
   import { mode } from "mode-watcher";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
   import { typographyVariants } from "$lib";
+  import { resolve } from "$app/paths";
 
   let {
     data: navLinksData = [],
@@ -51,7 +52,7 @@
         "flex", "justify-between"
       )}>
         <div>
-          <a href="/" class={cn("block", "p-2", "w-40")}>
+          <a href={resolve("/")} class={cn("block", "p-2", "w-40")}>
             <Logo/>
           </a>
         </div>
@@ -77,7 +78,7 @@
             "w-full border-b hover:underline",
             "bg-background hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
           )}>
-            <a href={navLinks.href}>
+            <a href={resolve(navLinks.href)}>
               <div class={cn(
                 "px-5 py-4 text-sm text-left"
               )}>
@@ -102,7 +103,7 @@
                   <Drawer.Close class={cn(
                     "w-full hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none leading-none no-underline outline-none transition-colors px-2 py-4 text-left"
                   )}>
-                  <a href={dropdownItem.href}>
+                  <a href={resolve(dropdownItem.href)}>
                     <div class={cn(
                       typographyVariants({variant: "header-navbar-title"})
                     )}>

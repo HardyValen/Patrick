@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/state';
 	import { cn } from "$lib/utils";
+	import { resolve } from "$lib";
 	import { Button } from "$lib/components/ui/button";
 	import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
 	import ArrowBigLeftDash from "@lucide/svelte/icons/arrow-big-left-dash";
@@ -49,7 +50,7 @@
         <ArrowBigLeftDash />
         <span class="text-xs md:text-sm">Back</span>
       </Button>
-      <Button href="/" class="cursor-pointer" variant="outline" size="sm">
+      <Button href={resolve("/")} class="cursor-pointer" variant="outline" size="sm">
         <House />
         <span class="text-xs md:text-sm">Home</span>
       </Button>

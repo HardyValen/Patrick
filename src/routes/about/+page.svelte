@@ -1,6 +1,6 @@
 <script>
   import { cn } from "$lib/utils.js";
-  import { typographyVariants } from "$lib";
+  import { typographyVariants, resolve, asset } from "$lib";
   import { Meta } from "$lib/composite";
   import { setContext, getContext, onMount, onDestroy } from "svelte";
   import { AnimateIntersect } from "$lib/composite";
@@ -40,7 +40,7 @@
       )}
     >
       <img
-        src={hero.img}
+        src={asset(hero.img)}
         alt={hero.title}
         class={cn(
           "w-full h-full object-center object-cover"
@@ -89,7 +89,7 @@
         variant="scale"
       >
       <img
-        src={section1.img}
+        src={asset(section1.img)}
         alt={section1.title}
         class={cn(
           "w-full min-h-40 max-h-80",
@@ -166,7 +166,7 @@
     </div>
 
     <img
-      src={section3.img}
+      src={asset(section3.img)}
       alt={section3.title}
       class={cn(
         "w-full py-4 mx-auto md:max-w-200"
@@ -189,7 +189,7 @@
             )}
           >
             {#each item.links as link}
-              <a class="text-sm tracking-widest hover:underline" href={link.href} target="_blank" rel="noopener noreferrer">{link.text}</a>
+              <a class="text-sm tracking-widest hover:underline" href={resolve(link.href)} target="_blank" rel="noopener noreferrer">{link.text}</a>
             {/each}
           </div>
         </div>

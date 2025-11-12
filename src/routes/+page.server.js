@@ -11,16 +11,6 @@ export async function load({ fetch, url }) {
       carousel: await FI.Landing.carousel({fetch}),
       products: await FI.Landing.products({fetch}),
       meta: await FI.Landing.meta({ fetch })
-        .then(data => {
-          // transforms $href to url.href for all string object value that contains it.
-          const newObj = structuredClone(data);
-          traverseJson(newObj, ({key, value}) => {
-            if (key === "url") {
-              newObj[key] = url.origin + value
-            }
-          })
-          return newObj
-        })
     }
   } catch (e) {
     error(404, e.message);

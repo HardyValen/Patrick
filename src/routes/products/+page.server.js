@@ -1,12 +1,15 @@
-import { fetchJSON, FI } from "$lib";
+import { fetchJSON, FI, resolve } from "$lib";
 import { error } from '@sveltejs/kit';
 import { traverseJson } from "$lib/utils";
+
+export const prerender = false;
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, url, params }) {
   // let tag = url.searchParams.get("tag");
 
-  let dataURL = new URL("/api/products", url.href);
+  // let dataURL = new URL("/api/products", url.href);
+  let dataURL = new URL(resolve("/api/products"), url.href);
   // constant param
   dataURL.searchParams.set("limit", 24);
 

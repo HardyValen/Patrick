@@ -1,6 +1,6 @@
 <script>
   import { cn } from '$lib/utils.js';
-  import { typographyVariants } from '$lib';
+  import { typographyVariants, resolve } from '$lib';
   import { debugConfig as dbg } from "$config";
   // import map from "$lib/assets/MapsPlaceholder.png";
 
@@ -119,7 +119,7 @@
               class={cn(
                 typographyVariants({variant:"link-footer-primary"})
               )}
-              href={footerLink.href}
+              href={resolve(footerLink.href)}
             >
               {footerLink.title}
             </a>

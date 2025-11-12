@@ -1,8 +1,8 @@
-import { fetchJSON } from "$lib";
+import { fetchJSON, resolve } from "$lib";
 
 async function getData({fetch, ...restProps}) {
   try {
-    const url = "/assets/test/mh_mice_groups.json";
+    const url = resolve("/assets/test/mh_mice_groups.json");
     const data = await fetchJSON(fetch, url);
     return data;
   } catch (e) {

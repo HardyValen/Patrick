@@ -17,9 +17,9 @@ function constructMetadata({url, data}) {
   const result = {
     title: data.title,
     type: "article",
-    url: url.href,
+    url: `/${data.id}`,
     image: {
-      url: url.origin + data.img,
+      url: data.img,
       width: "400",
       height: "400",
     },

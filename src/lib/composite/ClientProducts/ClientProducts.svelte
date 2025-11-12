@@ -2,6 +2,7 @@
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
   import { AnimateIntersect } from "$lib/composite";
+  import { asset, resolve } from "$app/paths";
 
   let {
     ref = $bindable(null),
@@ -59,7 +60,7 @@
           variant={idx % 2 == 0 ? "top" : "bottom"}
         >
           <a
-            href={`/products/${data.id}`}
+            href={resolve(`/products/${data.id}`)}
             class="cpc relative"
           >
             <div
@@ -75,7 +76,7 @@
               {data.title}
             </div>
             <img
-              src={data.img}
+              src={asset(data.img)}
               alt={data.title}
               class={cn(
                 "absolute bottom-12 p-2",

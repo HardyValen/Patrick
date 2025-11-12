@@ -4,6 +4,7 @@
   import { onMount } from 'svelte';
   import { Button } from "$lib/components/ui/button/";
   import ChevronLeft from "@lucide/svelte/icons/chevron-left";
+  import { asset, resolve } from "$app/paths";
 
   let {
     ref = $bindable(null),
@@ -63,7 +64,7 @@
 
     <div class="flex gap-2 my-2">
       {#each productData.tags as tags}
-        <Button href={`/products?tag=${tags}`} variant="outline" size="sm">{tags}</Button>
+        <Button href={resolve(`/products?tag=${tags}`)} variant="outline" size="sm">{tags}</Button>
       {/each}
     </div>
 
@@ -71,7 +72,7 @@
       class={cn(
         "w-full h-auto mt-2 mb-8 max-h-100 md:max-h-160 mx-auto"
       )}
-      src={productData.img}
+      src={asset(productData.img)}
       alt={productData.title}
     />
 
@@ -106,7 +107,7 @@
             "flex items-center justify-center",
             "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:mr-2"
           )}
-          href="/products"
+          href={resolve("/products")}
         >
           <ChevronLeft/> Products
         </a>
@@ -149,7 +150,7 @@
         class={cn(
           "w-full h-auto mt-2 mb-8 max-h-100 md:max-h-160 mx-auto"
         )}
-        src={productData.img}
+        src={asset(productData.img)}
         alt={productData.title}
       />
     </div>
