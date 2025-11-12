@@ -2,28 +2,15 @@ import { fetchJSON, FI, resolve } from "$lib";
 import { error } from '@sveltejs/kit';
 import { traverseJson } from "$lib/utils";
 
-export const prerender = false;
+// export const prerender = false;
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, url }) {
 
-  // let dataURL = new URL("/api/articles", url.href);
-  let dataURL = new URL(resolve("/api/articles"), url.href);
-  // constant param
-  dataURL.searchParams.set("limit", 24);
-
-  // params with single value: single
-  let userDefinedSingleParams = ["page", "name", "group", "subgroup"];
-  userDefinedSingleParams.forEach(param => {
-    if (url.searchParams.get(param)) {
-      dataURL.searchParams.set(param, url.searchParams.get(param));
-    }
-  });
-
   try {
     return {
       featured: await FI.Landing.articles({fetch}),
-      articles: await fetchJSON(fetch, dataURL.href),
+      articles: { data: [], hyper: {} },
       suggestions: {
         groups: await FI.TestMH.mice_groups({fetch}),
         subgroups: await FI.TestMH.mice_subgroups({fetch})

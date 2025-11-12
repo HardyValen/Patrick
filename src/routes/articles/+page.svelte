@@ -27,6 +27,7 @@
     ChevronRight,
     ChevronsUpDownIcon
   } from "@lucide/svelte/icons";
+  import { onMount } from "svelte";
 
   let {
     ref = $bindable(null),
@@ -38,14 +39,12 @@
   // =================================================================================
   let {featured, articles, suggestions, catalogue, meta} = $state(data);
   let {hyper, data: articleData} = $derived(articles);
-  let isOnProgress = $state(false);
+  let isOnProgress = $state(true);
   let commandDialogOpen = $state(false);
   let refWindow = $state(null);
-  let searchValue = $state(appStatePage.url.searchParams.get("name") ?? "");
-  let searchTags = $state(new SvelteSet(
-    appStatePage.url.searchParams.getAll("tags")
-  ));
-  let activeCatalogue = $state(appStatePage.url.searchParams.get("tags"));
+  let searchValue = $state("");
+  let searchTags = $state(new SvelteSet([]));
+  let activeCatalogue = $state("");
   let activeCatalogueTitle = $derived.by(() => {
     let idx = catalogue.findIndex(v => v.id === activeCatalogue)
       if (idx >= 0) {
@@ -56,6 +55,19 @@
     });
   let catalogueOpen = $state(false);
 
+  // =================================================================================
+  // ON MOUNT
+  // =================================================================================
+  onMount(async () => {
+    searchValue = appStatePage.url.searchParams.get("name") ?? "";
+    activeCatalogue = appStatePage.url.searchParams.get("tags");
+    searchTags = new SvelteSet(appStatePage.url.searchParams.getAll("tags"));
+
+    let apiURL = constructURL(({search: searchValue, tags: searchTags}));
+    articles = await fetchJSON(fetch, apiURL);
+    isOnProgress = false;
+    return () => {}
+  })
   // =================================================================================
   // FUNCTIONS
   // =================================================================================
