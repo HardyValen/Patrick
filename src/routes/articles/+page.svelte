@@ -138,17 +138,17 @@
     };
   }
 
-  function handlePageButtonClick(page) {
+  async function handlePageButtonClick(page) {
     refWindow.scrollTo({top: 0, left: 0, behavior: "smooth"});
-    articles = getArticles({
+    articles = await getArticles({
       name: searchValue,
       page: page,
       tags: searchTags
     })
   }
 
-  function handleSubmitForm(e) {
-    articles = getArticles({name: searchValue, tags: searchTags});
+  async function handleSubmitForm(e) {
+    articles = await getArticles({name: searchValue, tags: searchTags});
   }
 
   function toggleCommandDialog() {
@@ -162,21 +162,21 @@
     } else return;
   }
 
-  function handleCommandItemClick(e) {
+  async function handleCommandItemClick(e) {
     let {id} = e.target.dataset;
     searchTags.clear();
     searchTags.add(id);
     activeCatalogue = id;
-    articles = getArticles({name: searchValue, tags: searchTags});
+    articles = await getArticles({name: searchValue, tags: searchTags});
     toggleCommandDialog();
   }
 
-  function handleCatalogueItemClick(e) {
+  async function handleCatalogueItemClick(e) {
     let {id} = e.target.dataset;
     searchTags.clear();
     searchTags.add(id);
     activeCatalogue = id;
-    articles = getArticles({name: searchValue, tags: searchTags})
+    articles = await getArticles({name: searchValue, tags: searchTags})
   }
 </script>
 

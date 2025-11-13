@@ -71,6 +71,7 @@
   // ===========================
   async function getProducts({name: queriedTitle, page: queriedPage, tags: queriedTags} = {}) {
     const QUERY_PARAM_KEY = "name";
+    const TAGS_PARAM_KEY = "tags";
     const CURSOR_KEY = "id";
     const RELEVANCY_SCORE_THRESHOLD = 0.5;
     const queriedLimit = 24;
@@ -144,54 +145,54 @@
     } else return;
   }
 
-  function handleCommandItemClick(e) {
+  async function handleCommandItemClick(e) {
     let {id} = e.target.dataset;
     searchTags.add(id);
     activeCatalogue = id;
     commandInputValue = "";
 
-    products = getProducts({name: searchValue, tags: [...searchTags]});
+    products = await getProducts({name: searchValue, tags: [...searchTags]});
   }
 
-  function handleCatalogueItemClick(e) {
+  async function handleCatalogueItemClick(e) {
     let {id} = e.target.dataset;
     searchTags.clear();
     searchTags.add(id);
 
-    products = getProducts({name: searchValue, tags: [...searchTags]});
+    products = await getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = id;
   }
 
-  function handleTagBadgeClick(e) {
+  async function handleTagBadgeClick(e) {
     let {value} = e.target.dataset;
     searchTags.delete(value);
 
-    products = getProducts({name: searchValue, tags: [...searchTags]});
+    products = await getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = appStatePage.url.searchParams.get("tags");
   }
 
-  function handleInputXClick() {
+  async function handleInputXClick() {
     searchValue = "";
-    products = getProducts({name: searchValue, tags: [...searchTags]});
+    products = await getProducts({name: searchValue, tags: [...searchTags]});
   }
 
   function handleInputTagsIconClick() {
     toggleSearchDialog();
   }
 
-  function handleTagBadgeClearAll() {
+  async function handleTagBadgeClearAll() {
     searchTags.clear();
-    products = getProducts({name: searchValue, tags: [...searchTags]});
+    products = await getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = "";
   }
 
-  function handleSubmitForm(e) {
-    products = getProducts({name: searchValue, tags: [...searchTags]});
+  async function handleSubmitForm(e) {
+    products = await getProducts({name: searchValue, tags: [...searchTags]});
   }
 
-  function handlePageButtonClick(page) {
+  async function handlePageButtonClick(page) {
     refWindow.scrollTo({top: 0, left: 0, behavior: "smooth"});
-    products = getProducts({
+    products = await getProducts({
       name: searchValue,
       tags: [...searchTags],
       page: page
