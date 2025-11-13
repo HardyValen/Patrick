@@ -1,11 +1,14 @@
 import { fetchJSON, resolve } from "$lib";
-import { debugConfig } from "$config";
+import { deployConfig } from "$config";
 
 async function getData({fetch, ...restProps}) {
   try {
-    const url = debugConfig.enabled
-      ? resolve("/assets/json/client-articles.json")
-      : resolve("/assets/json/client-articles-gh-pages.json");
+    let url = ""
+    if (deployConfig === "gh-pages") {
+      url = resolve("/assets/json/client-articles-gh-pages.json")
+    } else {
+      url = resolve("/assets/json/client-articles.json")
+    }
     const data = await fetchJSON(fetch, url);
     return data;
   } catch (e) {

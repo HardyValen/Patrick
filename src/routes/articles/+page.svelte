@@ -1,6 +1,6 @@
 <script>
   import { cn } from "$lib/utils.js";
-  import { typographyVariants, fetchJSON, Pagination, resolve, asset } from "$lib";
+  import { typographyVariants, fetchJSON, Pagination, resolve, asset, paginationIndices, FI } from "$lib";
   import {
     InteractibleTaglist,
     Meta,
@@ -28,6 +28,7 @@
     ChevronsUpDownIcon
   } from "@lucide/svelte/icons";
   import { onMount } from "svelte";
+  import { computeCommandScore } from 'bits-ui';
 
   let {
     ref = $bindable(null),
@@ -44,6 +45,7 @@
   let refWindow = $state(null);
   let searchValue = $state("");
   let searchTags = $state(new SvelteSet([]));
+  let searchPage = $state(1);
   let activeCatalogue = $state("");
   let activeCatalogueTitle = $derived.by(() => {
     let idx = catalogue.findIndex(v => v.id === activeCatalogue)
@@ -62,58 +64,91 @@
     searchValue = appStatePage.url.searchParams.get("name") ?? "";
     activeCatalogue = appStatePage.url.searchParams.get("tags");
     searchTags = new SvelteSet(appStatePage.url.searchParams.getAll("tags"));
+    searchPage = parseInt(appStatePage.url.searchParams.get("page"));
 
-    let apiURL = constructURL(({search: searchValue, tags: searchTags}));
-    articles = await fetchJSON(fetch, apiURL);
+    articles = await getArticles({name: searchValue, page: searchPage, tags: [...searchTags]});
     isOnProgress = false;
     return () => {}
   })
   // =================================================================================
   // FUNCTIONS
   // =================================================================================
-  function constructURL({search, cursor, page, tags} = {}) {
-    // let apiURL = new URL("/api/articles", appStatePage.url);
-    let apiURL = new URL(resolve("/api/articles"), appStatePage.url);
-    let searchParams = new URLSearchParams();
+  async function getArticles({name: queriedTitle, page: queriedPage, tags: queriedTags} = {}) {
+    const QUERY_PARAM_KEY = "name";
+    const CURSOR_KEY = "id";
+    const RELEVANCY_SCORE_THRESHOLD = 0.5;
+    const queriedLimit = 24;
+    const cursorIdx = !isNaN(queriedPage) ? queriedLimit * (queriedPage - 1) : 0;
+    let result = await FI.TestMH.mice({ fetch });
 
-    if (search) searchParams.set("name", search);
-    if (cursor) searchParams.set("cursor", cursor);
-    if (page) searchParams.set("page", page);
-
-    tags.forEach(tag => {
-      if (tag) {
-        searchParams.append("tags", tag);
+    result = result.map(item => {
+      let relevancyScore = 0;
+      if (queriedTitle) {
+        relevancyScore = computeCommandScore(
+          item[QUERY_PARAM_KEY],
+          queriedTitle,
+          item[QUERY_PARAM_KEY].split(" ")
+        )
+      }
+      return {
+        ...item,
+        relevancyScore
       }
     });
 
-    apiURL.search = searchParams;
-    return apiURL;
-  }
+    result = result.filter(item => {
+      let tagsPass = queriedTags
+        .map(tag => {
+          return item[TAGS_PARAM_KEY].includes(tag);
+        })
+        .every(item => item); // use .some for "OR" filter
 
-  async function getArticles(params) {
-    if (isOnProgress) return;
-    isOnProgress = true;
-    try {
-      let apiURL = constructURL(params);
-      replaceState(apiURL.search || "?", {});
-      articles = await fetchJSON(fetch, apiURL);
-    } catch (e) {
-      console.error(e.message)
+    // relevancy score filter
+      let relevancyScorePass = true;
+      if (queriedTitle) {
+        relevancyScorePass = item.relevancyScore > RELEVANCY_SCORE_THRESHOLD
+      }
+      return relevancyScorePass && tagsPass;
+    });
+
+    // descending
+    if (queriedTitle) {
+      result = result.sort((a, b) => {
+        return b.relevancyScore - a.relevancyScore;
+      })
     }
-    isOnProgress = false;
+
+    let hyperIndices = paginationIndices(cursorIdx, queriedLimit, result.length);
+
+    return {
+      data: result.slice(hyperIndices.self, hyperIndices.self_end),
+      hyper: {
+        first: result[hyperIndices.first]?.[CURSOR_KEY],
+        last: result[hyperIndices.last]?.[CURSOR_KEY],
+        next: result[hyperIndices.next]?.[CURSOR_KEY],
+        prev: result[hyperIndices.prev]?.[CURSOR_KEY],
+        self: result[hyperIndices.self]?.[CURSOR_KEY],
+        hasNextPage: hyperIndices.hasNextPage,
+        hasPrevPage: hyperIndices.hasPrevPage,
+        totalRecords: result.length,
+        currentPage: 1 + Math.floor(hyperIndices.self / queriedLimit),
+        totalPages: Math.ceil(result.length / queriedLimit),
+        limitEntries: queriedLimit
+      }
+    };
   }
 
   function handlePageButtonClick(page) {
     refWindow.scrollTo({top: 0, left: 0, behavior: "smooth"});
-    getArticles({
-      search: searchValue,
+    articles = getArticles({
+      name: searchValue,
       page: page,
       tags: searchTags
     })
   }
 
   function handleSubmitForm(e) {
-    getArticles({search: searchValue, tags: searchTags});
+    articles = getArticles({name: searchValue, tags: searchTags});
   }
 
   function toggleCommandDialog() {
@@ -132,7 +167,7 @@
     searchTags.clear();
     searchTags.add(id);
     activeCatalogue = id;
-    getArticles({search: searchValue, tags: searchTags});
+    articles = getArticles({name: searchValue, tags: searchTags});
     toggleCommandDialog();
   }
 
@@ -141,7 +176,7 @@
     searchTags.clear();
     searchTags.add(id);
     activeCatalogue = id;
-    getArticles({search: searchValue, tags: searchTags})
+    articles = getArticles({name: searchValue, tags: searchTags})
   }
 </script>
 

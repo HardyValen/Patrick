@@ -5,7 +5,7 @@
 
 <script>
   import { cn, stringify } from "$lib/utils";
-  import { typographyVariants, fetchJSON, Pagination, resolve, asset } from "$lib";
+  import { typographyVariants, fetchJSON, Pagination, resolve, asset, FI, paginationIndices } from "$lib";
   import * as Command from "$lib/components/ui/command";
   import * as Kbd from "$lib/components/ui/kbd";
   import * as InputGroup from "$lib/components/ui/input-group";
@@ -18,17 +18,8 @@
   import { SvelteSet } from "svelte/reactivity";
   import { InteractibleTaglist, Meta, Taglist } from "$lib/composite";
   import { computeCommandScore } from 'bits-ui';
-  import {
-    Search,
-    Tags,
-    X,
-    ChevronFirst,
-    ChevronLast,
-    ChevronLeft,
-    ChevronRight,
-    ChevronsUpDownIcon
-  } from "@lucide/svelte/icons";
-    import { onMount } from "svelte";
+  import { Search, Tags, X, ChevronFirst, ChevronLast, ChevronLeft, ChevronRight, ChevronsUpDownIcon } from "@lucide/svelte/icons";
+  import { onMount } from "svelte";
 
   let {
     ref = $bindable(null),
@@ -38,13 +29,17 @@
   // ===========================
   // DATA DEFINITIONS
   // ===========================
+  let {products, suggestions, catalogue, meta} = $state(data);
+  let {hyper, data: productsData} = $derived(products);
+
+  // Page State
   let searchTags = $state(new SvelteSet([]));
   let searchValue = $state("");
+  let searchPage = $state(1);
+
   let commandTagsOpen = $state(false);
   let commandInputValue = $state("");
   let isOnProgress = $state(true);
-  let { products: productsData, catalogue } = $state(data);
-  let { hyper } = $derived(productsData);
   let refWindow = $state(null);
   let activeCatalogue = $state("");
   let activeCatalogueTitle = $derived.by(() => {
@@ -60,21 +55,83 @@
   // ===========================
   // ON MOUNT
   // ===========================
-
   onMount(async () => {
-      activeCatalogue = appStatePage.url.searchParams.get("tags");
-      searchValue = appStatePage.url.searchParams.get("name") ?? "";
-      searchTags = new SvelteSet(appStatePage.url.searchParams.getAll("tags"));
+    activeCatalogue = appStatePage.url.searchParams.get("tags");
+    searchValue = appStatePage.url.searchParams.get("name") ?? "";
+    searchTags = new SvelteSet(appStatePage.url.searchParams.getAll("tags"));
+    searchPage = parseInt(appStatePage.url.searchParams.get("page"));
 
-      let apiProductURL = constructURL(({search: searchValue, tags: searchTags}));
-      productsData = await fetchJSON(fetch, apiProductURL);
-      isOnProgress = false;
+    products = await getProducts({name: searchValue, page: searchPage, tags: [...searchTags]});
+    isOnProgress = false;
     return () => {}
   })
 
   // ===========================
   // FUNCTIONS
   // ===========================
+  async function getProducts({name: queriedTitle, page: queriedPage, tags: queriedTags} = {}) {
+    const QUERY_PARAM_KEY = "name";
+    const CURSOR_KEY = "id";
+    const RELEVANCY_SCORE_THRESHOLD = 0.5;
+    const queriedLimit = 24;
+    const cursorIdx = !isNaN(queriedPage) ? queriedLimit * (queriedPage - 1) : 0;
+    let result = await FI.TestMH.items({ fetch });
+
+    result = result.map(item => {
+      let relevancyScore = 0;
+      if (queriedTitle) {
+        relevancyScore = computeCommandScore(
+          item[QUERY_PARAM_KEY],
+          queriedTitle,
+          item[QUERY_PARAM_KEY].split(" ")
+        )
+      }
+      return {
+        ...item,
+        relevancyScore
+      }
+    });
+
+    result = result.filter(item => {
+      let tagsPass = queriedTags
+        .map(tag => {
+          return item[TAGS_PARAM_KEY].includes(tag.replace(" ", "_"));
+        })
+        .every(item => item); // use .some for "OR" filter
+
+      let relevancyScorePass = true;
+      if (queriedTitle) {
+        relevancyScorePass = item.relevancyScore > RELEVANCY_SCORE_THRESHOLD
+      }
+      return relevancyScorePass && tagsPass;
+    });
+
+    if (queriedTitle) {
+      result = result.sort((a, b) => {
+        return b.relevancyScore - a.relevancyScore;
+      })
+    }
+
+    let hyperIndices = paginationIndices(cursorIdx, queriedLimit, result.length);
+
+    return {
+      data: result.slice(hyperIndices.self, hyperIndices.self_end),
+      hyper: {
+        first: result[hyperIndices.first]?.[CURSOR_KEY],
+        last: result[hyperIndices.last]?.[CURSOR_KEY],
+        next: result[hyperIndices.next]?.[CURSOR_KEY],
+        prev: result[hyperIndices.prev]?.[CURSOR_KEY],
+        self: result[hyperIndices.self]?.[CURSOR_KEY],
+        hasNextPage: hyperIndices.hasNextPage,
+        hasPrevPage: hyperIndices.hasPrevPage,
+        totalRecords: result.length,
+        currentPage: 1 + Math.floor(hyperIndices.self / queriedLimit),
+        totalPages: Math.ceil(result.length / queriedLimit),
+        limitEntries: queriedLimit
+      }
+    };
+  }
+
   function toggleSearchDialog() {
     commandTagsOpen = !commandTagsOpen;
   }
@@ -91,28 +148,31 @@
     let {id} = e.target.dataset;
     searchTags.add(id);
     activeCatalogue = id;
-    commandInputValue = ""
-    getProducts({search: searchValue, tags: searchTags});
+    commandInputValue = "";
+
+    products = getProducts({name: searchValue, tags: [...searchTags]});
   }
 
   function handleCatalogueItemClick(e) {
     let {id} = e.target.dataset;
     searchTags.clear();
     searchTags.add(id);
+
+    products = getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = id;
-    getProducts({search: searchValue, tags: searchTags})
   }
 
   function handleTagBadgeClick(e) {
     let {value} = e.target.dataset;
     searchTags.delete(value);
-    getProducts({search: searchValue, tags: searchTags})
+
+    products = getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = appStatePage.url.searchParams.get("tags");
   }
 
   function handleInputXClick() {
     searchValue = "";
-    getProducts({search: searchValue, tags: searchTags})
+    products = getProducts({name: searchValue, tags: [...searchTags]});
   }
 
   function handleInputTagsIconClick() {
@@ -121,50 +181,19 @@
 
   function handleTagBadgeClearAll() {
     searchTags.clear();
-    getProducts({search: searchValue, tags: searchTags})
+    products = getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = "";
   }
 
-  function constructURL({search, cursor, page, tags} = {}) {
-    // let apiProductURL = new URL("/api/products", appStatePage.url);
-    let apiProductURL = new URL(resolve("/api/products"), appStatePage.url);
-    let productSearchParams = new URLSearchParams();
-
-    // Construct URLSearchParams
-    if (search) productSearchParams.set("name", search);
-    if (cursor) productSearchParams.set("cursor", cursor);
-    if (page) productSearchParams.set("page", page);
-
-    tags.forEach(tag => {
-      productSearchParams.append("tags", tag);
-    });
-
-    apiProductURL.search = productSearchParams;
-    return apiProductURL;
-  }
-
-  async function getProducts(params) {
-    if (isOnProgress) return;
-    isOnProgress = true;
-    try {
-      let apiProductURL = constructURL(params);
-      replaceState(apiProductURL.search || "?", {});
-      productsData = await fetchJSON(fetch, apiProductURL);
-    } catch (e) {
-      console.error(e.message);
-    }
-    isOnProgress = false;
-  }
-
   function handleSubmitForm(e) {
-    getProducts({search: searchValue, tags: searchTags});
+    products = getProducts({name: searchValue, tags: [...searchTags]});
   }
 
   function handlePageButtonClick(page) {
     refWindow.scrollTo({top: 0, left: 0, behavior: "smooth"});
-    getProducts({
-      search: searchValue,
-      tags: searchTags,
+    products = getProducts({
+      name: searchValue,
+      tags: [...searchTags],
       page: page
     })
   }
@@ -189,7 +218,7 @@
 {/snippet}
 
 <!-- Metadata -->
-<Meta metadata={data.meta}></Meta>
+<Meta metadata={meta}></Meta>
 <!-- SVELTE DOCUMENT FOR HANDLING SHORTCUT KEYDOWN -->
 <svelte:document onkeydown={handleDocumentKeydown}/>
 <svelte:window bind:this={refWindow}/>
@@ -333,7 +362,7 @@
           {/each}
         </div>
       {:else}
-        {#if productsData.data.length > 0}
+        {#if productsData.length > 0}
           <div
             class={cn(
               "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2",
@@ -341,7 +370,7 @@
               "col-span-5 md:col-span-4"
             )}
           >
-            {#each productsData.data as product}
+            {#each productsData as product}
               <a href={resolve(`/products/${product.id}`)} class="w-full h-full">
                 <!-- <ItemsCard data={product} class={"md:hover:scale-101 transition w-full h-full"}/> -->
                 <div
@@ -433,7 +462,7 @@
 
   <!-- PAGE BUTTON RENDER -->
   <!-- "sticky bottom-0 md:bottom-4", -->
-  {#if productsData.data.length > 0}
+  {#if productsData.length > 0}
     <div class="flex flex-col items-center gap-2 my-8">
       <ButtonGroup>
         <Button
@@ -495,7 +524,7 @@
   <Command.List>
     <Command.Empty>No Result Found</Command.Empty>
     <Command.Group heading="TAGS">
-      {#each data.suggestions.tags as item}
+      {#each suggestions.tags as item}
         <Command.Item class="cursor-pointer"
           onclick={handleCommandItemClick}
           data-id={item}
