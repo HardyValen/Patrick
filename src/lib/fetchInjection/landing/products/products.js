@@ -2,7 +2,7 @@ import { fetchJSON, resolve } from "$lib";
 
 async function getData({fetch, ...restProps}) {
   try {
-    const url = resolve("/assets/json/products-data.json");
+    const url = resolve("/assets/json/landing-products.json");
     const data = await fetchJSON(fetch, url);
     return data;
   } catch (e) {

@@ -76,7 +76,8 @@
     const RELEVANCY_SCORE_THRESHOLD = 0.5;
     const queriedLimit = 24;
     const cursorIdx = !isNaN(queriedPage) ? queriedLimit * (queriedPage - 1) : 0;
-    let result = await FI.TestMH.items({ fetch });
+    let result = await FI.Products.data({ fetch });
+    // let result = await FI.TestMH.items({ fetch });
 
     result = result.map(item => {
       let relevancyScore = 0;
@@ -381,7 +382,7 @@
                   )}
                 >
                   <img
-                    src={asset(product.images.best)}
+                    src={asset(product.images[0])}
                     alt={product.name}
                     width=120 height=120
                     class={cn(
