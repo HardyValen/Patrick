@@ -26,7 +26,7 @@
     {footerTitle}
   </h4>
   <a
-    href={resolve(`/products/${data.id}`)}
+    href={resolve(`/products/featured/${data.id}`)}
     class={cn(
       "line-clamp-3",
       typographyVariants({variant: "blog-link"})

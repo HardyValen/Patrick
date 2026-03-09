@@ -60,7 +60,7 @@
           variant={idx % 2 == 0 ? "top" : "bottom"}
         >
           <a
-            href={resolve(`/products/${data.id}`)}
+            href={resolve(`/products/featured/${data.id}`)}
             class="cpc relative"
           >
             <div

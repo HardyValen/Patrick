@@ -15,8 +15,8 @@ export async function GET({fetch, url}) {
   const RELEVANCY_SCORE_THRESHOLD = 0.5;
 
   try {
-    // let data = await FI.Products.data({ fetch });
-    let result = await FI.TestMH.mice({ fetch });
+    let data = await FI.Products.data({ fetch });
+    // let result = await FI.TestMH.mice({ fetch });
     let query = url.searchParams;
 
     let queriedTitle = query.get(QUERY_PARAM_KEY);
