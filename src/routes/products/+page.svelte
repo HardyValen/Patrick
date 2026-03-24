@@ -14,7 +14,7 @@
   import ButtonGroup from "$lib/components/ui/button-group/button-group.svelte";
   import { Skeleton } from "$lib/components/ui/skeleton";
   import { page as appStatePage } from "$app/state";
-  import { replaceState } from "$app/navigation";
+  import { pushState } from "$app/navigation";
   import { SvelteSet } from "svelte/reactivity";
   import { InteractibleTaglist, Meta, Taglist } from "$lib/composite";
   import { computeCommandScore } from 'bits-ui';
@@ -153,6 +153,8 @@
     commandInputValue = "";
 
     products = await getProducts({name: searchValue, tags: [...searchTags]});
+    appStatePage.url.searchParams.append("tags", id);
+    pushState(resolve(appStatePage.url.toString()));
   }
 
   async function handleCatalogueItemClick(e) {
@@ -162,11 +164,18 @@
 
     products = await getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = id;
+
+    appStatePage.url.searchParams.delete("tags");
+    appStatePage.url.searchParams.append("tags", id);
+    pushState(resolve(appStatePage.url.toString()));
   }
 
   async function handleTagBadgeClick(e) {
     let {value} = e.target.dataset;
     searchTags.delete(value);
+    // Delete url query string and push
+    appStatePage.url.searchParams.delete("tags", value);
+    pushState(resolve(appStatePage.url.toString()));
 
     products = await getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = appStatePage.url.searchParams.get("tags");
@@ -185,6 +194,7 @@
     searchTags.clear();
     products = await getProducts({name: searchValue, tags: [...searchTags]});
     activeCatalogue = "";
+    pushState(resolve('/products'))
   }
 
   async function handleSubmitForm(e) {
@@ -305,6 +315,7 @@
     {@render taglist()}
   </div>
 
+  <!-- CATALOGUE -->
   <div class="mx-auto max-w-360 px-2">
     <div class="grid grid-cols-5 gap-2 items-start">
       <div

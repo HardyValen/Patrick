@@ -1,10 +1,14 @@
 [
   {
-    "id": "camera_lenses",
+    "id": "camera_lens",
     "title": "Camera Lenses"
   },
   {
     "id": "camera_care",
     "title": "Camera Care"
+  },
+  {
+    "id": "nisi",
+    "title": "NiSi Optics"
   }
 ]
