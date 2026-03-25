@@ -25,7 +25,7 @@
     - tags: string array
 -->
 
-{#snippet productTop (mediaClass)}
+{#snippet FeaturedProductTop (mediaClass)}
   <header
     bind:this={ref}
     class={cn(
@@ -90,7 +90,7 @@
 {/snippet}
 
 {#if productData.layout === "full"}
-  {@render productTop("max-md:hidden")}
+  {@render FeaturedProductTop("max-md:hidden")}
 {:else}
   <header
     bind:this={ref}
@@ -157,4 +157,4 @@
   </header>
 {/if}
 
-{@render productTop("md:hidden")}
+{@render FeaturedProductTop("md:hidden")}

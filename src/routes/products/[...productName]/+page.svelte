@@ -1,7 +1,7 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-  import { ProductTop, ProductFooter, Meta } from "$lib/composite";
+  import { FeaturedProductTop, FeaturedProductFooter, Meta, ProductCarousel } from "$lib/composite";
 
   let {
     ref = $bindable(null),
@@ -10,16 +10,11 @@
     ...restProps
   } = $props();
 
-  const { current, prev, next } = $derived(productData ?? {});
-  const { content, ...restCurrent } = $derived(current ?? {});
+  const { current } = $derived(productData ?? {});
 
 </script>
 
 <Meta metadata={productData.meta}/>
-<!-- Components: -->
-<!-- - Top Banner: Title, Image, Subtitle; Publish Date, Tags -->
-<!-- - Markdown Content -->
-<!-- - Footer: Previous / Next post, Related Posts with similar tags -->
 
 <div
   bind:this={ref}
@@ -29,26 +24,5 @@
   )}
   {...restProps}
 >
-  <ProductTop
-    class={cn(
-      "w-full max-w-280 m-auto my-10"
-    )}
-    data={restCurrent}
-  />
-
-  <div
-    class={cn(
-      "w-full max-w-200 m-auto my-10",
-      "_client-content"
-    )}
-  >
-    {@html content}
-  </div>
-
-  <ProductFooter
-    class={cn(
-      "w-full max-w-280 m-auto my-10"
-    )}
-    data={{prev, next}}
-  />
+  <ProductCarousel/>
 </div>

@@ -384,7 +384,7 @@
             )}
           >
             {#each productsData as product}
-              <a href={resolve(`/products/${product.id}`)} class="w-full h-full">
+              <a href={resolve(`/products/${encodeURIComponent(product.name)}`)} class="w-full h-full">
                 <!-- <ItemsCard data={product} class={"md:hover:scale-101 transition w-full h-full"}/> -->
                 <div
                   class={cn(
@@ -422,20 +422,20 @@
                         "transition hover:bg-slate-600 hover:text-white dark:hover:bg-slate-400 hover:dark:text-white"
                       )}
                     />
-                    <!-- description / subtitle -->
-                    <p class={cn(
+                    <!-- Harga -->
+                    <!-- <p class={cn(
                       "my-2 text-[10px] md:text-xs line-clamp-3 overflow-hidden",
                       "dark:text-slate-400 text-slate-600"
                     )}>
                       {@html product.description}
-                    </p>
+                    </p> -->
                     <!-- Price Tag -->
-                    <!-- <p class={cn(
+                    <p class={cn(
                       "my-2 text-sm md:text-md",
                       "font-bold"
                     )}>
-                      {Intl.NumberFormat("id-ID", {style:"currency", currency:"IDR", minimumFractionDigits:0, maximumFractionDigits:0}).format(581234)}
-                    </p> -->
+                      {Intl.NumberFormat("id-ID", {style:"currency", currency:"IDR", minimumFractionDigits:0, maximumFractionDigits:0}).format(product.retail_price_idr)}
+                    </p>
                   </div>
                 </div>
               </a>

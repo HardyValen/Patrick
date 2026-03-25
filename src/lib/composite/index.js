@@ -6,8 +6,8 @@ import Footer from './Footer';
 import ClientProducts from './ClientProducts';
 import ClientArticles from './ClientArticles';
 import ClientBrands from "./ClientBrands";
-import ProductTop from "./ProductTop";
-import ProductFooter from "./ProductFooter";
+import FeaturedProductTop from "./FeaturedProductTop";
+import FeaturedProductFooter from "./FeaturedProductFooter";
 import ArticleTop from "./ArticleTop";
 import ArticleFooter from "./ArticleFooter";
 // import { SearchAuto } from "./SearchAuto";
@@ -16,6 +16,7 @@ import DebugWindow from "./DebugWindow";
 import Meta from "./Meta";
 import InteractibleTaglist from "./InteractibleTaglist";
 import Taglist from './Taglist';
+import ProductCarousel from './ProductCarousel';
 
 export {
   ClientArticles,
@@ -26,8 +27,8 @@ export {
   ClientBrands,
   DarkMode,
   Footer,
-  ProductTop,
-  ProductFooter,
+  FeaturedProductTop,
+  FeaturedProductFooter,
   ArticleTop,
   ArticleFooter,
   // SearchAuto,
@@ -36,4 +37,5 @@ export {
   Meta,
   InteractibleTaglist,
   Taglist,
+  ProductCarousel
 }

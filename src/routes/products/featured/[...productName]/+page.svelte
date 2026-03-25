@@ -1,7 +1,7 @@
 <script>
   import { cn } from "$lib/utils.js";
   import { typographyVariants } from "$lib";
-  import { ProductTop, ProductFooter, Meta } from "$lib/composite";
+  import { FeaturedProductTop, FeaturedProductFooter, Meta } from "$lib/composite";
 
   let {
     ref = $bindable(null),
@@ -29,7 +29,7 @@
   )}
   {...restProps}
 >
-  <ProductTop
+  <FeaturedProductTop
     class={cn(
       "w-full max-w-280 m-auto my-10"
     )}
@@ -45,7 +45,7 @@
     {@html content}
   </div>
 
-  <ProductFooter
+  <FeaturedProductFooter
     class={cn(
       "w-full max-w-280 m-auto my-10"
     )}
