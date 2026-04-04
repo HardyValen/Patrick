@@ -384,7 +384,7 @@
             )}
           >
             {#each productsData as product}
-              <a href={resolve(`/products/${encodeURIComponent(product.name)}`)} class="w-full h-full">
+              <a href={resolve(`/products/c/${encodeURIComponent(product.name)}`)} class="w-full h-full">
                 <!-- <ItemsCard data={product} class={"md:hover:scale-101 transition w-full h-full"}/> -->
                 <div
                   class={cn(
