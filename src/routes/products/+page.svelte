@@ -413,6 +413,7 @@
                     </p>
                     <!-- taglist -->
                     <Taglist
+                      dataSveltekitReload
                       class="my-2"
                       tags={product.tags.map(tag => {return {title: tag, href:`/products?tags=${tag}`}})}
                       itemClass={cn(

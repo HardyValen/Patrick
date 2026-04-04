@@ -8,6 +8,7 @@
     class: className,
     itemClass: itemClassName,
     tags,
+    dataSveltekitReload = false,
     ...restProps
   } = $props()
 </script>
@@ -35,7 +36,7 @@
   {#each tags as tag}
     {#if typeof tag === "object" && tag !== null}
       {#if ["href", "title"].every(i => i in tag)}
-        <a data-sveltekit-reload href={resolve(tag.href)}>
+        <a data-sveltekit-reload={dataSveltekitReload} href={resolve(tag.href)}>
           {@render tagElmt(tag.title)}
         </a>
       {/if}
