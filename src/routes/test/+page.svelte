@@ -1,7 +1,15 @@
 <script>
-  const path = encodeURIComponent("NISI JETMAG PRO CINEMA KIT - Super Fast Magnetic System 82mm - with FS ND + CPL + Black Mist 1/8 Filter - support lens 82/77/72/67mm");
-  const host = "http://localhost:5173/test/"
-  const url = $state(host.concat(path))
+  import { resolve } from "$lib";
+  let {
+    data
+  } = $props();
+
+  const items = $derived(data.items || [])
 </script>
 
-<a href={url}>Link</a>
+{#each items as item}
+  <div>
+    <a href={resolve(`/test/${item}`)}>Go To {item}</a>
+  </div>
+{/each}
+<!-- <a href={resolve(`/test/${item.title}`)}>Go To {item.title}</a> -->

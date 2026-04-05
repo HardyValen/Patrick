@@ -1,4 +1,5 @@
 <script>
+  import { resolve } from "$lib";
   import {
     DarkMode,
     ClientCarousel,
@@ -15,6 +16,10 @@
 </script>
 
 <Meta metadata={data.meta}></Meta>
+
+<!-- TEST -->
+<a href={resolve("/test")}>Go To Test</a>
+<!-- END OF TEST -->
 
 <div>
   <!-- Carousel -->
