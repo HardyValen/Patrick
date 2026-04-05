@@ -7,9 +7,9 @@
   const items = $derived(data.items || [])
 </script>
 
-{#each items as item}
+<!-- {#each items as item}
   <div>
     <a href={resolve(`/test/${item}`)}>Go To {item}</a>
   </div>
-{/each}
-<!-- <a href={resolve(`/test/${item.title}`)}>Go To {item.title}</a> -->
+{/each} -->
+<a href={resolve(`/test/123`)}>Go To 123</a>

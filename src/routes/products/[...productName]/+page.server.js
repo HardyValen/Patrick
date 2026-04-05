@@ -2,6 +2,7 @@ import { error } from "@sveltejs/kit";
 import { unifiedPipeline as processor, FI } from '$lib';
 import errorMessages from "$lib/data/errors.json";
 import { errorArgs } from "$lib/utils";
+import entries_list from "$static/assets/json/products-data.json";
 
 // unified process mdToHtml
 async function mdToHtml(content) {
@@ -32,6 +33,15 @@ function constructMetadata({url, data}) {
 
   return result
 }
+
+/** @type {import('./$types').EntryGenerator} */
+export async function entries() {
+  return entries_list.map(item => {
+    return {productName: item.name}
+  })
+}
+
+export const prerender = true;
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch, params, url }) {

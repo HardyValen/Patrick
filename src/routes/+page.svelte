@@ -18,7 +18,7 @@
 <Meta metadata={data.meta}></Meta>
 
 <!-- TEST -->
-<a href={resolve("/test")}>Go To Test</a>
+<!-- <a href={resolve("/test")}>Go To Test</a> -->
 <!-- END OF TEST -->
 
 <div>

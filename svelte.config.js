@@ -10,7 +10,8 @@ const config = {
 		alias: {
 			'$appcss': "/src/app.css",
 			'$data': "/src/data_definitions",
-			'$config': "/src/config",
+      '$config': "/src/config",
+			'$static': "/static"
 		},
 		prerender: {
       handleHttpError: 'warn',
