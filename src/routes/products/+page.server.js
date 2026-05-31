@@ -10,8 +10,7 @@ export async function load({ fetch, url, params }) {
     return {
       products: { data: [], hyper: {} },
       suggestions: {
-        tags: await FI.TestMH.items_tags({ fetch })
-          .then(items => items.tags)
+        tags: await FI.Catalogue.products({fetch})
       },
       meta: await FI.Products.meta({fetch}),
       catalogue: await FI.Catalogue.products({fetch})

@@ -4,8 +4,7 @@
   import {
     InteractibleTaglist,
     Meta,
-    Taglist,
-    ClientArticles
+    Taglist
   } from "$lib/composite";
   import { page as appStatePage } from "$app/state";
   import { Button } from "$lib/components/ui/button";
@@ -15,7 +14,7 @@
   import * as Kbd from "$lib/components/ui/kbd";
   import * as InputGroup from "$lib/components/ui/input-group";
   import { Skeleton } from "$lib/components/ui/skeleton";
-  import { replaceState } from "$app/navigation";
+  import { pushState } from "$app/navigation";
   import { SvelteSet } from "svelte/reactivity";
   import {
     Search,
@@ -40,12 +39,16 @@
   // =================================================================================
   let {featured, articles, suggestions, catalogue, meta} = $state(data);
   let {hyper, data: articleData} = $derived(articles);
-  let isOnProgress = $state(true);
-  let commandDialogOpen = $state(false);
-  let refWindow = $state(null);
-  let searchValue = $state("");
+
+  // Page State
   let searchTags = $state(new SvelteSet([]));
+  let searchValue = $state("");
   let searchPage = $state(1);
+
+  let commandTagsOpen = $state(false);
+  let commandInputValue = $state("");
+  let isOnProgress = $state(true);
+  let refWindow = $state(null);
   let activeCatalogue = $state("");
   let activeCatalogueTitle = $derived.by(() => {
     let idx = catalogue.findIndex(v => v.id === activeCatalogue)
@@ -75,11 +78,12 @@
   // =================================================================================
   async function getArticles({name: queriedTitle, page: queriedPage, tags: queriedTags} = {}) {
     const QUERY_PARAM_KEY = "name";
+    const TAGS_PARAM_KEY = "tags";
     const CURSOR_KEY = "id";
     const RELEVANCY_SCORE_THRESHOLD = 0.5;
     const queriedLimit = 24;
     const cursorIdx = !isNaN(queriedPage) ? queriedLimit * (queriedPage - 1) : 0;
-    let result = await FI.TestMH.mice({ fetch });
+    let result = await FI.Articles.data({fetch});
 
     result = result.map(item => {
       let relevancyScore = 0;
@@ -99,7 +103,7 @@
     result = result.filter(item => {
       let tagsPass = queriedTags
         .map(tag => {
-          return item[TAGS_PARAM_KEY].includes(tag);
+          return item[TAGS_PARAM_KEY].includes(tag.replace(" ", "_"));
         })
         .every(item => item); // use .some for "OR" filter
 
@@ -138,47 +142,99 @@
     };
   }
 
-  async function handlePageButtonClick(page) {
-    refWindow.scrollTo({top: 0, left: 0, behavior: "smooth"});
-    articles = await getArticles({
-      name: searchValue,
-      page: page,
-      tags: searchTags
-    })
-  }
-
-  async function handleSubmitForm(e) {
-    articles = await getArticles({name: searchValue, tags: searchTags});
-  }
-
-  function toggleCommandDialog() {
-    commandDialogOpen = !commandDialogOpen;
+  function toggleSearchDialog() {
+    commandTagsOpen = !commandTagsOpen;
   }
 
   function handleDocumentKeydown(e) {
     if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
       e.preventDefault();
-      toggleCommandDialog();
+      toggleSearchDialog();
     } else return;
   }
 
   async function handleCommandItemClick(e) {
     let {id} = e.target.dataset;
-    searchTags.clear();
     searchTags.add(id);
     activeCatalogue = id;
-    articles = await getArticles({name: searchValue, tags: searchTags});
-    toggleCommandDialog();
+    commandInputValue = "";
+
+    articles = await getArticles({name: searchValue, tags: [...searchTags]});
+    appStatePage.url.searchParams.append("tags", id);
+    pushState(resolve(appStatePage.url.toString()));
   }
 
   async function handleCatalogueItemClick(e) {
     let {id} = e.target.dataset;
     searchTags.clear();
     searchTags.add(id);
+
+    articles = await getArticles({name: searchValue, tags: [...searchTags]})
     activeCatalogue = id;
-    articles = await getArticles({name: searchValue, tags: searchTags})
+
+    appStatePage.url.searchParams.delete("tags");
+    appStatePage.url.searchParams.append("tags", id);
+    pushState(resolve(appStatePage.url.toString()));
   }
+
+  async function handleTagBadgeClick(e) {
+    let {value} = e.target.dataset;
+    searchTags.delete(value);
+    // Delete url query string and push
+    appStatePage.url.searchParams.delete("tags", value);
+    pushState(resolve(appStatePage.url.toString()));
+
+    articles = await getArticles({name: searchValue, tags: [...searchTags]});
+    activeCatalogue = appStatePage.url.searchParams.get("tags");
+  }
+
+  async function handleInputXClick() {
+    searchValue = "";
+    articles = await getArticles({name: searchValue, tags: [...searchTags]});
+  }
+
+  function handleInputTagsIconClick() {
+    toggleSearchDialog()
+  }
+
+  async function handleTagBadgeClearAll() {
+    searchTags.clear();
+    products = await getArticles({name: searchValue, tags: [...searchTags]});
+    activeCatalogue = "";
+    pushState(resolve('/articles'))
+  }
+
+  async function handleSubmitForm(e) {
+    articles = await getArticles({name: searchValue, tags: [...searchTags]});
+  }
+
+  async function handlePageButtonClick(page) {
+    refWindow.scrollTo({top: 0, left: 0, behavior: "smooth"});
+    articles = await getArticles({
+      name: searchValue,
+      tags: [...searchTags],
+      page: page
+    })
+  }
+
+  function handleCatalogueComboboxClick() {
+    catalogueOpen = true;
+  }
+
 </script>
+
+<!-- Snippets -->
+<!-- SNIPPET FOR TAGLIST -->
+{#snippet taglist({class: tagClass} = {class: ""})}
+  {#if [...searchTags].length > 0}
+    <InteractibleTaglist
+      tags={searchTags}
+      onclick={handleTagBadgeClick}
+      class={cn(tagClass)}
+      clearAll={handleTagBadgeClearAll}
+    />
+  {/if}
+{/snippet}
 
 <Meta metadata={meta}></Meta>
 <svelte:document onkeydown={handleDocumentKeydown}/>
@@ -190,10 +246,6 @@
     "w-full mx-auto py-8",
   )}
 >
-
-  <ClientArticles
-    data={featured}
-  />
 
   <!-- SEARCH INPUT FORM -->
   <div
@@ -227,7 +279,7 @@
               <Tooltip.Trigger>
                 <InputGroup.Button
                   class="rounded-full"
-                  onclick={toggleCommandDialog}
+                  onclick={handleInputTagsIconClick}
                   size="icon-xs"
                 >
                   <Tags/>
@@ -247,6 +299,26 @@
         </InputGroup.Addon>
       </InputGroup.Root>
     </form>
+
+    <!-- CATALOGUE COMBOBOX FOR MOBILE -->
+    <div class="md:hidden">
+      <button
+        class={cn(
+          "w-full text-xs text-left border-1 rounded-md px-3 py-1 h-fit",
+          "dark:text-slate-400 text-slate-600",
+          "flex justify-between"
+        )}
+        variant="outline"
+        onclick={handleCatalogueComboboxClick}
+      >
+        <p class="line-clamp-1 overflow-hidden flex-11/12">
+          {activeCatalogueTitle}
+        </p>
+        <ChevronsUpDownIcon size={12}/>
+      </button>
+    </div>
+    <!-- SEARCH ARTICLE TAGS -->
+    {@render taglist()}
   </div>
 
   <!-- TODO: ARTICLES -->
@@ -268,7 +340,7 @@
             "dark:text-slate-400 text-slate-600"
           )}
         >
-          Groups ({catalogue.length})
+          Tags Catalogue ({catalogue.length})
         </div>
         <!-- Catalogue Content -->
         <div>
@@ -291,7 +363,7 @@
 
       <div
         class={cn(
-          "mx-auto w-full max-w-320 h-full",
+          "mx-auto w-full max-w-320",
           "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2",
           "col-span-5 md:col-span-4"
         )}
@@ -328,11 +400,10 @@
                   )}
                 >
                   <img
-                    src={asset(article.images.square)}
-                    alt={article.name}
-                    width=120 height=120
+                    src={asset(article.img)}
+                    alt={article.title}
                     class={cn(
-                      "w-full max-h-60 object-cover rounded-t-md border-gray"
+                      "w-full h-60 object-cover rounded-t-md border-gray"
                     )}
                     loading="lazy"
                   >
@@ -344,7 +415,7 @@
                       "dark:text-slate-200 text-slate-800",
                       "line-clamp-2 overflow-hidden"
                     )}>
-                      {article.name.toUpperCase()}
+                      {article.title.toUpperCase()}
                     </p>
                     <!-- taglist -->
                     <Taglist
@@ -358,13 +429,6 @@
                         "transition hover:bg-slate-600 hover:text-white dark:hover:bg-slate-400 hover:dark:text-white"
                       )}
                     />
-                    <!-- description / subtitle -->
-                    <p class={cn(
-                      "my-2 text-[10px] md:text-xs line-clamp-3 overflow-hidden",
-                      "dark:text-slate-400 text-slate-600"
-                    )}>
-                      {@html article.description}
-                    </p>
                   </div>
                 </div>
               </a>
@@ -455,11 +519,14 @@
 
 <!-- COMMAND DIALOG FOR SEARCHING -->
 <Command.Dialog
-  bind:open={commandDialogOpen}
+  bind:open={commandTagsOpen}
 >
   <Command.Input
-    placeholder="Type to search article group or subgroup..."
+    placeholder="Type to search article tag or category..."
+    bind:value={commandInputValue}
   />
+
+  {@render taglist({class: "px-4 md:px-8 my-4"})}
 
   <Command.List>
     <Command.Empty>No Result Found</Command.Empty>
@@ -468,12 +535,31 @@
         {#each items as item}
           <Command.Item class="cursor-pointer"
             onclick={handleCommandItemClick}
-            data-id={item}
+            data-id={item.id}
           >
-            {item}
+            {item.title}
           </Command.Item>
         {/each}
       </Command.Group>
     {/each}
+  </Command.List>
+</Command.Dialog>
+
+<!-- COMMAND DIALOG FOR CATALOGUE -->
+<Command.Dialog bind:open={catalogueOpen}>
+  <Command.List>
+    <Command.Group heading={`TAGS CATALOGUE (${catalogue.length})`}>
+      {#each catalogue as item}
+        <Command.Item
+          data-id={item.id}
+          onclick={(e) => {
+            handleCatalogueItemClick(e);
+            catalogueOpen = false;
+          }}
+        >
+          {item.title}
+        </Command.Item>
+      {/each}
+    </Command.Group>
   </Command.List>
 </Command.Dialog>

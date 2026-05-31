@@ -6,10 +6,10 @@
     "content": "/assets/textfile/articles/choosing-square-filters-nisi-system.txt",
     "img": "/assets/images/articles/choosing-square-filters-nisi-system/1.webp",
     "tags": [
-      "NiSi Optics",
-      "NiSi Square Filters",
-      "Camera",
-      "Filters"
+      "nisi_optics",
+      "nisi_square_filters",
+      "camera",
+      "filters"
     ],
     "nextId": "difference-between-white-mist-black-mist-filters",
     "prevId": ""
@@ -21,10 +21,10 @@
     "content": "/assets/textfile/articles/difference-between-white-mist-black-mist-filters.txt",
     "img": "/assets/images/articles/difference-between-white-mist-black-mist-filters/1.webp",
     "tags": [
-      "NiSi Optics",
-      "NiSi Filters",
-      "Camera",
-      "Filters"
+      "nisi_optics",
+      "nisi_square_filters",
+      "camera",
+      "filters"
     ],
     "nextId": "jetmag-pro-vnd-magnetic-variable-nd-features",
     "prevId": "choosing-square-filters-nisi-system"
@@ -36,8 +36,8 @@
     "content": "/assets/textfile/articles/jetmag-pro-vnd-magnetic-variable-nd-features.txt",
     "img": "/assets/images/articles/jetmag-pro-vnd-magnetic-variable-nd-features/1.jpg",
     "tags": [
-      "NiSi Optics",
-      "NiSi JetMag Pro"
+      "nisi_optics",
+      "nisi_jetmag_pro"
     ],
     "nextId": "nisi-swift-system-how-it-works-and-advantages",
     "prevId": "difference-between-white-mist-black-mist-filters"
@@ -49,8 +49,8 @@
     "content": "/assets/textfile/articles/nisi-swift-system-how-it-works-and-advantages.txt",
     "img": "/assets/images/articles/nisi-swift-system-how-it-works-and-advantages/7.webp",
     "tags": [
-      "NiSi Optics",
-      "NiSi SWIFT System"
+      "nisi_optics",
+      "nisi_swift_system"
     ],
     "nextId": "",
     "prevId": "difference-between-white-mist-black-mist-filters"

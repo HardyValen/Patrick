@@ -12,8 +12,7 @@ export async function load({ fetch, url }) {
       featured: await FI.Landing.articles({fetch}),
       articles: { data: [], hyper: {} },
       suggestions: {
-        groups: await FI.TestMH.mice_groups({fetch}),
-        subgroups: await FI.TestMH.mice_subgroups({fetch})
+        tags: await FI.Catalogue.articles({fetch})
       },
       meta: await FI.Articles.meta({fetch}),
       catalogue: await FI.Catalogue.articles({fetch})

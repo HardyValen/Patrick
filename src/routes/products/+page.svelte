@@ -537,16 +537,18 @@
 
   <Command.List>
     <Command.Empty>No Result Found</Command.Empty>
-    <Command.Group heading="TAGS">
-      {#each suggestions.tags as item}
-        <Command.Item class="cursor-pointer"
-          onclick={handleCommandItemClick}
-          data-id={item}
-        >
-          {stringify(item)}
-        </Command.Item>
-      {/each}
-    </Command.Group>
+    {#each Object.entries(suggestions) as [key, items]}
+      <Command.Group heading={key.toUpperCase()}>
+        {#each items as item}
+          <Command.Item class="cursor-pointer"
+            onclick={handleCommandItemClick}
+            data-id={item.id}
+          >
+            {item.title}
+          </Command.Item>
+        {/each}
+      </Command.Group>
+    {/each}
   </Command.List>
 </Command.Dialog>
 
